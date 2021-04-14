@@ -1,2 +1,2 @@
-include 'app', ':angux'
+include 'app', ':bears'
 rootProject.name = "bear"

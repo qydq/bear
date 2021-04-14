@@ -51,7 +51,7 @@ dependencies {
     /**
      * mark：引用本地库标准写法，这里使用implementation
      * */
-    implementation project(':angux')
+    implementation project(':bears')
 
 
     /**
