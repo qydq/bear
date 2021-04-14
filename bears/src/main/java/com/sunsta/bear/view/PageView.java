@@ -45,7 +45,7 @@ public class PageView {
     public PageView addEmail(String email, String title) {
         Element emailElement = new Element();
         emailElement.setTitle(title);
-        emailElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        emailElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         emailElement.setIconTint(R.color.an_color_hint);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -65,7 +65,7 @@ public class PageView {
     public PageView addFacebook(String id, String title) {
         Element facebookElement = new Element();
         facebookElement.setTitle(title);
-        facebookElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        facebookElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         facebookElement.setIconTint(R.color.an_color_hint);
         facebookElement.setValue(id);
 
@@ -105,7 +105,7 @@ public class PageView {
     public PageView addTwitter(String id, String title) {
         Element twitterElement = new Element();
         twitterElement.setTitle(title);
-        twitterElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        twitterElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         twitterElement.setIconTint(R.color.an_color_hint);
         twitterElement.setValue(id);
 
@@ -133,7 +133,7 @@ public class PageView {
     public PageView addPlayStore(String id, String title) {
         Element playStoreElement = new Element();
         playStoreElement.setTitle(title);
-        playStoreElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        playStoreElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         playStoreElement.setIconTint(R.color.an_color_hint);
         playStoreElement.setValue(id);
 
@@ -152,7 +152,7 @@ public class PageView {
     public PageView addYoutube(String id, String title) {
         Element youtubeElement = new Element();
         youtubeElement.setTitle(title);
-        youtubeElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        youtubeElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         youtubeElement.setIconTint(R.color.an_color_hint);
         youtubeElement.setValue(id);
 
@@ -176,7 +176,7 @@ public class PageView {
     public PageView addInstagram(String id, String title) {
         Element instagramElement = new Element();
         instagramElement.setTitle(title);
-        instagramElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        instagramElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         instagramElement.setIconTint(R.color.an_color_hint);
         instagramElement.setValue(id);
 
@@ -201,7 +201,7 @@ public class PageView {
     public PageView addGitHub(String id, String title) {
         Element gitHubElement = new Element();
         gitHubElement.setTitle(title);
-        gitHubElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        gitHubElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         gitHubElement.setIconTint(R.color.an_color_hint);
         gitHubElement.setValue(id);
 
@@ -226,7 +226,7 @@ public class PageView {
         }
         Element websiteElement = new Element();
         websiteElement.setTitle(title);
-        websiteElement.setIconDrawable(R.drawable.ic_color_copy_fav);
+        websiteElement.setIconDrawable(R.mipmap.ic_color_copy_fav);
         websiteElement.setIconTint(R.color.an_color_hint);
         websiteElement.setValue(url);
 

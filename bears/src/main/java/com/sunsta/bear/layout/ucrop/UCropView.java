@@ -29,7 +29,7 @@ public class UCropView extends FrameLayout {
         mGestureCropImageView = findViewById(R.id.image_view_crop);
         mViewOverlay = findViewById(R.id.view_overlay);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ucrop_UCropView);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.INAUCropView);
         mViewOverlay.processStyledAttributes(a);
         mGestureCropImageView.processStyledAttributes(a);
         a.recycle();

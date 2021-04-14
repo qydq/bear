@@ -42,6 +42,7 @@ import java.util.List;
  * <br>邮件Email：qyddai@gmail.com
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
+ *
  * @author sunst // sunst0069
  * @version 4.0 |   2020/08/29          |   最新版本移除不再提供出支持的AbsBarrageDataAdapter作为继承关系，替代为自己OnBarrageLayout，自定义布局内容
  * 提供了Barrage实体，并且如果要扩展，可以重写an_item_barrage
@@ -68,7 +69,6 @@ public final class BarrageDataAdapter<T> {
 
     @LayoutRes
     private int mBarrageLayoutId;
-
 
     public BarrageDataAdapter(@LayoutRes int barrageLayoutId) {
         this.mBarrageLayoutId = barrageLayoutId;
@@ -145,19 +145,19 @@ public final class BarrageDataAdapter<T> {
         this.onBarrageLayout = barrageDataAdapter;
     }
 
-    public View createView(ViewGroup root, View converView, Barrage barrage) {
+    public View createView(ViewGroup root, View convertView, Barrage barrage) {
 //        布局内容优先级最高，牺牲部分性能的同时保证扩展性，点击事件保证action0[RelativeLayout] 和frameLayout[FrameLayout]
         if (barrage.getBarrageLayout() != 0) {
             mBarrageLayoutId = barrage.getBarrageLayout();
         }
         RelativeLayout action0;
-        if (converView != null) {
-            LaLog.d(ValueOf.logLivery(String.format("x %f y %f l %d t %d r %d", converView.getX(), converView.getY(), converView.getLeft(), converView.getTop(), converView.getRight())));
+        if (convertView != null) {
+            LaLog.d(ValueOf.logLivery(String.format("x %f y %f l %d t %d r %d", convertView.getX(), convertView.getY(), convertView.getLeft(), convertView.getTop(), convertView.getRight())));
             if (mBarrageLayoutId == 0) {
-                return loadBarrageData(converView, barrage);
+                return loadBarrageData(convertView, barrage);
             } else {
                 if (onBarrageLayout != null) {
-                    action0 = converView.findViewById(R.id.action0);
+                    action0 = convertView.findViewById(R.id.action0);
                     if (action0 != null) {
                         action0.setOnClickListener(view -> {
                             if (barrageClickListener != null) {
@@ -165,21 +165,21 @@ public final class BarrageDataAdapter<T> {
                             }
                         });
                     }
-                    converView.setTag(BarrageDataAdapter.BarrageType.IMAGE_TEXT);//complex default is image_text _type
-                    return onBarrageLayout.barrageLayout(converView, barrage);
+                    convertView.setTag(BarrageType.IMAGE_TEXT);//complex default is image_text _type
+                    return onBarrageLayout.barrageLayout(convertView, barrage);
                 } else {
-                    return loadBarrageData(converView, barrage);
+                    return loadBarrageData(convertView, barrage);
                 }
             }
         }
         if (mBarrageLayoutId == 0) {
-            converView = LayoutInflater.from(root.getContext()).inflate(R.layout.an_item_barrage, root, false);
-            loadBarrageData(converView, barrage);
+            convertView = LayoutInflater.from(root.getContext()).inflate(R.layout.an_item_barrage, root, false);
+            loadBarrageData(convertView, barrage);
         } else {
-            converView = LayoutInflater.from(root.getContext()).inflate(mBarrageLayoutId, root, false);
+            convertView = LayoutInflater.from(root.getContext()).inflate(mBarrageLayoutId, root, false);
             if (onBarrageLayout != null) {
-                converView = onBarrageLayout.barrageLayout(converView, barrage);
-                action0 = converView.findViewById(R.id.action0);
+                convertView = onBarrageLayout.barrageLayout(convertView, barrage);
+                action0 = convertView.findViewById(R.id.action0);
                 if (action0 != null) {
                     action0.setOnClickListener(view -> {
                         if (barrageClickListener != null) {
@@ -187,35 +187,48 @@ public final class BarrageDataAdapter<T> {
                         }
                     });
                 }
-                converView.setTag(BarrageDataAdapter.BarrageType.IMAGE_TEXT);//complex default is image_text _type
+                convertView.setTag(BarrageType.IMAGE_TEXT);//complex default is image_text _type
             } else {
-                loadBarrageData(converView, barrage);
+                loadBarrageData(convertView, barrage);
             }
         }
-        return converView;
+        return convertView;
+    }
+
+    /**
+     * 对外使用方法1：只能在OnBarrageLayout中调用，因为barrage可能动态改变layout，所有BarrageItemView必须重新给一个对象
+     */
+    public BarrageItemView getBarrageItemView(View layoutView, Barrage barrage) {
+        BarrageItemView barrageItemView = new BarrageItemView(layoutView);
+        barrageItemView.setConverView(loadBarrageData(barrageItemView.getConverView(), barrage));
+        return barrageItemView;
     }
 
     /**
      * 当提供对外布局时候，可以直接调用本方法，或者参考本方法实现
      */
-    public View loadBarrageData(View converView, Barrage barrage) {
+    public View loadBarrageData(View convertView, Barrage barrage) {
         TextView tvName, tvContent;
         ImageView ivPrimary, ivLight, ivMark;
         FrameLayout frameLayout;
         RelativeLayout action0;
         LinearLayout llMark;
-        GifImageView ivGif;
+        GifImageView ivGif, ivGif2, ivGif3;
         INACircleImageView ivCircle;
-        frameLayout = converView.findViewById(R.id.frameLayout);
-        action0 = converView.findViewById(R.id.action0);
-        llMark = converView.findViewById(R.id.llMark);
-        tvName = converView.findViewById(R.id.tvName);
-        tvContent = converView.findViewById(R.id.tvContent);
-        ivPrimary = converView.findViewById(R.id.ivPrimary);
-        ivLight = converView.findViewById(R.id.ivLight);
-        ivMark = converView.findViewById(R.id.ivMark);
-        ivGif = converView.findViewById(R.id.ivGif);
-        ivCircle = converView.findViewById(R.id.ivCircle);
+
+        // must save ,cannot use new BarrageItemView
+        frameLayout = convertView.findViewById(R.id.frameLayout);
+        action0 = convertView.findViewById(R.id.action0);
+        llMark = convertView.findViewById(R.id.llMark);
+        tvName = convertView.findViewById(R.id.tvName);
+        tvContent = convertView.findViewById(R.id.tvContent);
+        ivPrimary = convertView.findViewById(R.id.ivPrimary);
+        ivLight = convertView.findViewById(R.id.ivLight);
+        ivMark = convertView.findViewById(R.id.ivMark);
+        ivGif = convertView.findViewById(R.id.ivGif);
+        ivGif2 = convertView.findViewById(R.id.ivGif2);
+        ivGif3 = convertView.findViewById(R.id.ivGif3);
+        ivCircle = convertView.findViewById(R.id.ivCircle);
 
         if (tvName != null) {
             String name = barrage.getUserName();
@@ -259,6 +272,24 @@ public final class BarrageDataAdapter<T> {
                 ivGif.setVisibility(View.GONE);
             }
         }
+
+        if (ivGif2 != null) {
+            if (barrage.getGifIvId2() != 0) {
+                ivGif2.setVisibility(View.VISIBLE);
+                ivGif2.setImageResource(barrage.getGifIvId2());
+            } else {
+                ivGif2.setVisibility(View.GONE);
+            }
+        }
+
+        if (ivGif3 != null) {
+            if (barrage.getGifIvId3() != 0) {
+                ivGif3.setVisibility(View.VISIBLE);
+                ivGif3.setImageResource(barrage.getGifIvId3());
+            } else {
+                ivGif3.setVisibility(View.GONE);
+            }
+        }
         if (action0 != null) {
             action0.setOnClickListener(view -> {
                 if (barrageClickListener != null) {
@@ -269,7 +300,7 @@ public final class BarrageDataAdapter<T> {
 
         if (BarrageType.TEXT.equals(barrage.getType())) {
             //仅仅是一个文字sbarrageView
-            converView.setX(0);
+            convertView.setX(0);
             if (ivLight != null) {
                 ivLight.setVisibility(View.GONE);
             }
@@ -280,7 +311,7 @@ public final class BarrageDataAdapter<T> {
             if (ivMark != null) {
                 ivMark.setVisibility(View.GONE);
             }
-            converView.setTag(BarrageType.TEXT);
+            convertView.setTag(BarrageType.TEXT);
         } else if (BarrageType.IMAGE_TEXT.equals(barrage.getType())) {
             //图文的barrageView
             String primaryLink = barrage.getPrimaryLink();
@@ -362,7 +393,7 @@ public final class BarrageDataAdapter<T> {
                     }
                 }
             }
-            converView.setTag(BarrageType.IMAGE_TEXT);
+            convertView.setTag(BarrageType.IMAGE_TEXT);
         }
 
 
@@ -455,7 +486,7 @@ public final class BarrageDataAdapter<T> {
 //        layoutParams.height = (int) (pxFrameLayoutHeight);
 //        frameLayout.setLayoutParams(layoutParams);
         }
-        return converView;
+        return convertView;
     }
 
     public void setBarrageClickListener(OnBarrageClickListener barrageClickListener) {

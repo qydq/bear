@@ -23,7 +23,7 @@ import android.widget.ScrollView;
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
  * @author sunst // sunst0069
- * @version 1.0 |   2016/12/27           |   有弹性的ScrollView 实现下拉弹回和上拉弹回。
+ * @version 1.0 |   2016/12/27           |   有弹性的INAShrinkScrollView 实现下拉弹回和上拉弹回。
  * @link 知乎主页： https://zhihu.com/people/qydq
  */
 public class INAShrinkScrollView extends ScrollView {

@@ -98,9 +98,11 @@ public class BasePickerView {
         onAttached(rootView);
     }
 
+
     public void setDialogMode() {
         rootView.setBackgroundColor(ColorDrawer.string2Int("#40000000"));//patch全屏幕透明背景
     }
+
 
     /**
      * 检测该View是不是已经添加到根视图

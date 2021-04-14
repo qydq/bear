@@ -37,7 +37,7 @@ public class NoticalenManger {
     private NotificationManagerCompat notificationManagerCompat;
     private NotificationCompat.Builder notificationCompatBuilder;
     private static final int PROGRESS_REQUEST_CODE = 100;
-    private int APP_ICON = R.drawable.ic_color_menu_default;
+    private int APP_ICON = R.mipmap.ic_color_menu_default;
     private static String CALENDER_URL = "content://com.android.calendar/calendars";
     private static String CALENDER_EVENT_URL = "content://com.android.calendar/events";
     private static String CALENDER_REMINDER_URL = "content://com.android.calendar/reminders";
@@ -65,11 +65,11 @@ public class NoticalenManger {
      * android 8.0以上获取通知的渠道
      */
     public String getNotifyChannel() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelID = SPUtils.getInstance().getString(AnConstants.KEY.CHANNEL_ID, StringUtils.getString(R.string.notice_channel_id));
             String channelNAME = SPUtils.getInstance().getString(AnConstants.KEY.CHANNEL_NAME, StringUtils.getString(R.string.notice_channel_name));
             int level = SPUtils.getInstance().getInt(AnConstants.KEY.CHANNEL_LEVEL, NotificationManagerCompat.IMPORTANCE_MAX);
-            APP_ICON = SPUtils.getInstance().getInt(AnConstants.KEY.APP_ICON, R.drawable.ic_color_menu_default);
+            APP_ICON = SPUtils.getInstance().getInt(AnConstants.KEY.APP_ICON, R.mipmap.ic_color_menu_default);
             NotificationChannel notificationChannel = new NotificationChannel(channelID, channelNAME, level);
             notificationChannel.enableLights(false);//如果使用中的设备支持通知灯，则说明此通知通道是否应显示灯
             notificationChannel.setShowBadge(false);//是否显示角标

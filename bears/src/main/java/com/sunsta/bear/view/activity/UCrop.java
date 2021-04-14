@@ -17,8 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.multidex.BuildConfig;
 
-import com.sunsta.bear.BuildConfig;
 import com.sunsta.bear.R;
 import com.sunsta.bear.model.AspectRatio;
 import com.sunsta.bear.model.CutInfo;
@@ -328,7 +328,7 @@ public class UCrop {
      */
     @Nullable
     public static List<CutInfo> getMultipleOutput(@NonNull Intent intent) {
-        return intent.getParcelableArrayListExtra(UCrop.Options.EXTRA_OUTPUT_URI_LIST);
+        return intent.getParcelableArrayListExtra(Options.EXTRA_OUTPUT_URI_LIST);
     }
 
     /**
@@ -408,7 +408,7 @@ public class UCrop {
         }
 
         /**
-         * Set one of {@link android.graphics.Bitmap.CompressFormat} that will be used to save resulting Bitmap.
+         * Set one of {@link Bitmap.CompressFormat} that will be used to save resulting Bitmap.
          */
         public void setCompressionFormat(@NonNull Bitmap.CompressFormat format) {
             mOptionBundle.putString(EXTRA_COMPRESSION_FORMAT_NAME, format.name());

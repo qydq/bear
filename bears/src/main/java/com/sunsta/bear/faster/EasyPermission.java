@@ -218,9 +218,9 @@ public class EasyPermission {
         Uri packageURI = Uri.parse("package:" + activity.getPackageName());
         intent.setData(packageURI);
         if (Build.VERSION.SDK_INT >= 26) {
-            intent.setAction(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
+            intent.setAction(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
         } else {
-            intent.setAction(android.provider.Settings.ACTION_SECURITY_SETTINGS);
+            intent.setAction(Settings.ACTION_SECURITY_SETTINGS);
         }
         activity.startActivityForResult(intent, requestCode);
         ToastUtils.s(activity, "请开启未知应用安装权限");

@@ -30,12 +30,12 @@ import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 
 import com.sunsta.bear.R;
+import com.sunsta.bear.faster.ViewUtils;
+import com.sunsta.bear.faster.LaBitmap;
 import com.sunsta.bear.faster.ScreenUtils;
+import com.sunsta.bear.listener.OnLikeListener;
 import com.sunsta.bear.model.entity.Icon;
 import com.sunsta.bear.model.entity.IconType;
-import com.sunsta.bear.faster.LAUi;
-import com.sunsta.bear.faster.LaBitmap;
-import com.sunsta.bear.listener.OnLikeListener;
 
 import java.util.Iterator;
 import java.util.List;
@@ -80,18 +80,18 @@ public class INALikeButton extends FrameLayout implements OnClickListener {
         this.dotsView = this.findViewById(R.id.dots);
         this.circleView = this.findViewById(R.id.circle);
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.INALikeButton, defStyle, 0);
-        this.iconSize = array.getDimensionPixelSize(R.styleable.INALikeButton_icon_size, -1);
+        this.iconSize = array.getDimensionPixelSize(R.styleable.INALikeButton_anLikeIconSize, -1);
         if (this.iconSize == -1) {
             this.iconSize = 40;
         }
 
-        String iconType = array.getString(R.styleable.INALikeButton_icon_type);
-        this.likeDrawable = this.getDrawableFromResource(array, R.styleable.INALikeButton_like_drawable);
+        String iconType = array.getString(R.styleable.INALikeButton_anLikeIconType);
+        this.likeDrawable = this.getDrawableFromResource(array, R.styleable.INALikeButton_anLikeDrawable);
         if (this.likeDrawable != null) {
             this.setLikeDrawable(this.likeDrawable);
         }
 
-        this.unLikeDrawable = this.getDrawableFromResource(array, R.styleable.INALikeButton_unlike_drawable);
+        this.unLikeDrawable = this.getDrawableFromResource(array, R.styleable.INALikeButton_anUnlikeDrawable);
         if (this.unLikeDrawable != null) {
             this.setUnlikeDrawable(this.unLikeDrawable);
         }
@@ -100,18 +100,18 @@ public class INALikeButton extends FrameLayout implements OnClickListener {
             this.currentIcon = this.parseIconType(iconType);
         }
 
-        this.circleStartColor = array.getColor(R.styleable.INALikeButton_circle_start_color, 0);
+        this.circleStartColor = array.getColor(R.styleable.INALikeButton_anLikeCircleStartColor, 0);
         if (this.circleStartColor != 0) {
             this.circleView.setStartColor(this.circleStartColor);
         }
 
-        this.circleEndColor = array.getColor(R.styleable.INALikeButton_circle_end_color, 0);
+        this.circleEndColor = array.getColor(R.styleable.INALikeButton_anLikeCircleEndColor, 0);
         if (this.circleEndColor != 0) {
             this.circleView.setEndColor(this.circleEndColor);
         }
 
-        this.dotPrimaryColor = array.getColor(R.styleable.INALikeButton_dots_primary_color, 0);
-        this.dotSecondaryColor = array.getColor(R.styleable.INALikeButton_dots_secondary_color, 0);
+        this.dotPrimaryColor = array.getColor(R.styleable.INALikeButton_anDotPrimaryColor, 0);
+        this.dotSecondaryColor = array.getColor(R.styleable.INALikeButton_anDotSecondaryColor, 0);
         if (this.dotPrimaryColor != 0 && this.dotSecondaryColor != 0) {
             this.dotsView.setColors(this.dotPrimaryColor, this.dotSecondaryColor);
         }
@@ -124,9 +124,9 @@ public class INALikeButton extends FrameLayout implements OnClickListener {
             }
         }
 
-        this.setEnabled(array.getBoolean(R.styleable.INALikeButton_is_enabled, true));
-        Boolean status = array.getBoolean(R.styleable.INALikeButton_liked, false);
-        this.setAnimationScaleFactor(array.getFloat(R.styleable.INALikeButton_anim_scale_factor, 3.0F));
+        this.setEnabled(array.getBoolean(R.styleable.INALikeButton_asLikeEnabled, true));
+        Boolean status = array.getBoolean(R.styleable.INALikeButton_asLiked, false);
+        this.setAnimationScaleFactor(array.getFloat(R.styleable.INALikeButton_anLikeAnimScaleFactor, 3.0F));
         this.setLiked(status);
         this.setOnClickListener(this);
         array.recycle();
@@ -298,7 +298,7 @@ public class INALikeButton extends FrameLayout implements OnClickListener {
     }
 
     private Icon parseIconType(String iconType) {
-        List<Icon> icons = LAUi.getInstance().getIcons();
+        List<Icon> icons = ViewUtils.getInstance().getIcons();
         Iterator var3 = icons.iterator();
 
         Icon icon;
@@ -314,7 +314,7 @@ public class INALikeButton extends FrameLayout implements OnClickListener {
     }
 
     private Icon parseIconType(IconType iconType) {
-        List<Icon> icons = LAUi.getInstance().getIcons();
+        List<Icon> icons = ViewUtils.getInstance().getIcons();
         Iterator var3 = icons.iterator();
 
         Icon icon;

@@ -3,15 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/frameLayout"
     style="@style/an_match_match.V"
-    android:background="?anBackground"
     android:gravity="center"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/patchView"
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/an_wrap_wrap.TextDeep"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/AppHeadHeight"
+        android:layout_height="@dimen/AppDimenNativeLike"
         android:background="@color/ColorTransparent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/an_dimen_margin"
+        android:text="@string/livery_fang"
         android:visibility="gone" />
 
     <com.sunsta.bear.layout.INAShrinkScrollView
@@ -23,15 +26,15 @@
         <RelativeLayout style="@style/an_match_match">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview"
+                android:id="@+id/recyclerView"
                 style="@style/an_match_match"
                 android:overScrollMode="never"
                 android:scrollbars="none"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-            <com.sunsta.bear.layout.INABadLayout
-                android:id="@+id/inaBadlayout"
+            <com.sunsta.bear.layout.INAStatusLayout
+                android:id="@+id/inaStatusLayout"
                 style="@style/an_match_match"
                 android:visibility="gone" />
         </RelativeLayout>

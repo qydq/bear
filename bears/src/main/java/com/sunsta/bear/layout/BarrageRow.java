@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.sunsta.bear.entity.Barrage;
+import com.sunsta.bear.faster.LaLog;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -17,7 +18,6 @@ import io.reactivex.annotations.Nullable;
  */
 public class BarrageRow {
     private static final String TAG = "BarrageRow";
-
     // | head ... tail |
     private Deque<BarrageItem> mItems = new ArrayDeque<>();
     private Deque<BarrageItem> mRecycleBin = new ArrayDeque<>();
@@ -43,8 +43,8 @@ public class BarrageRow {
     private int minBarrageTopY = 0;
     private int maxBarrageBottomY = 200;
     private boolean randomVerticalPos;
-    private boolean hoverRecoil = false;
-    private int mHoverTime = 0;
+    private boolean barrageFloat = false;
+    private int mFloatTime = 0;
     private long mHoverSpeed = 0;
 
     public long getHoverSpeed() {
@@ -66,12 +66,12 @@ public class BarrageRow {
     }
 
 
-    public boolean isHoverRecoil() {
-        return hoverRecoil;
+    public boolean isFloat() {
+        return barrageFloat;
     }
 
-    public void setHoverRecoil(boolean hoverRecoil) {
-        this.hoverRecoil = hoverRecoil;
+    public void setBarrageFloat(boolean barrageFloat) {
+        this.barrageFloat = barrageFloat;
     }
 
     private BarrageRowListener mListener;
@@ -80,12 +80,12 @@ public class BarrageRow {
         mListener = listener;
     }
 
-    public int getHoverTime() {
-        return mHoverTime;
+    public int getFloatTime() {
+        return mFloatTime;
     }
 
-    public void setHoverTime(int mHoverTime) {
-        this.mHoverTime = mHoverTime;
+    public void setFloatTime(int mFloatTime) {
+        this.mFloatTime = mFloatTime;
     }
 
     public int getMinBarrageTopY() {
@@ -264,13 +264,13 @@ public class BarrageRow {
             item.setContentView(view);
             item.setDistance(mWidth);
             item.setSpeed(mItemSpeed);
-            item.setHoverTimer(mHoverTime);
+            item.setFloatTime(mFloatTime);
             item.setGravity(mItemGravity);
             item.setListener(mItemListener);
             item.start();
             mItems.addLast(item);
         }
-        Log.d(TAG, String.format("distance %d speed %d", mWidth, mItemSpeed));
+        LaLog.d(TAG, String.format("distance %d speed %d", mWidth, mItemSpeed));
     }
 
     /**

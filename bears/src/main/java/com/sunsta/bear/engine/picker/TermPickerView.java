@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.sunsta.bear.R;
 import com.sunsta.bear.engine.picker.widget.BasePickerView;
 import com.sunsta.bear.engine.picker.widget.WheelOptions;
+import com.sunsta.bear.immersion.RichTextView;
 
 import java.util.ArrayList;
 
@@ -132,6 +133,14 @@ public class TermPickerView<T> extends BasePickerView implements View.OnClickLis
      */
     public void setTitle(String title) {
         mTxtTitle.setText(title);
+    }
+
+    /**
+     * 设置标题粗体
+     */
+    public void setBoldTitle(String title) {
+        mTxtTitle.setText(title);
+        RichTextView.setTextBold(mTxtTitle);
     }
 
     /**

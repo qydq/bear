@@ -678,7 +678,7 @@ public enum LaBitmap {
 
     //截图，截取单个View
     public Bitmap screenshot(View view, int number) {
-        Bitmap bmp = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.RGB_565);
+        Bitmap bmp = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Config.RGB_565);
         Canvas c = new Canvas(bmp);
         c.drawColor(Color.WHITE);
         view.draw(c);
@@ -723,7 +723,7 @@ public enum LaBitmap {
             h += viewGroup.getChildAt(i).getHeight();
         }
 // 创建对应大小的bitmap
-        bitmap = Bitmap.createBitmap(viewGroup.getWidth(), h, Bitmap.Config.ARGB_8888);
+        bitmap = Bitmap.createBitmap(viewGroup.getWidth(), h, Config.ARGB_8888);
         final Canvas canvas = new Canvas(bitmap);
         viewGroup.draw(canvas);
         return bitmap;
@@ -736,7 +736,7 @@ public enum LaBitmap {
      */
     public Bitmap getRoundedCornerBitmap(Bitmap bitmap, int roundDp) {
         float roundPx = ScreenUtils.dp2px(roundDp);
-        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
         final int color = 0xff424242;
         final Paint paint = new Paint();

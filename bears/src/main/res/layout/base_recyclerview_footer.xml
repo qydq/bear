@@ -16,7 +16,7 @@
         style="@style/an_wrap_wrap"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:text="@string/footer_text"
+        android:text="@string/text_footer"
         android:textColor="@color/in_font_selector_deep"
         android:textSize="@dimen/an_font_native"
         android:textStyle="bold" />

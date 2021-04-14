@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayout"
+    style="@style/an_match_match.V"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/an_wrap_wrap.TextDeep"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/AppDimenNativeLike"
+        android:background="@color/ColorTransparent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/an_dimen_margin"
+        android:text="@string/livery_fang"
+        android:visibility="gone" />
+
+    <RelativeLayout style="@style/an_match_match">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            style="@style/an_match_match"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <com.sunsta.bear.layout.INAStatusLayout
+            android:id="@+id/inaStatusLayout"
+            style="@style/an_match_match"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

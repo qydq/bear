@@ -8,7 +8,7 @@
     <ImageView
         style="@style/an_iv"
         android:layout_marginRight="@dimen/an_dimen_margin_ssmall"
-        android:src="@drawable/ic_white_warning" />
+        android:src="@mipmap/ic_white_warning" />
 
     <TextView
         android:id="@+id/network_error_text"

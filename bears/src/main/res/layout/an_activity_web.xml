@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         anbar:anIndeterminateTint="@color/ColorBlueviolet"
-        anbar:anIvBack="@drawable/base_image_music"
+        anbar:anIvBack="@mipmap/base_image_music"
         anbar:open_complex="true"
         anbar:open_material="true"
         anbar:anTxColor="@color/ColorWhite" />
@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/inaBarlayout"
-        app:background_view="@layout/item_webview_headtips"
-        app:sliding_mode="top"
-        app:top_max="200dp">
+        app:anSlidingLayout="@layout/item_webview_headtips"
+        app:anSlidingMode="top"
+        app:anSlidingTopMax="200dp">
 
         <TextView
             android:id="@+id/tvTip"
@@ -33,8 +33,8 @@
             android:paddingTop="@dimen/an_dimen_margin"
             android:paddingRight="@dimen/an_dimen_margin" />
 
-        <com.sunsta.bear.layout.INABadLayout
-            android:id="@+id/inaBadlayout"
+        <com.sunsta.bear.layout.INAStatusLayout
+            android:id="@+id/inaStatusLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone" />

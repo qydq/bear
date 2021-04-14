@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
-        android:text="@string/listview_header_hint_normal"
+        android:text="@string/list_header_hint_normal"
         android:textColor="@color/in_font_selector_deep"
         android:textSize="12sp" />
 </LinearLayout>

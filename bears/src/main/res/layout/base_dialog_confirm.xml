@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/frameLayout"
-    style="@style/an_wrap_wrap"
-    android:background="@drawable/in_shape_dialog_progress">
+    style="@style/an_wrap_wrap">
 
     <LinearLayout
+        android:id="@+id/actionL0"
         style="@style/an_match_wrap.V"
+        android:background="@drawable/in_shape_dialog"
         android:gravity="center_horizontal">
 
         <LinearLayout style="@style/an_match_wrap.V">
@@ -21,7 +22,7 @@
                 style="@style/an_wrap_wrap"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:text="@string/ailiFANG"
+                android:text="@string/default_title"
                 android:textColor="@color/an_font_level1"
                 android:textSize="@dimen/an_dimen_level1"
                 android:textStyle="bold"
@@ -40,6 +41,7 @@
                 android:layout_marginRight="33dp"
                 android:layout_marginBottom="19.6dp"
                 android:gravity="center_horizontal"
+                android:maxLines="8"
                 android:scrollbars="vertical"
                 android:text="Bgwan"
                 android:textColor="@color/an_font_level1"

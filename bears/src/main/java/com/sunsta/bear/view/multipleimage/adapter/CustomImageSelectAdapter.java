@@ -45,7 +45,7 @@ public class CustomImageSelectAdapter extends CustomGenericAdapter<Image> {
 
         if (arrayList.get(position).isSelected) {
             viewHolder.view.setAlpha(0.5f);
-            ((FrameLayout) convertView).setForeground(context.getResources().getDrawable(R.drawable.ic_white_done));
+            ((FrameLayout) convertView).setForeground(context.getResources().getDrawable(R.mipmap.ic_white_done));
 
         } else {
             viewHolder.view.setAlpha(0.0f);

@@ -98,7 +98,7 @@ public enum LADialog {
         this.onCancelListener = onCancelListener;
     }
 
-    public void setOnConfirmListener(LADialog.OnConfirmListener onConfirmListener) {
+    public void setOnConfirmListener(OnConfirmListener onConfirmListener) {
         this.onConfirmListener = onConfirmListener;
     }
 
@@ -193,17 +193,17 @@ public enum LADialog {
             }
         }
         this.activity = activity;
-        if (style == LADialog.STYLE.middle_list) {
+        if (style == STYLE.middle_list) {
             myDialog = new MyDialog(activity, R.style.an_dialog_middle_list, style);
-        } else if (style == LADialog.STYLE.fullscreen_dowoload_bottom) {
+        } else if (style == STYLE.fullscreen_dowoload_bottom) {
             myDialog = new MyDialog(activity, R.style.an_dialog_loadding_animation, style);
-        } else if (style == LADialog.STYLE.middle_download_center) {
+        } else if (style == STYLE.middle_download_center) {
             myDialog = new MyDialog(activity, R.style.an_dialog_middle_download_center, style);
-        } else if (style == LADialog.STYLE.middle_owner) {
+        } else if (style == STYLE.middle_owner) {
             myDialog = new MyDialog(activity, R.style.an_dialog_middle_pure_image, style);
             myDialog.setContentView(layoutResID);
-        } else if (style == LADialog.STYLE.middle_pure_image) {
-            myDialog = new MyDialog(activity, R.style.an_dialog_middle_pure_image, LADialog.STYLE.middle_pure_image);
+        } else if (style == STYLE.middle_pure_image) {
+            myDialog = new MyDialog(activity, R.style.an_dialog_middle_pure_image, STYLE.middle_pure_image);
         } else {
 //default will contain confirm ,cancel frame
         }

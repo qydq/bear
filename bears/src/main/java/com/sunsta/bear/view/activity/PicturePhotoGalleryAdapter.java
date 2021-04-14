@@ -89,7 +89,7 @@ public class PicturePhotoGalleryAdapter extends RecyclerView.Adapter<PicturePhot
         if (eqVideo) {
             holder.mIvPhoto.setVisibility(View.GONE);
             holder.mIvVideo.setVisibility(View.VISIBLE);
-            holder.mIvVideo.setImageResource(R.drawable.default_video);
+            holder.mIvVideo.setImageResource(R.mipmap.default_video);
         } else {
             holder.mIvPhoto.setVisibility(View.VISIBLE);
             holder.mIvVideo.setVisibility(View.GONE);

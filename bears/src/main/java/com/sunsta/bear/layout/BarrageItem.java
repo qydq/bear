@@ -61,17 +61,18 @@ public final class BarrageItem {
 
     protected int mDistance = 0;
     protected int mSpeed = 0;
+    protected int mSpeedMark = 0;
     protected int mGravity = 0;
-    protected int mHoverTimer = 0;
-    protected long mHoverSpeed = 0;
-    protected boolean mHoverRecoil = false;
+    protected int mFloatTime = 0;
+    protected long barrageFloatSpeed = 0;
+    protected boolean barrageFloat = false;
 
-    public int getHoverTimer() {
-        return mHoverTimer;
+    public int getFloatTimer() {
+        return mFloatTime;
     }
 
-    public void setHoverTimer(int mHoverTimer) {
-        this.mHoverTimer = mHoverTimer;
+    public void setFloatTime(int mFloatTime) {
+        this.mFloatTime = mFloatTime;
     }
 
     public int getDistance() {
@@ -87,6 +88,7 @@ public final class BarrageItem {
     }
 
     public void setSpeed(int speed) {
+        this.mSpeedMark = speed;
         this.mSpeed = speed;
     }
 
@@ -170,9 +172,14 @@ public final class BarrageItem {
 //                "| measureWidth:" + mContentView.get().getMeasuredWidth() +
 //                "| distance:" + mDistance +
 //                "| hoverTime:" + mRow.getHoverTime());
-        mHoverTimer = mData.getHoverTime();
-        if (mHoverTimer <= 0) {
-            mHoverTimer = mRow.getHoverTime();
+        mFloatTime = mData.getFloatTime();
+        if (mFloatTime <= 0) {
+            mFloatTime = mRow.getFloatTime();
+        }
+        if (mData.getBarrageSpeed() != 0) {
+            mSpeed = mData.getBarrageSpeed();
+        } else {
+            mSpeed = mSpeedMark;
         }
         //优先使用OjectAnimator
         showObjectAnimator();
@@ -183,9 +190,16 @@ public final class BarrageItem {
      * 这里是属性动画插值计算
      * */
     private void showObjectAnimator() {
+        if (mData.getBarrageAnimator() != null) {
+            mAnimator = mData.getBarrageAnimator();
+            mAnimator.addUpdateListener(mAnimatorListener);
+            mAnimator.addListener(mAnimatorListener);
+            mAnimator.setInterpolator(new LinearInterpolator());
+        } else {
+            // mAnimator.setPropertyName("translationX");
+            mAnimator.setFloatValues(mDistance, -mContentView.get().getWidth());
+        }
         mAnimator.setTarget(mContentView.get());
-        // mAnimator.setPropertyName("translationX");
-        mAnimator.setFloatValues(mDistance, -mContentView.get().getWidth());
         mAnimator.setDuration(getDurationBySpeed(mSpeed));
         if (mData.isAccelerate()) {
             mAnimator.setInterpolator(new AccelerateInterpolator());
@@ -280,24 +294,24 @@ public final class BarrageItem {
     }
 
     /**
-     * 悬停边界的时间和动画控制
+     * 悬停边界的时间和动画控制，悬浮时刻，注意三个参数barrageFloatSpeed,barrageFloat,getFloatTransX
      */
-    private void handHoverTime(View childView, ValueAnimator animator) {
+    private void barrageFloatTime(View childView, ValueAnimator animator) {
         animator.setFloatValues(0f);
         //first use mData
-        mHoverSpeed = mData.getBarrageHoverSpeed();
-        if (mHoverSpeed <= 0) {
-            mHoverSpeed = mRow.getHoverSpeed();
+        barrageFloatSpeed = mData.getBarrageFloatSpeed();
+        if (barrageFloatSpeed <= 0) {
+            barrageFloatSpeed = mRow.getHoverSpeed();
         }
-        if (mHoverSpeed == 0) {
-            mHoverSpeed = getDurationBySpeed(mSpeed);
+        if (barrageFloatSpeed == 0) {
+            barrageFloatSpeed = getDurationBySpeed(mSpeed);
         }
         //first use mRow
-        mHoverRecoil = mRow.isHoverRecoil();
-        if (!mHoverRecoil) {
-            mHoverRecoil = mData.isHoverRecoil();
+        barrageFloat = mRow.isFloat();
+        if (!barrageFloat) {
+            barrageFloat = mData.isFloat();
         }
-        long totalTime = mHoverTimer + mHoverSpeed;
+        long totalTime = mFloatTime + barrageFloatSpeed;
         animator.setDuration(totalTime);
         childView.setX(0f);
         // 左移动动画这里不可用，其它地方可用
@@ -318,16 +332,21 @@ public final class BarrageItem {
             if (activity != null) {
                 activity.runOnUiThread(() -> {
                     ObjectAnimator animator1;
-                    if (mHoverRecoil) {
-                        animator1 = ObjectAnimator.ofFloat(childView, "translationX", 0.0f, 20, 0f, -childView.getWidth());
+                    if (mData.getFloatAnimator() != null) {
+                        animator1 = mData.getFloatAnimator();
                     } else {
-                        animator1 = ObjectAnimator.ofFloat(childView, "translationX", 0, -childView.getWidth());
+                        if (barrageFloat) {
+                            float value = mData.getFloatTransX() == 0f ? 20 : mData.getFloatTransX();
+                            animator1 = ObjectAnimator.ofFloat(childView, "translationX", 0.0f, value, 0f, -childView.getWidth());
+                        } else {
+                            animator1 = ObjectAnimator.ofFloat(childView, "translationX", 0, -childView.getWidth());
+                        }
                     }
-                    animator1.setDuration(mHoverSpeed);
+                    animator1.setDuration(barrageFloatSpeed);
                     animator1.start();
                 });
             }
-        }, mHoverTimer);
+        }, mFloatTime);
     }
 
 
@@ -471,8 +490,8 @@ public final class BarrageItem {
             if (contentView != null) {
                 float xAnimationValue = (Float) animation.getAnimatedValue();
                 contentView.setX(xAnimationValue);
-                if (xAnimationValue < 0f && mHoverTimer > 0) {
-                    handHoverTime(contentView, animation);
+                if (xAnimationValue < 0f && mFloatTime > 0) {
+                    barrageFloatTime(contentView, animation);
                 } else {
                     if (mListener != null) {
                         mListener.onAnimationUpdate(BarrageItem.this);

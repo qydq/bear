@@ -26,14 +26,14 @@ import com.sunsta.bear.R;
  * <br>邮件Email：qyddai@gmail.com
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
+ *
  * @author sunst // sunst0069
  * @version 2.0 |   2017/3/15           |   有弹性的ScrollView 实现下拉弹回和上拉弹回。
  * @link 知乎主页： https://zhihu.com/people/qydq
  */
 public class INASlidingLayout extends FrameLayout {
-
     private int mTouchSlop;//系统允许最小的滑动判断值
-    private int mBackgroundViewLayoutId = 0;
+    private int mSlidingLayoutId = 0;
 
     private View mBackgroundView;//背景View
     private View mTargetView;//正面View
@@ -97,15 +97,14 @@ public class INASlidingLayout extends FrameLayout {
 
     private void init(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.INASlidingLayout);
-        mBackgroundViewLayoutId = a.getResourceId(R.styleable.INASlidingLayout_background_view, mBackgroundViewLayoutId);
-        mSlidingMode = a.getInteger(R.styleable.INASlidingLayout_sliding_mode, SLIDING_MODE_BOTH);
-        mSlidingPointerMode = a.getInteger(R.styleable.INASlidingLayout_sliding_pointer_mode, SLIDING_POINTER_MODE_MORE);
-        mSlidingTopMaxDistance = a.getDimensionPixelSize(R.styleable.INASlidingLayout_top_max, SLIDING_DISTANCE_UNDEFINED);
+        mSlidingLayoutId = a.getResourceId(R.styleable.INASlidingLayout_anSlidingLayout, mSlidingLayoutId);
+        mSlidingMode = a.getInteger(R.styleable.INASlidingLayout_anSlidingMode, SLIDING_MODE_BOTH);
+        mSlidingPointerMode = a.getInteger(R.styleable.INASlidingLayout_anSlidingPointerMode, SLIDING_POINTER_MODE_MORE);
+        mSlidingTopMaxDistance = a.getDimensionPixelSize(R.styleable.INASlidingLayout_anSlidingTopMax, SLIDING_DISTANCE_UNDEFINED);
         a.recycle();
-
-
-        if (mBackgroundViewLayoutId != 0) {
-            View view = View.inflate(getContext(), mBackgroundViewLayoutId, null);
+        
+        if (mSlidingLayoutId != 0) {
+            View view = View.inflate(getContext(), mSlidingLayoutId, null);
             setBackgroundView(view);
         }
         mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
@@ -133,6 +132,7 @@ public class INASlidingLayout extends FrameLayout {
 
     /**
      * 获得滑动幅度
+     *
      * @return
      */
     public float getSlidingOffset() {
@@ -141,6 +141,7 @@ public class INASlidingLayout extends FrameLayout {
 
     /**
      * 设置滑动幅度
+     *
      * @param slidingOffset
      */
     public void setSlidingOffset(float slidingOffset) {
@@ -275,6 +276,7 @@ public class INASlidingLayout extends FrameLayout {
 
     /**
      * 判断View是否可以上拉
+     *
      * @return canChildScrollUp
      */
     public boolean canChildScrollUp() {
@@ -294,6 +296,7 @@ public class INASlidingLayout extends FrameLayout {
 
     /**
      * 判断View是否可以下拉
+     *
      * @return canChildScrollDown
      */
     public boolean canChildScrollDown() {

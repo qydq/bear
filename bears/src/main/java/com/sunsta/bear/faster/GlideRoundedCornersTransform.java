@@ -8,9 +8,10 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 
+import androidx.multidex.BuildConfig;
+
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.sunsta.bear.BuildConfig;
 
 import java.security.MessageDigest;
 

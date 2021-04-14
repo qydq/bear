@@ -72,7 +72,7 @@ public class GlideEngine {
     }
 
     public void loadImage(String imgUrl, @NonNull ImageView imageView) {
-        loadImage(imgUrl, R.drawable.default_error, 0, R.drawable.default_error_nodata, imageView);
+        loadImage(imgUrl, R.mipmap.default_error, 0, R.mipmap.default_error_nodata, imageView);
     }
 
     public void loadImage(String imgUrl, int imageError, @NonNull ImageView imageView) {
@@ -129,8 +129,8 @@ public class GlideEngine {
         Glide.with(imageView.getContext())
                 .load(imgUrl)
                 .apply(options)
-                .error(R.drawable.default_error_nodata) //异常时候显示的图片
-                .fallback(R.drawable.default_error) //url为空的时候,显示的图片
+                .error(R.mipmap.default_error_nodata) //异常时候显示的图片
+                .fallback(R.mipmap.default_error) //url为空的时候,显示的图片
                 .into(imageView);
     }
 

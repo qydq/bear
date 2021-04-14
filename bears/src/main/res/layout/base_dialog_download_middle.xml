@@ -12,13 +12,13 @@
         android:adjustViewBounds="true"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
-        android:src="@drawable/image_small_circle" />
+        android:src="@mipmap/image_small_circle" />
 
     <LinearLayout
         android:id="@+id/llMiddle"
         style="@style/an_match_wrap"
         android:layout_below="@id/ivTopImage"
-        android:background="@drawable/picture_dialog_shadow"
+        android:background="@drawable/in_shape_dialog"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"

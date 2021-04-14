@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:text="@string/header_text"
+        android:text="@string/text_header"
         android:textColor="@color/in_font_selector_deep"
         android:textSize="@dimen/an_font_native"
         android:textStyle="bold" />

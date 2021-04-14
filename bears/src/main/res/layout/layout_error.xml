@@ -18,7 +18,7 @@
             style="@style/an_wrap_wrap"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            android:src="@drawable/default_error_nodata" />
+            android:src="@mipmap/default_error_nodata" />
 
         <TextView
             android:id="@+id/tvLight"

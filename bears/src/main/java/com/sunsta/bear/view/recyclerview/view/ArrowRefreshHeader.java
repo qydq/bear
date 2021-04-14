@@ -154,20 +154,20 @@ public class ArrowRefreshHeader extends LinearLayout implements IRefreshHeader {
                 if (mState == STATE_REFRESHING) {
                     mArrowImageView.clearAnimation();
                 }
-                mStatusTextView.setText(R.string.listview_header_hint_normal);
+                mStatusTextView.setText(R.string.list_header_hint_normal);
                 break;
             case STATE_RELEASE_TO_REFRESH:
                 if (mState != STATE_RELEASE_TO_REFRESH) {
                     mArrowImageView.clearAnimation();
                     mArrowImageView.startAnimation(mRotateUpAnim);
-                    mStatusTextView.setText(R.string.listview_header_hint_release);
+                    mStatusTextView.setText(R.string.list_header_hint_release);
                 }
                 break;
             case STATE_REFRESHING:
-                mStatusTextView.setText(R.string.refreshing);
+                mStatusTextView.setText(R.string.list_header_refreshing);
                 break;
             case STATE_DONE:
-                mStatusTextView.setText(R.string.refresh_done);
+                mStatusTextView.setText(R.string.list_header_refreshed);
                 break;
             default:
         }
@@ -307,7 +307,7 @@ public class ArrowRefreshHeader extends LinearLayout implements IRefreshHeader {
         int ct = (int) ((System.currentTimeMillis() - time.getTime()) / 1000);
 
         if (ct == 0) {
-            return getContext().getResources().getString(R.string.text_just);
+            return getContext().getResources().getString(R.string.an_prompt);
         }
 
         if (ct > 0 && ct < 60) {

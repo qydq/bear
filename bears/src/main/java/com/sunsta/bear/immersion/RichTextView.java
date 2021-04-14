@@ -233,7 +233,7 @@ public class RichTextView {
         } else {
             spannableString = new SpannableString(suffixName + content);
         }
-        spannableString.setSpan(new RelativeSizeSpan(0.9f), 0, suffixName.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new RelativeSizeSpan(0.81f), 0, suffixName.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new RoundBackgroundColorSpan1(textView.getContext(), roundBackground, roundColor == 0 ? textView.getCurrentTextColor() : roundColor, radius), 0, suffixName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannableString;
     }
@@ -253,6 +253,7 @@ public class RichTextView {
 
     /**
      * 设置textview字体颜色和下划线
+     *
      * @param tv
      * @param str
      * @param textColor
@@ -403,6 +404,7 @@ public class RichTextView {
 
     /**
      * textview设置中划线
+     *
      * @param textView
      */
     public static void setMiddleLine(TextView textView) {
@@ -413,6 +415,7 @@ public class RichTextView {
 
     /**
      * textview设置颜色，可以是选择器，也可以是单独的颜色资源
+     *
      * @param textView
      */
     public static void setTextColor(@NonNull TextView textView, int colorResId) {

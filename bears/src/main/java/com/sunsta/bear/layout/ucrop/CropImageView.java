@@ -16,11 +16,11 @@ import androidx.annotation.Nullable;
 import com.sunsta.bear.R;
 import com.sunsta.bear.callback.BitmapCropCallback;
 import com.sunsta.bear.callback.CropBoundsChangeListener;
+import com.sunsta.bear.faster.CubicEasing;
+import com.sunsta.bear.faster.RectUtils;
 import com.sunsta.bear.model.CropParameters;
 import com.sunsta.bear.model.ImageState;
 import com.sunsta.bear.task.BitmapCropTask;
-import com.sunsta.bear.faster.CubicEasing;
-import com.sunsta.bear.faster.RectUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
@@ -502,8 +502,8 @@ public class CropImageView extends TransformImageView {
      */
     @SuppressWarnings("deprecation")
     protected void processStyledAttributes(@NonNull TypedArray a) {
-        float targetAspectRatioX = Math.abs(a.getFloat(R.styleable.ucrop_UCropView_ucrop_aspect_ratio_x, DEFAULT_ASPECT_RATIO));
-        float targetAspectRatioY = Math.abs(a.getFloat(R.styleable.ucrop_UCropView_ucrop_aspect_ratio_y, DEFAULT_ASPECT_RATIO));
+        float targetAspectRatioX = Math.abs(a.getFloat(R.styleable.INAUCropView_anUcropAspectRatioX, DEFAULT_ASPECT_RATIO));
+        float targetAspectRatioY = Math.abs(a.getFloat(R.styleable.INAUCropView_anUcropAspectRatioY, DEFAULT_ASPECT_RATIO));
 
         if (targetAspectRatioX == SOURCE_IMAGE_ASPECT_RATIO || targetAspectRatioY == SOURCE_IMAGE_ASPECT_RATIO) {
             mTargetAspectRatio = SOURCE_IMAGE_ASPECT_RATIO;

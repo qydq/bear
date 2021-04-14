@@ -80,7 +80,7 @@ public class DefaultLoadMoreView extends LinearLayout implements SwipeRecyclerVi
         setVisibility(VISIBLE);
         mProgressBar.setVisibility(VISIBLE);
         mTvMessage.setVisibility(VISIBLE);
-        mTvMessage.setText(R.string.recycler_swipe_load_more_message);
+        mTvMessage.setText(R.string.an_load_more_message);
     }
 
     @Override
@@ -91,11 +91,11 @@ public class DefaultLoadMoreView extends LinearLayout implements SwipeRecyclerVi
             if (dataEmpty) {
                 mProgressBar.setVisibility(GONE);
                 mTvMessage.setVisibility(VISIBLE);
-                mTvMessage.setText(R.string.recycler_swipe_data_empty);
+                mTvMessage.setText(R.string.an_data_empty);
             } else {
                 mProgressBar.setVisibility(GONE);
                 mTvMessage.setVisibility(VISIBLE);
-                mTvMessage.setText(R.string.recycler_swipe_more_not);
+                mTvMessage.setText(R.string.an_data_notmore);
             }
         } else {
             setVisibility(INVISIBLE);
@@ -109,7 +109,7 @@ public class DefaultLoadMoreView extends LinearLayout implements SwipeRecyclerVi
         setVisibility(VISIBLE);
         mProgressBar.setVisibility(GONE);
         mTvMessage.setVisibility(VISIBLE);
-        mTvMessage.setText(R.string.recycler_swipe_click_load_more);
+        mTvMessage.setText(R.string.an_click_load_more);
     }
 
     @Override
@@ -118,7 +118,7 @@ public class DefaultLoadMoreView extends LinearLayout implements SwipeRecyclerVi
         mProgressBar.setVisibility(GONE);
         mTvMessage.setVisibility(VISIBLE);
         mTvMessage.setText(
-            TextUtils.isEmpty(errorMessage) ? getContext().getString(R.string.recycler_swipe_load_error) : errorMessage);
+            TextUtils.isEmpty(errorMessage) ? getContext().getString(R.string.an_load_error) : errorMessage);
     }
 
     @Override

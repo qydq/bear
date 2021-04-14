@@ -46,6 +46,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -1138,6 +1139,28 @@ b & 0xff 结果是： 000...000(24个)11111111
         return new Random().nextInt(MAX - MIN + 1) + MIN;
     }
 
+    /**
+     * 随机两位小数，保留2位小数
+     */
+    public float randomNextFloat(float begin, float end) {
+        BigDecimal bigDecimal = new BigDecimal(end - begin);
+        BigDecimal point = BigDecimal.valueOf(Math.random());
+        BigDecimal pointBetween = point.multiply(bigDecimal);
+        BigDecimal result = pointBetween.add(new BigDecimal(begin)).setScale(2, BigDecimal.ROUND_FLOOR);
+        return result.floatValue();
+    }
+
+    public List<String> transferArrayToList(String[] array) {
+        List<String> transferedList = new ArrayList<>();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            List<String> finalTransferedList = transferedList;
+            Arrays.stream(array).forEach(arr -> finalTransferedList.add(arr));
+        } else {
+            transferedList = new ArrayList<>(Arrays.asList(array));
+        }
+        return transferedList;
+    }
+
     public String stringToUnicode(String var0) {
         if (isEmpty(var0)) {
             return "";
@@ -1745,7 +1768,7 @@ b & 0xff 结果是： 000...000(24个)11111111
     // * @return
     // */
     private boolean checkIsSamsung() {
-        String brand = android.os.Build.BRAND;
+        String brand = Build.BRAND;
         Log.e("", " brand:" + brand);
         if (brand.toLowerCase(Locale.CHINA).equals("samsung")) {
             return true;

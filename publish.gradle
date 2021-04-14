@@ -11,7 +11,7 @@ task androidSourcesJar(type: Jar) {
 
 ext {
     PUBLISH_GROUP_ID = 'com.github.qydq'
-    PUBLISH_VERSION = '1.1.111'
+    PUBLISH_VERSION = '1.2.12'
 }
 //ext {
 //    PUBLISH_GROUP_ID = 'com.sunsta.livery'

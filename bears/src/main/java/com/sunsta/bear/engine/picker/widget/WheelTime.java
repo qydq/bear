@@ -63,13 +63,13 @@ public class WheelTime {
         // 年
         wv_year = view.findViewById(R.id.year);
         wv_year.setAdapter(new NumericWheelAdapter(startYear, endYear));// 设置"年"的显示数据
-        wv_year.setLabel(context.getString(R.string.pickerview_year));// 添加文字
+        wv_year.setLabel(context.getString(R.string.an_year));// 添加文字
         wv_year.setCurrentItem(year - startYear);// 初始化时显示的数据
 
         // 月
         wv_month = view.findViewById(R.id.month);
         wv_month.setAdapter(new NumericWheelAdapter(1, 12));
-        wv_month.setLabel(context.getString(R.string.pickerview_month));
+        wv_month.setLabel(context.getString(R.string.an_month));
         wv_month.setCurrentItem(month);
 
         // 日
@@ -86,17 +86,17 @@ public class WheelTime {
             else
                 wv_day.setAdapter(new NumericWheelAdapter(1, 28));
         }
-        wv_day.setLabel(context.getString(R.string.pickerview_day));
+        wv_day.setLabel(context.getString(R.string.an_day));
         wv_day.setCurrentItem(day - 1);
 
         wv_hours = view.findViewById(R.id.hour);
         wv_hours.setAdapter(new NumericWheelAdapter(0, 23));
-        wv_hours.setLabel(context.getString(R.string.pickerview_hours));// 添加文字
+        wv_hours.setLabel(context.getString(R.string.an_hours));// 添加文字
         wv_hours.setCurrentItem(h);
 
         wv_mins = view.findViewById(R.id.min);
         wv_mins.setAdapter(new NumericWheelAdapter(0, 59));
-        wv_mins.setLabel(context.getString(R.string.pickerview_minutes));// 添加文字
+        wv_mins.setLabel(context.getString(R.string.an_minutes));// 添加文字
         wv_mins.setCurrentItem(m);
 
 

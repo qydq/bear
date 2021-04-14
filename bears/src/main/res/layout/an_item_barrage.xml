@@ -3,7 +3,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/an_dimen_barrage_height">
-    <!--in_shape_dialog_progress-->
+    <!--in_shape_dialog-->
     <RelativeLayout
         android:id="@+id/action0"
         android:layout_width="wrap_content"
@@ -85,6 +85,18 @@
             android:singleLine="true"
             android:text="Bgwan"
             android:textSize="13sp" />
+
+        <com.sunsta.bear.engine.gif.GifImageView
+            android:id="@+id/ivGif2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <com.sunsta.bear.engine.gif.GifImageView
+            android:id="@+id/ivGif3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
     </RelativeLayout>
 
 </FrameLayout>

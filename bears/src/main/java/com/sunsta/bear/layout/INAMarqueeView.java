@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Html;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -30,6 +29,7 @@ import com.sunsta.bear.faster.ScreenUtils;
  * <br>邮件Email：qyddai@gmail.com
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
+ *
  * @author sunst // sunst0069
  * @version 1.0 |   2016/04/28           |   一个可以轮播的TextView控件。
  * @link 知乎主页： https://zhihu.com/people/qydq
@@ -83,13 +83,13 @@ public class INAMarqueeView extends SurfaceView implements SurfaceHolder.Callbac
 
     private void init(AttributeSet attrs, int defStyleAttr) {
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.INAMarqueeView, defStyleAttr, 0);
-        mTextColor = a.getColor(R.styleable.INAMarqueeView_textcolor, Color.RED);
-        mTextSize = a.getDimension(R.styleable.INAMarqueeView_textSize, 48);
-        mBackgroundColor = a.getColor(R.styleable.INAMarqueeView_marqueebackground, Color.WHITE);
-        mIsRepeat = a.getBoolean(R.styleable.INAMarqueeView_isRepeat, false);
-        mStartPoint = a.getInt(R.styleable.INAMarqueeView_startPoint, 0);
-        mDirection = a.getInt(R.styleable.INAMarqueeView_direction, 0);
-        mSpeed = a.getInt(R.styleable.INAMarqueeView_speed, 20);
+        mTextColor = a.getColor(R.styleable.INAMarqueeView_anMarqueeTextColor, Color.RED);
+        mTextSize = a.getDimension(R.styleable.INAMarqueeView_anMarqueeTextSize, 48);
+        mBackgroundColor = a.getColor(R.styleable.INAMarqueeView_anMarqueeBackground, Color.WHITE);
+        mIsRepeat = a.getBoolean(R.styleable.INAMarqueeView_asMarqueeRepeat, false);
+        mStartPoint = a.getInt(R.styleable.INAMarqueeView_anMarqueeStartPoint, 0);
+        mDirection = a.getInt(R.styleable.INAMarqueeView_anMarqueeDirection, 0);
+        mSpeed = a.getInt(R.styleable.INAMarqueeView_anMarqueeSpeed, 20);
         a.recycle();
 
         holder = this.getHolder();
@@ -101,6 +101,7 @@ public class INAMarqueeView extends SurfaceView implements SurfaceHolder.Callbac
 
     /**
      * 设置显示的文字
+     *
      * @param msg 显示的文字。
      */
     public void setText(String msg) {

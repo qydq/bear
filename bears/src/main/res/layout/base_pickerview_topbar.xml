@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rlt_head_view"
     style="@style/an_match_match"
-    android:background="@color/an_color_white">
+    android:background="@color/anDialogBackground">
 
     <Button
         android:id="@+id/btnCancel"
@@ -11,18 +11,18 @@
         android:gravity="center"
         android:paddingLeft="@dimen/an_dimen_padding"
         android:paddingRight="@dimen/an_dimen_padding"
-        android:text="@string/pickerview_cancel"
+        android:text="@string/an_cancel"
         android:textColor="@drawable/in_selector_txt_pickerview"
-        android:textSize="@dimen/an_font_native" />
+        android:textSize="@dimen/an_font_level2" />
 
     <TextView
         android:id="@+id/tvTitle"
-       style="@style/an_match_wrap"
+        style="@style/an_match_wrap"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/btnSubmit"
         android:layout_toRightOf="@+id/btnCancel"
         android:gravity="center"
-        android:textColor="@color/an_color_level1"
+        android:textColor="@color/an_font_level1"
         android:textSize="@dimen/an_dimen_level2" />
 
     <Button
@@ -33,7 +33,7 @@
         android:gravity="center"
         android:paddingLeft="@dimen/an_dimen_padding"
         android:paddingRight="@dimen/an_dimen_padding"
-        android:text="@string/pickerview_submit"
+        android:text="@string/an_confirm"
         android:textColor="@drawable/in_selector_txt_pickerview"
-        android:textSize="@dimen/an_font_native" />
+        android:textSize="@dimen/an_font_level2" />
 </RelativeLayout>

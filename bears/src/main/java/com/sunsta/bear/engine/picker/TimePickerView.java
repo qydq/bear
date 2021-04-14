@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.sunsta.bear.R;
 import com.sunsta.bear.engine.picker.widget.BasePickerView;
 import com.sunsta.bear.engine.picker.widget.WheelTime;
+import com.sunsta.bear.immersion.RichTextView;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -149,6 +150,14 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
      */
     public void setTitleSize(float size) {
         mTxtTitle.setTextSize(size);
+    }
+
+    /**
+     * 设置标题粗体
+     */
+    public void setTitleBold(String title) {
+        mTxtTitle.setText(title);
+        RichTextView.setTextBold(mTxtTitle);
     }
 
     /**

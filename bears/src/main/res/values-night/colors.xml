@@ -6,38 +6,44 @@
 
     <!--2020定义级别颜色，从上到下定义背景颜色-->
     <!--（1）定义背景颜色-->
-    <color name="an_color_level1">#17191A</color>
-    <color name="an_color_level2">#121314</color>
-    <color name="an_color_level3">#FF000000</color>
+
+    <!--主色1：纯黑色：可以作为背景颜色anBackgroundColor-->
+    <color name="an_color_level1">@color/ColorBlack</color>
+    <!--主色（黑色浅色）2：可作为置顶的颜色，或者对话框的背景颜色-->
+    <color name="an_color_level2">#17191A</color>
+    <!--主色3黑色更浅黑色-LightColor=anLaunchBackground）-->
+    <color name="an_color_level3">#121314</color>
+    <!--点击副色：ColorTransparentClicked-->
+    <!--    <color name="an_color_level4">#1F2021</color>-->
     <color name="an_color_line">#691F2021</color>
 
-    <color name="anLaunchBackground">#FF000000</color>
+    <color name="anLaunchBackground">@color/an_color_level3</color>
     <color name="anBarBackground">@color/an_color_level2</color>
     <color name="anBackground">@color/an_color_level1</color>
     <color name="anNavBackground">@color/an_color_level2</color>
     <color name="anLineBackground">@color/an_color_line</color>
     <color name="anBtnBackground">@color/ColorWhite</color>
     <color name="anBtnLightBackground">#121314</color>
-    <color name="anDialogBackground">#17191A</color>
+    <color name="anDialogBackground">@color/an_color_level1</color>
     <color name="anBtnBackground2">@color/ColorWhite</color>
     <color name="anBarBackground2">@color/an_color_level2</color>
     <color name="anBackground2">@color/an_color_level1</color>
     <color name="anNavBackground2">@color/an_color_level2</color>
     <color name="anLineBackground2">@color/an_color_line</color>
 
-
+    <color name="anContraryColor">@color/ColorTransparent</color><!--（opp点击后背景，唯一）-->
     <color name="anMiddleColor">@color/ColorTransparentClicked</color><!--（点击后背景，唯一）-->
     <color name="anNofcsBackground">#691F2021</color><!--（选择背景无焦点，或不可点击）（可选）-->
-    <color name="anOptBackground">@color/ColorTransparent</color><!--（选择器背景颜色）（可选）-->
-    <color name="anOppBackground">#d4d4d4</color><!--（选择背景互斥颜色）（可选）-->
+    <color name="anOptBackground">@color/an_color_level1</color><!--（选择器背景颜色）（可选）-->
+    <color name="anOppBackground">@color/ColorTransparentClicked</color><!--（选择背景互斥颜色）（可选）-->
     <color name="anMaterialBackground">#69000000</color><!--（可选，唯一）-->
     <color name="anErrorBackground">#FF000000</color><!--提示文字，如网络错误，为空-->
 
 
     <!--（2）定义字体颜色，考虑抗锯齿-->
     <color name="an_font_level1">@color/ColorWhite</color>
-    <color name="an_font_level2">#868686</color>
-    <color name="an_font_level3">#8A2BE2</color>
+    <color name="an_font_level2">@color/ColorWhitesmoke</color>
+    <color name="an_font_level3">#FF3700B3</color>
     <color name="an_font_middle">#ff7200</color>
     <color name="an_font_error">#80d4d4d4</color>
     <color name="an_font_error2">#8A2BE2</color>

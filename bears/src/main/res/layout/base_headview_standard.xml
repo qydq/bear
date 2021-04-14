@@ -44,7 +44,7 @@
                 style="@style/an_style_bar"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:text="@string/CommStringBack" />
+                android:text="@string/an_back" />
         </LinearLayout>
     </LinearLayout>
 
@@ -85,11 +85,12 @@
                 android:id="@+id/anTxTitle"
                 style="@style/an_style_bar"
                 android:layout_gravity="center_vertical"
+                android:background="?android:selectableItemBackgroundBorderless"
                 android:ellipsize="end"
                 android:gravity="center_vertical|center_horizontal"
                 android:maxEms="14"
                 android:maxLines="1"
-                android:text="@string/aliBarTitle"
+                android:text="@string/an_bar_title"
                 android:textColor="@color/anBarTextColor" />
         </LinearLayout>
 
@@ -169,7 +170,7 @@
                     android:gravity="center_horizontal"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
-                    android:text="@string/aliBarRightTxt" />
+                    android:text="@string/an_bar_right_txt" />
             </LinearLayout>
         </LinearLayout>
 
@@ -216,7 +217,7 @@
                     android:gravity="center_horizontal"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
-                    android:text="@string/aliBarRightTxt" />
+                    android:text="@string/an_bar_rright_txt" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
@@ -252,7 +253,7 @@
                 style="@style/an_style_bar"
                 android:layout_gravity="center_vertical|start"
                 android:gravity="center_vertical|start"
-                android:text="@string/aliBarRightTxt" />
+                android:text="@string/an_bar_right_txt" />
 
             <ImageView
                 android:id="@+id/anRightIv"

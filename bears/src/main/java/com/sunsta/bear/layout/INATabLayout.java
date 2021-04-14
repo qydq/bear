@@ -56,10 +56,10 @@ import com.google.android.material.tabs.TabLayout;
 import com.sunsta.bear.AnConstants;
 import com.sunsta.bear.R;
 import com.sunsta.bear.callback.AnimatorUpdateListener;
+import com.sunsta.bear.faster.ViewUtils;
 import com.sunsta.bear.faster.LaLog;
 import com.sunsta.bear.faster.ScreenUtils;
 import com.sunsta.bear.faster.ValueOf;
-import com.sunsta.bear.faster.ViewUtils;
 import com.sunsta.bear.layout.tablayout.DividerDrawable;
 import com.sunsta.bear.layout.tablayout.TabItem;
 import com.sunsta.bear.layout.tablayout.ValueAnimatorCompat;
@@ -107,6 +107,7 @@ public class INATabLayout extends HorizontalScrollView {
      * Scrollable tabs display a subset of tabs at any given moment, and can contain longer tab
      * labels and a larger number of tabs. They are best used for browsing contexts in touch
      * interfaces when users don’t need to directly compare the tab labels.
+     *
      * @see #setTabMode(int)
      * @see #getTabMode()
      */
@@ -116,6 +117,7 @@ public class INATabLayout extends HorizontalScrollView {
      * Fixed tabs display all tabs concurrently and are best used with content that benefits from
      * quick pivots between tabs. The maximum number of tabs is limited by the view’s width.
      * Fixed tabs have equal width, based on the widest tab label.
+     *
      * @see #setTabMode(int)
      * @see #getTabMode()
      */
@@ -132,6 +134,7 @@ public class INATabLayout extends HorizontalScrollView {
     /**
      * Gravity used to fill the {@link TabLayout} as much as possible. This option only takes effect
      * when used with {@link #MODE_FIXED}.
+     *
      * @see #setTabGravity(int)
      * @see #getTabGravity()
      */
@@ -139,6 +142,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Gravity used to lay out the tabs in the center of the {@link TabLayout}.
+     *
      * @see #setTabGravity(int)
      * @see #getTabGravity()
      */
@@ -159,12 +163,14 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Called when a tab enters the selected state.
+         *
          * @param tab The tab that was selected
          */
         public void onTabSelected(Tab tab);
 
         /**
          * Called when a tab exits the selected state.
+         *
          * @param tab The tab that was unselected
          */
         public void onTabUnselected(Tab tab);
@@ -172,6 +178,7 @@ public class INATabLayout extends HorizontalScrollView {
         /**
          * Called when a tab that is already selected is chosen again by the user. Some applications
          * may use this action to return to the top level of a category.
+         *
          * @param tab The tab that was reselected.
          */
         public void onTabReselected(Tab tab);
@@ -353,6 +360,7 @@ public class INATabLayout extends HorizontalScrollView {
      * the tab. If {@code tabIndicatorColor} is specified via the TabLayout's style or via {@link
      * #setSelectedTabIndicatorColor(int)} the selection indicator will be tinted that color.
      * Otherwise, it will use the colors specified in the drawable.
+     *
      * @param tabSelectedIndicator A drawable to use as the selected tab indicator.
      * @see #setSelectedTabIndicatorColor(int)
      */
@@ -394,6 +402,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * 设置分割线长宽
+     *
      * @param width
      * @param height 当height =0 时，则分割线长度占满
      */
@@ -405,6 +414,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * 设置分割线颜色
+     *
      * @param color
      */
     public void setDividerColor(int color) {
@@ -431,6 +441,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Sets the tab indicator's color for the currently selected tab.
+     *
      * @param color color to use for the indicator
      * @attr ref R.styleable#TabLayout_tabIndicatorColor
      */
@@ -440,6 +451,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Sets the tab indicator's height for the currently selected tab.
+     *
      * @param height height to use for the indicator in pixels
      * @attr ref R.styleable#TabLayout_tabIndicatorHeight
      */
@@ -456,6 +468,7 @@ public class INATabLayout extends HorizontalScrollView {
      * part of a scrolling container such as {@link ViewPager}.
      * <p>
      * Calling this method does not update the selected tab, it is only used for drawing purposes.
+     *
      * @param position           current scroll position
      * @param positionOffset     Value from [0, 1) indicating the offset from {@code position}.
      * @param updateSelectedText Whether to update the text's selected state.
@@ -496,6 +509,7 @@ public class INATabLayout extends HorizontalScrollView {
     /**
      * Add a tab to this layout. The tab will be added at the end of the list.
      * If this is the first tab to be added it will become the selected tab.
+     *
      * @param tab Tab to add
      */
     public void addTab(@NonNull Tab tab) {
@@ -505,6 +519,7 @@ public class INATabLayout extends HorizontalScrollView {
     /**
      * Add a tab to this layout. The tab will be inserted at <code>position</code>.
      * If this is the first tab to be added it will become the selected tab.
+     *
      * @param tab      The tab to add
      * @param position The new position of the tab
      */
@@ -514,6 +529,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Add a tab to this layout. The tab will be added at the end of the list.
+     *
      * @param tab         Tab to add
      * @param setSelected True if the added tab should become the selected tab.
      */
@@ -530,6 +546,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Add a tab to this layout. The tab will be inserted at <code>position</code>.
+     *
      * @param tab         The tab to add
      * @param position    The new position of the tab
      * @param setSelected True if the added tab should become the selected tab.
@@ -563,6 +580,7 @@ public class INATabLayout extends HorizontalScrollView {
     /**
      * Set the {@link TabLayout.OnTabSelectedListener} that will
      * handle switching to and from tabs.
+     *
      * @param onTabSelectedListener Listener to handle tab selection events
      */
     public void setOnTabSelectedListener(OnTabSelectedListener onTabSelectedListener) {
@@ -587,6 +605,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Returns the number of tabs currently registered with the action bar.
+     *
      * @return Tab count
      */
     public int getTabCount() {
@@ -603,6 +622,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Returns the position of the current selected tab.
+     *
      * @return selected tab position, or {@code -1} if there isn't a selected tab.
      */
     public int getSelectedTabPosition() {
@@ -612,6 +632,7 @@ public class INATabLayout extends HorizontalScrollView {
     /**
      * Remove a tab from the layout. If the removed tab was selected it will be deselected
      * and another tab will be selected if present.
+     *
      * @param tab The tab to remove
      */
     public void removeTab(Tab tab) {
@@ -625,6 +646,7 @@ public class INATabLayout extends HorizontalScrollView {
     /**
      * Remove a tab from the layout. If the removed tab was selected it will be deselected
      * and another tab will be selected if present.
+     *
      * @param position Position of the tab to remove
      */
     public void removeTabAt(int position) {
@@ -676,6 +698,7 @@ public class INATabLayout extends HorizontalScrollView {
      * browsing contexts in touch interfaces when users don’t need to directly compare the tab
      * labels. This mode is commonly used with a {@link ViewPager}.</li>
      * </ul>
+     *
      * @param mode one of {@link #MODE_FIXED} or {@link #MODE_SCROLLABLE}.
      * @attr ref R.styleable#TabLayout_tabMode
      */
@@ -688,6 +711,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Returns the current mode used by this {@link TabLayout}.
+     *
      * @see #setTabMode(int)
      */
     @TabLayout.Mode
@@ -697,6 +721,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Set the gravity to use when laying out the tabs.
+     *
      * @param gravity one of {@link #GRAVITY_CENTER} or {@link #GRAVITY_FILL}.
      * @attr ref R.styleable#TabLayout_tabGravity
      */
@@ -709,6 +734,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * The current gravity used for laying out tabs.
+     *
      * @return one of {@link #GRAVITY_CENTER} or {@link #GRAVITY_FILL}.
      */
     @TabLayout.TabGravity
@@ -718,6 +744,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Sets the text colors for the different states (normal, selected) used for the tabs.
+     *
      * @see #getTabTextColors()
      */
     public void setTabTextColors(@Nullable ColorStateList textColor) {
@@ -737,6 +764,7 @@ public class INATabLayout extends HorizontalScrollView {
 
     /**
      * Sets the text colors for the different states (normal, selected) used for the tabs.
+     *
      * @attr ref R.styleable#TabLayout_tabTextColor
      * @attr ref R.styleable#TabLayout_tabSelectedTextColor
      */
@@ -757,6 +785,7 @@ public class INATabLayout extends HorizontalScrollView {
      * <p>
      * <p>If the given ViewPager is non-null, it needs to already have a
      * {@link PagerAdapter} set.</p>
+     *
      * @param viewPager The ViewPager to link, or {@code null} to clear any previous link.
      */
     public void setupWithViewPager(@Nullable final ViewPager viewPager) {
@@ -781,7 +810,7 @@ public class INATabLayout extends HorizontalScrollView {
             viewPager.addOnPageChangeListener(mPageChangeListener);
 
             // Now we'll add a tab selected listener to set ViewPager's current item
-            setOnTabSelectedListener(new INATabLayout.ViewPagerOnTabSelectedListener(viewPager));
+            setOnTabSelectedListener(new ViewPagerOnTabSelectedListener(viewPager));
 
             // Now we'll populate ourselves from the pager adapter
             setPagerAdapter(adapter, true);
@@ -826,7 +855,7 @@ public class INATabLayout extends HorizontalScrollView {
         if (addObserver && adapter != null) {
             // Register our observer on the new adapter
             if (mPagerAdapterObserver == null) {
-                mPagerAdapterObserver = new INATabLayout.PagerAdapterObserver();
+                mPagerAdapterObserver = new PagerAdapterObserver();
             }
             adapter.registerDataSetObserver(mPagerAdapterObserver);
         }
@@ -1064,7 +1093,7 @@ public class INATabLayout extends HorizontalScrollView {
         final int targetScrollX = calculateScrollXForTab(newPosition, 0);
         if (startScrollX != targetScrollX) {
             if (mScrollAnimator == null) {
-                mScrollAnimator = ViewUtils.createAnimator();
+                mScrollAnimator = ViewUtils.getInstance().createAnimator();
                 mScrollAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
                 mScrollAnimator.setDuration(ANIMATION_DURATION);
                 mScrollAnimator.setUpdateListener(new AnimatorUpdateListener() {
@@ -1193,6 +1222,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * An invalid position for a tab.
+         *
          * @see #getPosition()
          */
         public static final int INVALID_POSITION = -1;
@@ -1226,6 +1256,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Give this Tab an arbitrary object to hold for later use.
+         *
          * @param tag Object to store
          * @return The current instance for call chaining
          */
@@ -1238,6 +1269,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Returns the custom view used for this tab.
+         *
          * @see #setCustomView(View)
          * @see #setCustomView(int)
          */
@@ -1255,6 +1287,7 @@ public class INATabLayout extends HorizontalScrollView {
          * {@link ImageView} with ID {@link android.R.id#icon} then it will be updated with
          * the value given to {@link #setIcon(Drawable)}.
          * </p>
+         *
          * @param view Custom view to be used as a tab.
          * @return The current instance for call chaining
          */
@@ -1274,6 +1307,7 @@ public class INATabLayout extends HorizontalScrollView {
          * {@link ImageView} with ID {@link android.R.id#icon} then it will be updated with
          * the value given to {@link #setIcon(Drawable)}.
          * </p>
+         *
          * @param resId A layout resource to inflate and use as a custom tab view
          * @return The current instance for call chaining
          */
@@ -1285,6 +1319,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Return the icon associated with this tab.
+         *
          * @return The tab's icon
          */
         @Nullable
@@ -1294,6 +1329,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Return the current position of this tab in the action bar.
+         *
          * @return Current position, or {@link #INVALID_POSITION} if this tab is not currently in
          * the action bar.
          */
@@ -1307,6 +1343,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Return the text of this tab.
+         *
          * @return The tab's text
          */
         @Nullable
@@ -1317,6 +1354,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Set the icon displayed on this tab.
+         *
          * @param icon The drawable to use as an icon
          * @return The current instance for call chaining
          */
@@ -1329,6 +1367,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Set the icon displayed on this tab.
+         *
          * @param resId A resource ID referring to the icon that should be displayed
          * @return The current instance for call chaining
          */
@@ -1343,6 +1382,7 @@ public class INATabLayout extends HorizontalScrollView {
         /**
          * Set the text displayed on this tab. Text may be truncated if there is not room to display
          * the entire string.
+         *
          * @param text The text to display
          * @return The current instance for call chaining
          */
@@ -1356,6 +1396,7 @@ public class INATabLayout extends HorizontalScrollView {
         /**
          * Set the text displayed on this tab. Text may be truncated if there is not room to display
          * the entire string.
+         *
          * @param resId A resource ID referring to the text that should be displayed
          * @return The current instance for call chaining
          */
@@ -1390,6 +1431,7 @@ public class INATabLayout extends HorizontalScrollView {
         /**
          * Set a description of this tab's content for use in accessibility support. If no content
          * description is provided the title will be used.
+         *
          * @param resId A resource ID referring to the description text
          * @return The current instance for call chaining
          * @see #setContentDescription(CharSequence)
@@ -1406,6 +1448,7 @@ public class INATabLayout extends HorizontalScrollView {
         /**
          * Set a description of this tab's content for use in accessibility support. If no content
          * description is provided the title will be used.
+         *
          * @param contentDesc Description of this tab's content
          * @return The current instance for call chaining
          * @see #setContentDescription(int)
@@ -1420,6 +1463,7 @@ public class INATabLayout extends HorizontalScrollView {
 
         /**
          * Gets a brief description of this tab's content for use in accessibility support.
+         *
          * @return Description of this tab's content
          * @see #setContentDescription(CharSequence)
          * @see #setContentDescription(int)
@@ -2041,7 +2085,7 @@ public class INATabLayout extends HorizontalScrollView {
             }
 
             if (startLeft != targetLeft || startRight != targetRight) {
-                ValueAnimatorCompat animator = mIndicatorAnimator = ViewUtils.createAnimator();
+                ValueAnimatorCompat animator = mIndicatorAnimator = ViewUtils.getInstance().createAnimator();
                 animator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
                 animator.setDuration(duration);
                 animator.setFloatValues(0, 1);
@@ -2104,7 +2148,7 @@ public class INATabLayout extends HorizontalScrollView {
                 if (mIndicatorDrawableId != 0) {
                     try {
                         Bitmap mIndicatorBitmap = BitmapFactory.decodeResource(getResources(), mIndicatorDrawableId);
-//                        Bitmap mIndicatorBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.base_image_music);
+//                        Bitmap mIndicatorBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.base_image_music);
                         if (mIndicatorBitmap == null) {
                             return;
                         }

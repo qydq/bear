@@ -27,6 +27,7 @@ import com.sunsta.bear.AnConstants;
 import com.sunsta.bear.R;
 import com.sunsta.bear.engine.GlideEngine;
 import com.sunsta.bear.faster.ThreadPool;
+import com.sunsta.bear.faster.ViewUtils;
 import com.sunsta.bear.immersion.RichTextView;
 
 import java.util.concurrent.TimeUnit;
@@ -48,7 +49,6 @@ import io.reactivex.disposables.Disposable;
  * <br>邮件Email：qyddai@gmail.com
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
- *
  * @author sunst // sunst0069
  * @version 1.0 |   2018/02/12           |   提供一个INABar兼容之前an-aw-base框架的布局。
  * @link 知乎主页： https://zhihu.com/people/qydq
@@ -393,13 +393,14 @@ public class INABarLayout extends RelativeLayout {
     @SuppressLint("ResourceType")
     private void parseStyle(@NonNull TypedArray ta) {
         /*base_simple*/
-        if (!TextUtils.isEmpty(title)) {
+
+        if (title != null) {
             setTitle(title);
         }
-        if (!TextUtils.isEmpty(tvRight)) {
+        if (tvRight != null) {
             setRightTx(tvRight);
         }
-        if (!TextUtils.isEmpty(txBack)) {
+        if (txBack != null) {
             setBackTx(txBack);
         }
         //只有配置了reLayout属性才会去重新计算bar控件图标的大小
@@ -438,11 +439,18 @@ public class INABarLayout extends RelativeLayout {
         if (ananIndeterminateTint != 0 && ananIndeterminateTint != -1) {
             setIndeterminateTint(ananIndeterminateTint);
         }
-        if (!TextUtils.isEmpty(tvRRight)) {
+        if (tvRRight != null) {
             setRRightTx(tvRRight);
+        }
+        setVisibleRightTx(visibleRightTx);
+        if (openComplex) {
+            setVisibleRRightTx(visibleRRightTx);
         }
         if (null != rrightDrawable) {
             anRightIvB.setImageDrawable(rrightDrawable);
+        }
+        if (null != rightDrawable) {
+            anRightIvA.setImageDrawable(rightDrawable);
         }
         setRightIvVisibility(visibleRightIv);
         setRRightIvVisibility(visibleRRightIv);
@@ -459,9 +467,13 @@ public class INABarLayout extends RelativeLayout {
         int anBackIvWidth = ta.getDimensionPixelSize(R.styleable.INABarLayout_anIvBackWidth, (int) getResources().getDimension(R.dimen.an_ivbar_width));
         anBackIv.setLayoutParams(new LayoutParams(anBackIvWidth, anBackIvWidth));
         int anRightIvWidth = ta.getDimensionPixelSize(R.styleable.INABarLayout_anIvRightWidth, 10);
-        anRightIv.setLayoutParams(new LayoutParams(anRightIvWidth, anRightIvWidth));
-        int anRRightIvWidth = ta.getDimensionPixelSize(R.styleable.INABarLayout_anIvRRightWidth, 10);
-        anRightIvB.setLayoutParams(new LayoutParams(anRRightIvWidth, anRRightIvWidth));
+        if (openComplex) {
+            int anRRightIvWidth = ta.getDimensionPixelSize(R.styleable.INABarLayout_anIvRRightWidth, 10);
+            anRightIvB.setLayoutParams(new LayoutParams(anRRightIvWidth, anRRightIvWidth));
+            anRightIvA.setLayoutParams(new LayoutParams(anRightIvWidth, anRightIvWidth));
+        } else {
+            anRightIv.setLayoutParams(new LayoutParams(anRightIvWidth, anRightIvWidth));
+        }
     }
 
     public void openbackOpp(boolean open_backOpp) {
@@ -506,7 +518,7 @@ public class INABarLayout extends RelativeLayout {
 
     public void setVisibleRRightTx(int visibleRRightTx) {
         this.visibleRRightTx = visibleRRightTx;
-        setRRightTxVisibility(visibleRightTx);
+        setRRightTxVisibility(visibleRRightTx);
     }
 
     public void setBackIvResource(@DrawableRes int resId) {
@@ -518,7 +530,11 @@ public class INABarLayout extends RelativeLayout {
     }
 
     public void setRightIvResource(@DrawableRes int resId) {
-        anRightIv.setImageResource(resId);
+        if (openComplex) {
+            anRightIvA.setImageResource(resId);
+        } else {
+            anRightIv.setImageResource(resId);
+        }
     }
 
     public void setRRightIvResource(@DrawableRes int resId) {
@@ -649,16 +665,7 @@ public class INABarLayout extends RelativeLayout {
 //                        anCenterPb2.setBackgroundResource(drawableRes);
                     GlideEngine.getInstance().loadImage(drawableRes, R.drawable.in_selector_loading, anCenterPb2);
                 } else {
-                    Drawable loadingDrawable = anCenterPb2.getDrawable();
-                    if (null != loadingDrawable) {
-                        animationDrawable = (AnimationDrawable) loadingDrawable;
-                        if (animationDrawable.isRunning()) {
-                            animationDrawable.stop();
-                        }
-                        if (!animationDrawable.isRunning()) {
-                            animationDrawable.start();
-                        }
-                    }
+                    animationDrawable = ViewUtils.getInstance().rotateIvFrame(anCenterPb2);
                 }
             }
             if (anTxPb2 != null && !TextUtils.isEmpty(pbTxt)) {
@@ -727,6 +734,7 @@ public class INABarLayout extends RelativeLayout {
     }
 
     private void setRightTxVisibility(int visibility) {
+        anRightTxA.setVisibility(visibility);
         anRightTx.setVisibility(visibility);
     }
 
@@ -774,6 +782,14 @@ public class INABarLayout extends RelativeLayout {
         RichTextView.setTextColor(anTxPb2, colorId);
     }
 
+    public void setBoldTitle() {
+        RichTextView.setTextBold(anTitleTx);
+    }
+
+    public void setBoldBackTx() {
+        RichTextView.setTextBold(anBackTx);
+    }
+
     public void setTitle(String title) {
         RichTextView.setRichText(anTitleTx, title);
     }
@@ -799,8 +815,8 @@ public class INABarLayout extends RelativeLayout {
         setRightTx(getResources().getString(resId));
     }
 
-    public void setRRightTx(String rightLeftTx) {
-        RichTextView.setRichText(anRightTxB, rightLeftTx);
+    public void setRRightTx(String rrightTx) {
+        RichTextView.setRichText(anRightTxB, rrightTx);
     }
 
     public void setRRightTx(@StringRes int resId) {

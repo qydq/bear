@@ -3,6 +3,7 @@ package com.sunsta.bear.view.activity;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -20,7 +21,7 @@ import com.sunsta.bear.AnConstants;
 import com.sunsta.bear.R;
 import com.sunsta.bear.faster.DataService;
 import com.sunsta.bear.faster.webview.NestedJsWebView;
-import com.sunsta.bear.layout.INABadLayout;
+import com.sunsta.bear.layout.INAStatusLayout;
 import com.sunsta.bear.view.ParallaxActivity;
 
 import static com.sunsta.bear.AnConstants.EXTRA.APP_TITLE;
@@ -41,7 +42,7 @@ public class AliWebActivity extends ParallaxActivity {
     private boolean isErrorOccur = false;
 
     @Override
-    public void initView() {
+    protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.an_activity_web);
         if (getIntent() == null) {
             return;
@@ -77,13 +78,13 @@ public class AliWebActivity extends ParallaxActivity {
                 //用javascript隐藏系统定义的404页面信息;;;显示错误界面
                 if (request.isForMainFrame()) {// 新版本6.0以上，获取当前的网络请求是否是为main frame创建的.
                     isErrorOccur = true;
-                    getInaBadlayout().setLightContent("网页无法打卡，请检查网络设置，\n或者可以尝试点击右上角用浏览器打开.")
-                            .setOnIvClickListener(new INABadLayout.OnIvClickListener() {
+                    getInaStatusLayout().setLightContent("网页无法打卡，请检查网络设置，\n或者可以尝试点击右上角用浏览器打开.")
+                            .setOnIvClickListener(new INAStatusLayout.OnIvClickListener() {
                                 @Override
                                 public void onClick() {
                                     showToast("点击图片");
                                 }
-                            }).trigger(INABadLayout.ErrorState.ERROR);
+                            }).trigger(INAStatusLayout.ErrorState.ERROR);
                     webView.setVisibility(View.GONE);
                     view.setVisibility(View.GONE);
                 }
@@ -100,7 +101,7 @@ public class AliWebActivity extends ParallaxActivity {
                     pg1.setVisibility(View.GONE);//加载完网页进度条消失
                     anPb.setVisibility(View.GONE);
                     if (!isErrorOccur) {
-                        getInaBadlayout().trigger();
+                        getInaStatusLayout().trigger();
                         webView.setVisibility(View.VISIBLE);
                     }
                     tvTip.setVisibility(View.INVISIBLE);

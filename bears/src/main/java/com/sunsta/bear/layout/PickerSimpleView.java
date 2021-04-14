@@ -13,7 +13,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-
 import com.sunsta.bear.R;
 
 import java.util.ArrayList;
@@ -94,8 +93,8 @@ public class PickerSimpleView extends View {
 
     public PickerSimpleView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.InaPickerView);
-        loop = typedArray.getBoolean(R.styleable.InaPickerView_isLoop, loop);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.PickerSimpleView);
+        loop = typedArray.getBoolean(R.styleable.PickerSimpleView_asLoop, loop);
         init();
     }
 
@@ -108,14 +107,15 @@ public class PickerSimpleView extends View {
             mSelectListener.onSelect(mDataList.get(mCurrentSelected));
     }
 
-    public void setData(List<String> datas) {
-        mDataList = datas;
-        mCurrentSelected = datas.size() / 4;
+    public void setData(List<String> data) {
+        mDataList = data;
+        mCurrentSelected = data.size() / 4;
         invalidate();
     }
 
     /**
      * 选择选中的item的index
+     *
      * @param selected
      */
     public void setSelected(int selected) {
@@ -138,6 +138,7 @@ public class PickerSimpleView extends View {
 
     /**
      * 选择选中的内容
+     *
      * @param mSelectItem
      */
     public void setSelected(String mSelectItem) {
@@ -185,7 +186,7 @@ public class PickerSimpleView extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Style.FILL);
         mPaint.setTextAlign(Align.CENTER);
-        mPaint.setColor(getResources().getColor(R.color.an_color_selector_txt_clicked));
+        mPaint.setColor(getResources().getColor(R.color.an_font_middle));
         //第二个paint
         nPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         nPaint.setStyle(Style.FILL);
@@ -246,6 +247,7 @@ public class PickerSimpleView extends View {
 
     /**
      * 抛物线
+     *
      * @param zero 零点坐标
      * @param x    偏移量
      * @return scale
@@ -369,6 +371,7 @@ public class PickerSimpleView extends View {
     /**
      * 新增字段 控制内容是否首尾相连
      * by liuli
+     *
      * @param isLoop
      */
     public void setIsLoop(boolean isLoop) {

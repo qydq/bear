@@ -71,10 +71,10 @@ public class ImageSelectActivity extends HelperActivity {
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.base_image_arrowback_white);
+            actionBar.setHomeAsUpIndicator(R.mipmap.base_image_arrowback_white);
 
             actionBar.setDisplayShowTitleEnabled(true);
-            actionBar.setTitle(R.string.image_view);
+            actionBar.setTitle(R.string.picture_choose_click);
         }
 
         Intent intent = getIntent();
@@ -95,7 +95,7 @@ public class ImageSelectActivity extends HelperActivity {
                     actionMode = ImageSelectActivity.this.startActionMode(callback);
                 }
                 toggleSelection(position);
-                actionMode.setTitle(countSelected + " " + getString(R.string.selected));
+                actionMode.setTitle(countSelected + " " + getString(R.string.picture_selected));
 
                 if (countSelected == 0) {
                     actionMode.finish();
@@ -146,7 +146,7 @@ public class ImageSelectActivity extends HelperActivity {
                              */
                             if (actionMode != null) {
                                 countSelected = msg.arg1;
-                                actionMode.setTitle(countSelected + " " + getString(R.string.selected));
+                                actionMode.setTitle(countSelected + " " + getString(R.string.picture_selected));
                             }
                         }
                         break;
@@ -275,7 +275,7 @@ public class ImageSelectActivity extends HelperActivity {
         if (!images.get(position).isSelected && countSelected >= Constants.limit) {
             Toast.makeText(
                     getApplicationContext(),
-                    String.format(getString(R.string.limit_exceeded), Constants.limit),
+                    String.format(getString(R.string.picture_limit_exceeded), Constants.limit),
                     Toast.LENGTH_SHORT)
                     .show();
             return;

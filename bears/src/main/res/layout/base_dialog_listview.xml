@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/an_dimen_margin_small"
         android:layout_marginRight="@dimen/an_dimen_margin_small"
-        android:background="@drawable/in_drawable_dialog">
+        android:background="@drawable/in_shape_dialog_max">
 
         <TextView
             android:id="@+id/tvDeep"
@@ -35,7 +35,7 @@
 
 
         <!--系统com.soundcloud.android.crop:lib_crop也有这个图片。-->
-        <!--android:button="@drawable/ic_white_done"-->
+        <!--android:button="@mipmap/ic_white_done"-->
         <CheckBox
             android:id="@+id/checkbox"
             style="@style/an_wrap_wrap"

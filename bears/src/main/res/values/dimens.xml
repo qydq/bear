@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="DimenNativeNationalSmall">40dp</dimen><!--类按钮的高度-->
+    <dimen name="DimenNativeNationalSmall">48dp</dimen><!--类按钮的高度-->
     <dimen name="DimenNativeNationalMax">60dp</dimen><!--类按钮的高度-->
 
 
@@ -21,10 +21,10 @@
     <dimen name="an_dimen_stroke_width">0.3dp</dimen>
     <dimen name="an_dimen_line_max">0.5dp</dimen><!--可选-->
     <dimen name="an_dimen_border">1dp</dimen>
-    <dimen name="an_dimen_radius">4dp</dimen>
-    <dimen name="an_dimen_radius_dialog">11dp</dimen>
     <dimen name="an_dimen_radius_progress">2dp</dimen>
-    <dimen name="an_dimen_radius_max">12dp</dimen>
+    <dimen name="an_dimen_radius">4dp</dimen>
+    <dimen name="an_dimen_radius_dialog">10dp</dimen>
+    <dimen name="an_dimen_radius_max">15dp</dimen>
     <dimen name="an_dimen_select_padding">2dp</dimen>
 
     <!--2种高度按钮的距离-->
@@ -87,8 +87,8 @@
     <dimen name="an_dimen_error">20sp</dimen><!--an_font_error-->
     <dimen name="an_dimen_error2">15sp</dimen><!--an_font_error-->
 
-    <dimen name="anBarTextDimen">13sp</dimen>
-    <dimen name="anBarLightTextDimen">@dimen/an_dimen_middle</dimen>
+    <dimen name="anBarTextDimen">@dimen/an_font_level2</dimen>
+    <dimen name="anBarLightTextDimen">@dimen/an_font_level3</dimen>
     <dimen name="anDeepTextDimen">15sp</dimen><!--an_font_title-->
     <dimen name="anTextDimen">14sp</dimen><!--an_font_content--><!--文本常用-->
     <dimen name="anLightTextDimen">13sp</dimen><!--an_font_tips-->

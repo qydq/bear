@@ -3,7 +3,6 @@ package com.sunsta.bear.faster;
 import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Layout;
@@ -159,13 +158,13 @@ public class LoadingDialog {
             }
         }
         if (config.getDialogClassify() == 1) {
-            view = ViewUtils.getInflaterView(activity, R.layout.base_dialog_loading_standard);
+            view = ViewUtils.getInstance().getInflaterView(activity, R.layout.base_dialog_loading_standard);
         } else if (config.getDialogClassify() == 2) {
-            view = ViewUtils.getInflaterView(activity, R.layout.base_dialog_loading_animation);
+            view = ViewUtils.getInstance().getInflaterView(activity, R.layout.base_dialog_loading_animation);
         } else if (config.getDialogClassify() == 3) {
-            view = ViewUtils.getInflaterView(activity, R.layout.base_dialog_loading_progressbar);
+            view = ViewUtils.getInstance().getInflaterView(activity, R.layout.base_dialog_loading_progressbar);
         } else {
-            view = ViewUtils.getInflaterView(activity, R.layout.item_dialog_loading);
+            view = ViewUtils.getInstance().getInflaterView(activity, R.layout.item_dialog_loading);
         }
         mActivity = activity;
         builder.setView(view);
@@ -219,14 +218,14 @@ public class LoadingDialog {
                     if (config.getBackgroundFrame() != 0) {
                         action1.setBackgroundResource(config.getBackgroundFrame());
                     } else {
-                        action1.setBackgroundResource(R.drawable.in_shape_dialog_progress);
+                        action1.setBackgroundResource(R.drawable.in_shape_dialog);
                     }
                 }
             } else {
                 if (config.getBackgroundFrame() != 0) {
                     frameLayout.setBackgroundResource(config.getBackgroundFrame());
                 } else {
-                    frameLayout.setBackgroundResource(R.drawable.in_shape_dialog_progress);
+                    frameLayout.setBackgroundResource(R.drawable.in_shape_dialog);
                 }
             }
             if (!config.isRandomColor()) {
@@ -294,13 +293,7 @@ public class LoadingDialog {
                 action1.setLayoutParams(params3);
             }
         } else if (config.getDialogClassify() == 2) {
-            Drawable loadingDrawable = ivPrimary.getDrawable();
-            if (null != loadingDrawable) {
-                animationDrawable = (AnimationDrawable) loadingDrawable;
-                if (!animationDrawable.isRunning()) {
-                    animationDrawable.start();
-                }
-            }
+            animationDrawable = ViewUtils.getInstance().rotateIvFrame(ivPrimary);
         }
         String content = tvProgress.getText().toString().trim();
         if (TextUtils.isEmpty(content)) {
@@ -606,7 +599,7 @@ public class LoadingDialog {
     }
 
     public static void showConfimDialog(Activity activity, String content, boolean cancelble, OnSmartClickListener<String> onSmartClickRightListener) {
-        systemConfimDialog(activity, content, activity.getString(R.string.picture_cancel), activity.getString(R.string.picture_confirm), cancelble, onSmartClickRightListener);
+        systemConfimDialog(activity, content, activity.getString(R.string.an_cancel), activity.getString(R.string.an_confirm), cancelble, onSmartClickRightListener);
     }
 
     /**
@@ -663,7 +656,7 @@ public class LoadingDialog {
         dialog = new Dialog(activity, R.style.an_dialog);
         dialog.setCancelable(config.isCancelable());
         dialog.show();
-        View view = ViewUtils.getInflaterView(activity, R.layout.base_dialog_confirm);
+        View view = ViewUtils.getInstance().getInflaterView(activity, R.layout.base_dialog_confirm);
         dialog.setContentView(view);
         /*
          * 检查content是否有内容，如果有内容显示出来，否则限制progressbar
@@ -673,6 +666,7 @@ public class LoadingDialog {
         View patchView1 = view.findViewById(R.id.patchView1);
         View patchView2 = view.findViewById(R.id.patchView2);
         LinearLayout llProgress = view.findViewById(R.id.llProgress);
+        LinearLayout actionL0 = view.findViewById(R.id.actionL0);
         llBottom = view.findViewById(R.id.llBottom);
         ivCancle = view.findViewById(R.id.ivCancle);
         Button btnRight = view.findViewById(R.id.btnRight);
@@ -696,9 +690,17 @@ public class LoadingDialog {
             patchView1.setVisibility(View.GONE);
             patchView2.setVisibility(View.VISIBLE);
         }
-
+        if (config.getGravity() == Gravity.BOTTOM) {
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) actionL0.getLayoutParams();
+            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, R.id.actionL0);
+            actionL0.setLayoutParams(params);
+        }
         ivCancle.setOnClickListener(v -> dismiss());
-
+        frameLayout.setOnClickListener(v -> {
+            if (config.isCancelable()) {
+                dismiss();
+            }
+        });
         if (config.getRightIvResouce() != 0) {
             ivCancle.setVisibility(View.VISIBLE);
             ivCancle.setImageResource(config.getRightIvResouce());
@@ -715,6 +717,15 @@ public class LoadingDialog {
         } else {
             btnRight.setBackgroundResource(R.drawable.in_selector_dialog_right);
         }
+
+        if (config.getMaxLine() != 0) {
+            tvText.setMaxLines(config.getMaxLine());
+        }
+        if (config.getContentGravity() != 0) {
+            tvText.setGravity(config.getContentGravity());
+        } else {
+            tvText.setGravity(Gravity.CENTER_HORIZONTAL);
+        }
         if (config.getType() == 0) {
             llProgress.setVisibility(View.GONE);
             tvText.setVisibility(View.VISIBLE);
@@ -724,7 +735,7 @@ public class LoadingDialog {
                 if (config.getRightBackground() != 0) {
                     btnRight.setBackgroundResource(config.getRightBackground());
                 } else {
-                    btnRight.setBackgroundResource(R.drawable.in_selector_dialog);
+                    btnRight.setBackgroundResource(R.drawable.in_selector_dialog_center);
                 }
             } else {
                 btnLeft.setVisibility(View.VISIBLE);
@@ -758,13 +769,13 @@ public class LoadingDialog {
             mProgress = view.findViewById(R.id.innerProgressBar);
             ivCancle.setOnClickListener(v -> dismiss());
             btnLeft.setVisibility(View.GONE);
-            btnRight.setBackgroundResource(R.drawable.in_selector_dialog);
+            btnRight.setBackgroundResource(R.drawable.in_selector_dialog_center);
             if (config.getType() == 1) {
                 if (TextUtils.isEmpty(config.getRightBtnText()) && TextUtils.isEmpty(config.getLeftBtnContext())) {
                 }
                 llBottom.setVisibility(View.GONE);
             } else {
-                btnRight.setBackgroundResource(R.drawable.in_selector_dialog);
+                btnRight.setBackgroundResource(R.drawable.in_selector_dialog_center);
                 btnRight.setText("暂停");
                 btnRight.setOnClickListener(v -> {
                     if (onSmartClickRightListener != null) {

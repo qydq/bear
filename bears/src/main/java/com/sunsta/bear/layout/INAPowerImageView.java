@@ -28,6 +28,7 @@ import java.lang.reflect.Field;
  * <br>邮件Email：qyddai@gmail.com
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
+ *
  * @author sunst // sunst0069
  * @version 1.0 |   2016/04/28           |   PowerImageView。
  */
@@ -65,6 +66,7 @@ public class INAPowerImageView extends AppCompatImageView implements View.OnClic
 
     /**
      * PowerImageView构造函数。
+     *
      * @param context
      */
     public INAPowerImageView(Context context) {
@@ -73,6 +75,7 @@ public class INAPowerImageView extends AppCompatImageView implements View.OnClic
 
     /**
      * PowerImageView构造函数。
+     *
      * @param context
      */
     public INAPowerImageView(Context context, AttributeSet attrs) {
@@ -82,6 +85,7 @@ public class INAPowerImageView extends AppCompatImageView implements View.OnClic
 
     /**
      * PowerImageView构造函数，在这里完成所有必要的初始化操作。
+     *
      * @param context
      */
     public INAPowerImageView(Context context, AttributeSet attrs, int defStyle) {
@@ -95,14 +99,14 @@ public class INAPowerImageView extends AppCompatImageView implements View.OnClic
             mMovie = Movie.decodeStream(is);
             if (mMovie != null) {
 // 如果返回值不等于null，就说明这是一个GIF图片，下面获取是否自动播放的属性
-                isAutoPlay = a.getBoolean(R.styleable.INAPowerImageView_auto_play, false);
+                isAutoPlay = a.getBoolean(R.styleable.INAPowerImageView_asPowerAuto, false);
                 Bitmap bitmap = BitmapFactory.decodeStream(is);
                 mImageWidth = bitmap.getWidth();
                 mImageHeight = bitmap.getHeight();
                 bitmap.recycle();
                 if (!isAutoPlay) {
 // 当不允许自动播放的时候，得到开始播放按钮的图片，并注册点击事件
-                    mStartButton = BitmapFactory.decodeResource(getResources(), R.drawable.base_image_music_play);
+                    mStartButton = BitmapFactory.decodeResource(getResources(), R.mipmap.base_image_music_play);
                     setOnClickListener(this);
                 }
             }
@@ -163,6 +167,7 @@ public class INAPowerImageView extends AppCompatImageView implements View.OnClic
 
     /**
      * 开始播放GIF动画，播放完成返回true，未完成返回false。
+     *
      * @param canvas
      * @return 播放完成返回true，未完成返回false。
      */
@@ -189,6 +194,7 @@ public class INAPowerImageView extends AppCompatImageView implements View.OnClic
 
     /**
      * 通过Java反射，获取到src指定图片资源所对应的id。
+     *
      * @param a
      * @param context
      * @param attrs

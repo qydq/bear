@@ -75,7 +75,7 @@ public class ParallaxBackLayout extends FrameLayout {
     public ParallaxBackLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs);
         mDragHelper = ViewDragHelper.create(this, new ViewDragCallback());
-        mShadowLeft = getResources().getDrawable(R.drawable.base_bg_shadow_swipe_left);
+        mShadowLeft = getResources().getDrawable(R.mipmap.base_bg_shadow_swipe_left);
     }
 
 

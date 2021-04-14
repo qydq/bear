@@ -49,7 +49,7 @@ import static com.sunsta.bear.view.recyclerview.recyclerview.ProgressStyle.Trian
 
 public class LoadingIndicatorView extends View {
 
-    private static final String TAG = "AVLoadingIndicatorView";
+    private static final String TAG = "LoadingIndicatorView";
 
     private static final BallPulseIndicator DEFAULT_INDICATOR = new BallPulseIndicator();
 
@@ -126,12 +126,12 @@ public class LoadingIndicatorView extends View {
         final TypedArray a = context.obtainStyledAttributes(
                 attrs, R.styleable.LoadingIndicatorView, defStyleAttr, defStyleRes);
 
-        mMinWidth = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_minWidth, mMinWidth);
-        mMaxWidth = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_maxWidth, mMaxWidth);
-        mMinHeight = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_minHeight, mMinHeight);
-        mMaxHeight = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_maxHeight, mMaxHeight);
-        String indicatorName = a.getString(R.styleable.LoadingIndicatorView_indicatorName);
-        mIndicatorColor = a.getColor(R.styleable.LoadingIndicatorView_indicatorColor, getResources().getColor(R.color.colorAccent));
+        mMinWidth = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_anLdidcMinWidth, mMinWidth);
+        mMaxWidth = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_anLdidcMaxWidth, mMaxWidth);
+        mMinHeight = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_anLdidcMinHeight, mMinHeight);
+        mMaxHeight = a.getDimensionPixelSize(R.styleable.LoadingIndicatorView_anLdidcMaxHeight, mMaxHeight);
+        String indicatorName = a.getString(R.styleable.LoadingIndicatorView_anLdidcName);
+        mIndicatorColor = a.getColor(R.styleable.LoadingIndicatorView_anLdidcColor, getResources().getColor(R.color.colorAccent));
         setIndicator(indicatorName);
         if (mIndicator == null) {
             setIndicator(DEFAULT_INDICATOR);

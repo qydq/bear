@@ -153,17 +153,15 @@ public class SwipeMenuView extends ViewGroup {
         for (int i = 0; i < count; i++) {
             int attr = ta.getIndex(i);
             //如果引用成AndroidLib 资源都不是常量，无法使用switch case
-            if (attr == R.styleable.SwipeMenuView_swipeEnable) {
+            if (attr == R.styleable.SwipeMenuView_anSwipeEnable) {
                 isSwipeEnable = ta.getBoolean(attr, true);
-            } else if (attr == R.styleable.SwipeMenuView_ios) {
+            } else if (attr == R.styleable.SwipeMenuView_asiOS) {
                 isIos = ta.getBoolean(attr, true);
-            } else if (attr == R.styleable.SwipeMenuView_leftSwipe) {
+            } else if (attr == R.styleable.SwipeMenuView_anLeftSwipe) {
                 isLeftSwipe = ta.getBoolean(attr, true);
             }
         }
         ta.recycle();
-
-
     }
 
     @Override

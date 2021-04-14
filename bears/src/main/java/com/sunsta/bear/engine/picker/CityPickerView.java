@@ -23,6 +23,7 @@ import java.util.ArrayList;
  * <br>邮件email：qyddai@gmail.com
  * <br>个人Github：https://qydq.github.io
  * <p>--#---- Revision History:  --- >  : |version|date|updateinfo|----#--
+ *
  * @author sunst
  * @version 1.0 |   2016/4/9           |   城市选择器
  * @link 知乎主页： https://zhihu.com/people/qydq
@@ -54,19 +55,16 @@ public class CityPickerView extends TermPickerView {
         setPicker(mListProvince, mListCity, mListArea, true);
         setCyclic(false, false, false);
         setSelectOptions(0, 0, 0);
-        setOnOptionsSelectListener(new OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int option1, int option2, int option3) {
-                if (mOnCitySelectListener != null) {
-                    if (mListCity.size() > option1 && mListCity.get(option1).size() > option2) {
-                        if (mListArea.size() > option1 && mListArea.get(option1).size() > option2
-                                && mListArea.get(option1).get(option2).size() > option3) {
-                            String prov = mListProvince.get(option1);
-                            String city = mListCity.get(option1).get(option2);
-                            String area = mListArea.get(option1).get(option2).get(option3);
-                            mOnCitySelectListener.onCitySelect(prov.concat(city).concat(area));
-                            mOnCitySelectListener.onCitySelect(prov, city, area);
-                        }
+        setOnOptionsSelectListener((option1, option2, option3) -> {
+            if (mOnCitySelectListener != null) {
+                if (mListCity.size() > option1 && mListCity.get(option1).size() > option2) {
+                    if (mListArea.size() > option1 && mListArea.get(option1).size() > option2
+                            && mListArea.get(option1).get(option2).size() > option3) {
+                        String prov = mListProvince.get(option1);
+                        String city = mListCity.get(option1).get(option2);
+                        String area = mListArea.get(option1).get(option2).get(option3);
+                        mOnCitySelectListener.onCitySelect(prov.concat(city).concat(area));
+                        mOnCitySelectListener.onCitySelect(prov, city, area);
                     }
                 }
             }

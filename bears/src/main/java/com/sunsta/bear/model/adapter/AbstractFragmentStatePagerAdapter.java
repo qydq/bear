@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.sunsta.bear.faster.DataService;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -41,7 +42,7 @@ public abstract class AbstractFragmentStatePagerAdapter extends FragmentStatePag
     public AbstractFragmentStatePagerAdapter(FragmentManager fm, List<Fragment> fragments, String[] titles, int behaviorResumeOnlyCurrentFragment) {
         super(fm, behaviorResumeOnlyCurrentFragment);
         this.fragments = fragments;
-        this.titles = Arrays.asList(titles);
+        this.titles = DataService.getInstance().transferArrayToList(titles);
     }
 
     // Register the fragment when the item is instantiated

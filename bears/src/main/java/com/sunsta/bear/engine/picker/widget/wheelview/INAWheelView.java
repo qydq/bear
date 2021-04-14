@@ -35,6 +35,7 @@ import java.util.concurrent.TimeUnit;
  * <br>邮件email：qyddai@gmail.com
  * <br>个人Github：https://qydq.github.io
  * <p>--#---- Revision History:  --- >  : |version|date|updateinfo|----#--
+ *
  * @author sunst
  * @version 1.0 |   2015/11/22           |   3d滚轮控件
  * @link 知乎主页： https://zhihu.com/people/qydq
@@ -131,11 +132,11 @@ public class INAWheelView extends View {
         textSize = getResources().getDimensionPixelSize(R.dimen.an_dimen_level1);
         if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.INAWheelView, 0, 0);
-            mGravity = a.getInt(R.styleable.INAWheelView_wheel_gravity, Gravity.CENTER);
-            textColorOut = a.getColor(R.styleable.INAWheelView_wheelview_textColorOut, textColorOut);
-            textColorCenter = a.getColor(R.styleable.INAWheelView_wheelview_textColorCenter, textColorCenter);
-            dividerColor = a.getColor(R.styleable.INAWheelView_wheelview_dividerColor, dividerColor);
-            textSize = a.getDimensionPixelOffset(R.styleable.INAWheelView_wheelview_textSize, textSize);
+            mGravity = a.getInt(R.styleable.INAWheelView_anWheelGravity, Gravity.CENTER);
+            textColorOut = a.getColor(R.styleable.INAWheelView_anWheelTextColorOut, textColorOut);
+            textColorCenter = a.getColor(R.styleable.INAWheelView_anWheelTextColorCenter, textColorCenter);
+            dividerColor = a.getColor(R.styleable.INAWheelView_anWheelDividerColor, dividerColor);
+            textSize = a.getDimensionPixelOffset(R.styleable.INAWheelView_anWheelTextSize, textSize);
             a.recycle();
         }
         initLoopView(context);
@@ -259,6 +260,7 @@ public class INAWheelView extends View {
 
     /**
      * 设置是否循环滚动
+     *
      * @param cyclic 是否循环
      */
     public final void setCyclic(boolean cyclic) {
@@ -459,6 +461,7 @@ public class INAWheelView extends View {
 
     /**
      * 根据传进来的对象获取getPickerViewText()方法，来获取需要显示的值
+     *
      * @param item 数据源的item
      * @return 对应显示的字符串
      */
@@ -570,6 +573,7 @@ public class INAWheelView extends View {
 
     /**
      * 获取Item个数
+     *
      * @return item个数
      */
     public int getItemsCount() {
@@ -578,6 +582,7 @@ public class INAWheelView extends View {
 
     /**
      * 附加在右边的单位字符串
+     *
      * @param label 单位
      */
     public void setLabel(String label) {

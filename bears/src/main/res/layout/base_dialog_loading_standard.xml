@@ -21,7 +21,7 @@
                 android:id="@+id/ivPrimary"
                 style="@style/an_iv.Loading"
                 android:padding="@dimen/an_dimen_padding_left"
-                android:src="@drawable/ic_white_progress" />
+                android:src="@mipmap/ic_white_progress" />
 
             <TextView
                 android:id="@+id/tvText"

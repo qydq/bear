@@ -1,9 +1,13 @@
 package com.sunsta.bear.entity;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+
 import androidx.annotation.DimenRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
+import com.sunsta.bear.model.LevelMode;
 import com.sunsta.bear.model.adapter.BarrageDataAdapter;
 
 import java.io.Serializable;
@@ -35,12 +39,13 @@ public class Barrage implements Serializable {
     private int primaryIvId;//ivPrimary 's head resource , default value is 0
     private int markIvId;//ivMark 's head resource , default value is 0
     private int circleIvId;//ivCircle 's head resource , default value is 0
-    private int gifIvId;//ivCircle 's head resource , default value is 0
+    private int gifIvId;//gifIvId 's head resource , default value is 0
+    private int gifIvId2;//gifIvId 's head resource , default value is 0
+    private int gifIvId3;//gifIvId 's head resource , default value is 0
     private String primaryLink;//ivPrimary's head resource , （primaryIvId, link is firstly
     private String lightLink;//ivLight's head resource , （lightIvId, link is firstly
     private String markLink;//ivMark's head resource , （markIvId, link is firstly
     private String circleLink;//ivCircle's head resource , （markIvId, link is firstly
-    private int hoverTime = 0;//the hoverTime is when barrage fly in screen size hoverTime start ,defalt value is 0
 
     private int textPrimaryColor;//the barrage main text color , also it can be selector list
     private int textLightColor = 0;//the barrage main text color , it can be selector list
@@ -49,27 +54,54 @@ public class Barrage implements Serializable {
 
     @DimenRes
     private int barrageHeight = 0;//the barrageHeight
-
+    private int barrageSpeed = 0;//the barrageSpeed
     @LayoutRes
     private int barrageLayout = 0;//the barragelayout ,default 0 is default layout
     private int ivPrimaryRadius = 10;//default is 10
-    private long barrageHoverSpeed = 0;//default is 0,only in hoverTime，the value is ok
 
     private int patchBarrageWidth = 0;// if fillBarrageWidth is true ,you can use patchBarrageWidth fix some width space, dp unite
     private String userName;//save name
     private String type;//the barrage type refs this:BarrageType.IMAGE_TEXT
+    private boolean fillBarrageWidth = false;//filling barrage with primary content size
+    private boolean fillGifWidth = false;//filling barrage with ivGif content size
+    private boolean accelerate = false;//accelerate Interpolator use of barrage
+    private boolean barrageFloat = false;//hover recoil only when set barrageHover time
+    private long floatSpeed = 0L;//default is 0,only in floatTime，the value is ok
+    private int floatTime = 0;//the floatTime is when barrage fly in screen size floatTime start ,defalt value is 0
+    private float floatTransX = 0f;//the floattransX when barrage float the distance
+    private ValueAnimator barrageAnimator = null;//the barrage valueanimator
+    private ObjectAnimator floatAnimator = null;//the animator use in float animator
+
 
     /**
      * save level data ，this can use more info tips
      */
-    private String level1;
-    private String level2;
-    private String level3;
-    private String level4;
-    private boolean fillBarrageWidth = false;//filling barrage with primary content size
-    private boolean fillGifWidth = false;//filling barrage with ivGif content size
-    private boolean accelerate = false;//accelerate Interpolator use of barrage
-    private boolean hoverRecoil = false;//hover recoil only when set barrageHover time
+    private LevelMode level;
+
+    public ObjectAnimator getFloatAnimator() {
+        return floatAnimator;
+    }
+
+    public void setFloatAnimator(ObjectAnimator floatAnimator) {
+        this.floatAnimator = floatAnimator;
+    }
+
+    public float getFloatTransX() {
+        return floatTransX;
+    }
+
+    public void setFloatTransX(float floatTransX) {
+        this.floatTransX = floatTransX;
+    }
+
+
+    public ValueAnimator getBarrageAnimator() {
+        return barrageAnimator;
+    }
+
+    public void setBarrageAnimator(ValueAnimator barrageValueAnimator) {
+        this.barrageAnimator = barrageValueAnimator;
+    }
 
     public boolean isFillBarrageWidth() {
         return fillBarrageWidth;
@@ -93,6 +125,14 @@ public class Barrage implements Serializable {
 
     public void setTextPrimarySize(@DimenRes int textPrimarySize) {
         this.textPrimarySize = textPrimarySize;
+    }
+
+    public int getBarrageSpeed() {
+        return barrageSpeed;
+    }
+
+    public void setBarrageSpeed(int barrageSpeed) {
+        this.barrageSpeed = barrageSpeed;
     }
 
     public int getMarkBackground() {
@@ -135,20 +175,20 @@ public class Barrage implements Serializable {
         this.patchBarrageWidth = patchBarrageWidth;
     }
 
-    public boolean isHoverRecoil() {
-        return hoverRecoil;
+    public boolean isFloat() {
+        return barrageFloat;
     }
 
-    public void setHoverRecoil(boolean hoverRecoil) {
-        this.hoverRecoil = hoverRecoil;
+    public void setBarrageFloat(boolean barrageFloat) {
+        this.barrageFloat = barrageFloat;
     }
 
-    public long getBarrageHoverSpeed() {
-        return barrageHoverSpeed;
+    public long getBarrageFloatSpeed() {
+        return floatSpeed;
     }
 
-    public void setBarrageHoverSpeed(long barrageHoverSpeed) {
-        this.barrageHoverSpeed = barrageHoverSpeed;
+    public void setBarrageFloatSpeed(long barrageHoverSpeed) {
+        this.floatSpeed = barrageHoverSpeed;
     }
 
     public int getBackground() {
@@ -175,36 +215,12 @@ public class Barrage implements Serializable {
         this.textLightColor = textLightColor;
     }
 
-    public String getLevel4() {
-        return level4;
+    public LevelMode getLevel() {
+        return level;
     }
 
-    public void setLevel4(String level4) {
-        this.level4 = level4;
-    }
-
-    public String getLevel1() {
-        return level1;
-    }
-
-    public void setLevel1(String level1) {
-        this.level1 = level1;
-    }
-
-    public String getLevel2() {
-        return level2;
-    }
-
-    public void setLevel2(String level2) {
-        this.level2 = level2;
-    }
-
-    public String getLevel3() {
-        return level3;
-    }
-
-    public void setLevel3(String level3) {
-        this.level3 = level3;
+    public void setLevel(LevelMode level) {
+        this.level = level;
     }
 
     public Barrage(String type) {
@@ -217,12 +233,12 @@ public class Barrage implements Serializable {
         this.type = type;
     }
 
-    public int getHoverTime() {
-        return hoverTime;
+    public int getFloatTime() {
+        return floatTime;
     }
 
-    public void setHoverTime(int hoverTime) {
-        this.hoverTime = hoverTime;
+    public void setFloatTime(int hoverTime) {
+        this.floatTime = hoverTime;
     }
 
     public Barrage(int id, @NonNull String content) {
@@ -299,6 +315,23 @@ public class Barrage implements Serializable {
 
     public void setGifIvId(int gifIvId) {
         this.gifIvId = gifIvId;
+    }
+
+    public int getGifIvId2() {
+        return gifIvId2;
+    }
+
+    public void setGifIvId2(int gifIvId2) {
+        this.gifIvId2 = gifIvId2;
+    }
+
+
+    public int getGifIvId3() {
+        return gifIvId3;
+    }
+
+    public void setGifIvId3(int gifIvId3) {
+        this.gifIvId3 = gifIvId3;
     }
 
     public String getLightLink() {

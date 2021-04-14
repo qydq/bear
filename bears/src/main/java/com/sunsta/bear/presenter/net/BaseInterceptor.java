@@ -2,8 +2,9 @@ package com.sunsta.bear.presenter.net;
 
 import android.text.TextUtils;
 
+import androidx.multidex.BuildConfig;
+
 import com.google.gson.Gson;
-import com.sunsta.bear.BuildConfig;
 
 import java.io.IOException;
 import java.util.List;

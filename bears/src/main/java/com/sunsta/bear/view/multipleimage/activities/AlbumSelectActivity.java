@@ -68,10 +68,10 @@ public class AlbumSelectActivity extends HelperActivity {
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.base_image_arrowback_white);
+            actionBar.setHomeAsUpIndicator(R.mipmap.base_image_arrowback_white);
 
             actionBar.setDisplayShowTitleEnabled(true);
-            actionBar.setTitle(R.string.album_view);
+            actionBar.setTitle(R.string.picture_select_image);
         }
 
         Intent intent = getIntent();

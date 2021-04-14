@@ -44,7 +44,7 @@ public class RoundBackgroundColorSpan1 extends ReplacementSpan {
 //画圆角矩形背景
         float topRect = top + ScreenUtils.px2dp(3);
         float rightRect = x + ((int) paint.measureText(text, start, end) + ScreenUtils.px2dp(16));
-        float bottomRect = top + ScreenUtils.dip2px(24);
+        float bottomRect = top + ScreenUtils.dip2px(23);
         RectF rectF = new RectF(x, topRect, rightRect, bottomRect);
         canvas.drawRoundRect(rectF, ScreenUtils.px2dp(radius == 0 ? 27 : radius), ScreenUtils.px2dp(radius == 0 ? 27 : radius), paint);
         paint.setColor(this.textColor);

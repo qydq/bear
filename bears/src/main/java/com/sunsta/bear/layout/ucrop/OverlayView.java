@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Region;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -566,18 +565,18 @@ public class OverlayView extends View {
      */
     @SuppressWarnings("deprecation")
     protected void processStyledAttributes(@NonNull TypedArray a) {
-        mCircleDimmedLayer = a.getBoolean(R.styleable.ucrop_UCropView_ucrop_circle_dimmed_layer, DEFAULT_CIRCLE_DIMMED_LAYER);
-        mDimmedColor = a.getColor(R.styleable.ucrop_UCropView_ucrop_dimmed_color,
+        mCircleDimmedLayer = a.getBoolean(R.styleable.INAUCropView_asUcropCircleDimmedLayer, DEFAULT_CIRCLE_DIMMED_LAYER);
+        mDimmedColor = a.getColor(R.styleable.INAUCropView_anUcropDimmedColor,
                 getResources().getColor(R.color.ucrop_color_default_dimmed));
         mDimmedStrokePaint.setColor(mDimmedBorderColor);
         mDimmedStrokePaint.setStyle(Paint.Style.STROKE);
         mDimmedStrokePaint.setStrokeWidth(mStrokeWidth);
 
         initCropFrameStyle(a);
-        mShowCropFrame = a.getBoolean(R.styleable.ucrop_UCropView_ucrop_show_frame, DEFAULT_SHOW_CROP_FRAME);
+        mShowCropFrame = a.getBoolean(R.styleable.INAUCropView_asUcropFrame, DEFAULT_SHOW_CROP_FRAME);
 
         initCropGridStyle(a);
-        mShowCropGrid = a.getBoolean(R.styleable.ucrop_UCropView_ucrop_show_grid, DEFAULT_SHOW_CROP_GRID);
+        mShowCropGrid = a.getBoolean(R.styleable.INAUCropView_asUcropGrid, DEFAULT_SHOW_CROP_GRID);
     }
 
     /**
@@ -585,9 +584,9 @@ public class OverlayView extends View {
      */
     @SuppressWarnings("deprecation")
     private void initCropFrameStyle(@NonNull TypedArray a) {
-        int cropFrameStrokeSize = a.getDimensionPixelSize(R.styleable.ucrop_UCropView_ucrop_frame_stroke_size,
+        int cropFrameStrokeSize = a.getDimensionPixelSize(R.styleable.INAUCropView_anUcropFrameStrokeSize,
                 getResources().getDimensionPixelSize(R.dimen.ucrop_default_crop_frame_stoke_width));
-        int cropFrameColor = a.getColor(R.styleable.ucrop_UCropView_ucrop_frame_color,
+        int cropFrameColor = a.getColor(R.styleable.INAUCropView_anUcropFrameColor,
                 getResources().getColor(R.color.ucrop_color_default_crop_frame));
         mCropFramePaint.setStrokeWidth(cropFrameStrokeSize);
         mCropFramePaint.setColor(cropFrameColor);
@@ -603,15 +602,15 @@ public class OverlayView extends View {
      */
     @SuppressWarnings("deprecation")
     private void initCropGridStyle(@NonNull TypedArray a) {
-        int cropGridStrokeSize = a.getDimensionPixelSize(R.styleable.ucrop_UCropView_ucrop_grid_stroke_size,
+        int cropGridStrokeSize = a.getDimensionPixelSize(R.styleable.INAUCropView_anUcropGridStrokeSize,
                 getResources().getDimensionPixelSize(R.dimen.ucrop_default_crop_grid_stoke_width));
-        int cropGridColor = a.getColor(R.styleable.ucrop_UCropView_ucrop_grid_color,
+        int cropGridColor = a.getColor(R.styleable.INAUCropView_anUcropGridColor,
                 getResources().getColor(R.color.ucrop_color_default_crop_grid));
         mCropGridPaint.setStrokeWidth(cropGridStrokeSize);
         mCropGridPaint.setColor(cropGridColor);
 
-        mCropGridRowCount = a.getInt(R.styleable.ucrop_UCropView_ucrop_grid_row_count, DEFAULT_CROP_GRID_ROW_COUNT);
-        mCropGridColumnCount = a.getInt(R.styleable.ucrop_UCropView_ucrop_grid_column_count, DEFAULT_CROP_GRID_COLUMN_COUNT);
+        mCropGridRowCount = a.getInt(R.styleable.INAUCropView_anUcropGridRowCount, DEFAULT_CROP_GRID_ROW_COUNT);
+        mCropGridColumnCount = a.getInt(R.styleable.INAUCropView_anUcropGridColumnCount, DEFAULT_CROP_GRID_COLUMN_COUNT);
     }
 
 

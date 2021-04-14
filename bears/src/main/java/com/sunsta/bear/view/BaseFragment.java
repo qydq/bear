@@ -2,9 +2,7 @@ package com.sunsta.bear.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -14,20 +12,21 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sunsta.bear.AnConstants;
 import com.sunsta.bear.R;
+import com.sunsta.bear.config.LoadingConfig;
 import com.sunsta.bear.contract.DayNightTheme;
 import com.sunsta.bear.faster.DayNightHelper;
 import com.sunsta.bear.faster.EasyPermission;
-import com.sunsta.bear.faster.FileUtils;
 import com.sunsta.bear.faster.LADialog;
 import com.sunsta.bear.faster.LaLog;
-import com.sunsta.bear.config.LoadingConfig;
 import com.sunsta.bear.faster.LoadingDialog;
 import com.sunsta.bear.faster.SPUtils;
 import com.sunsta.bear.faster.ToastUtils;
@@ -64,23 +63,14 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener, 
 
     protected Context mContext = null;
     protected View view;
-    protected SharedPreferences sp;
 
     private TimerListener timerListener;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         this.mContext = inflater.getContext();
         setTimerListener(this::onLaunchedTimer);
-        /*这里做这样的处理，如果是小于android6.0则名字自己控制，如果大于6.0则用系统的sp*/
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            sp = FileUtils.INSTANCE.getSharedPreferences(mContext);
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            sp = FileUtils.INSTANCE.getDefaultSharedPreferences(mContext);
-        }
         int currentMode = AppCompatDelegate.getDefaultNightMode();
         /*
          * 1/2/3为Livery提供,除此之外为系统原生兼容
@@ -110,7 +100,7 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener, 
         initDayNightTheme();
 
         view = inflater.inflate(getLayoutId(), null);
-        init();
+        init(savedInstanceState);
 
         TAG = BaseFragment.class.getSimpleName();
         return view;
@@ -205,7 +195,7 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener, 
 
 
     public void showLoading(int style) {
-        showLoading(style, getString(R.string.an_loading));
+        showLoading(style, getString(R.string.loading));
     }
 
     public void showLoading(int style, int backgroundFrame, String loadingContent) {
@@ -213,7 +203,7 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener, 
     }
 
     public void showLoading(int style, int backgroundFrame) {
-        showLoading(style, backgroundFrame, getString(R.string.an_loading));
+        showLoading(style, backgroundFrame, getString(R.string.loading));
     }
 
     public void showLoading(int style, String loadingContent) {
@@ -229,16 +219,16 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener, 
     }
 
     public void showLoading(boolean cancelable) {
-        showLoading(0, 0, getString(R.string.an_loading), cancelable);
+        showLoading(0, 0, getString(R.string.loading), cancelable);
     }
 
     public void showLoading() {
-        showLoading(0, 0, getString(R.string.an_loading), true);
+        showLoading(0, 0, getString(R.string.loading), true);
     }
 
     public void showLoading(int style, int backgroundFrame, String loadingContent, boolean cancelable) {
         LoadingConfig config = new LoadingConfig();
-        config.setContent(getString(R.string.an_loading));
+        config.setContent(getString(R.string.loading));
         config.setFixedDistance(true);
         config.setDialogClassify(style);
         config.setBackgroundFrame(backgroundFrame);
@@ -301,6 +291,17 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener, 
     }
 
     /**
+     * 通过id获取当前view控件，需要在onViewCreated()之后的生命周期调用
+     */
+    protected <T extends View> T findViewById(@IdRes int id) {
+        if (getView() != null) {
+            return getView().findViewById(id);
+        } else {
+            return view.findViewById(id);
+        }
+    }
+
+    /**
      * 拦截触摸事件，防止内存泄露下去
      */
     @Override
@@ -310,7 +311,7 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener, 
 
     public abstract int getLayoutId();
 
-    public abstract void init();
+    protected abstract void init(Bundle savedInstanceState);
 
 
     protected void runOnUiThread(Runnable r) {

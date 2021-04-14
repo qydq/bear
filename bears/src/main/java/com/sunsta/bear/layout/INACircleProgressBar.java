@@ -49,8 +49,8 @@ public class INACircleProgressBar extends View {
         mBackPaint.setStrokeCap(Paint.Cap.ROUND);   // 设置圆角
         mBackPaint.setAntiAlias(true);              // 设置抗锯齿
         mBackPaint.setDither(true);                 // 设置抖动
-        mBackPaint.setStrokeWidth(typedArray.getDimension(R.styleable.INACircleProgressBar_backWidth, 5));
-        mBackPaint.setColor(typedArray.getColor(R.styleable.INACircleProgressBar_backColor, Color.LTGRAY));
+        mBackPaint.setStrokeWidth(typedArray.getDimension(R.styleable.INACircleProgressBar_anCpbBackgroundWidth, 5));
+        mBackPaint.setColor(typedArray.getColor(R.styleable.INACircleProgressBar_anCpbBackground, Color.LTGRAY));
 
         // 初始化进度圆环画笔
         mProgPaint = new Paint();
@@ -58,12 +58,12 @@ public class INACircleProgressBar extends View {
         mProgPaint.setStrokeCap(Paint.Cap.ROUND);   // 设置圆角
         mProgPaint.setAntiAlias(true);              // 设置抗锯齿
         mProgPaint.setDither(true);                 // 设置抖动
-        mProgPaint.setStrokeWidth(typedArray.getDimension(R.styleable.INACircleProgressBar_progWidth, 10));
-        mProgPaint.setColor(typedArray.getColor(R.styleable.INACircleProgressBar_progColor, Color.BLUE));
+        mProgPaint.setStrokeWidth(typedArray.getDimension(R.styleable.INACircleProgressBar_anCpbProgWidth, 10));
+        mProgPaint.setColor(typedArray.getColor(R.styleable.INACircleProgressBar_anCpbProgColor, Color.BLUE));
 
         // 初始化进度圆环渐变色
-        int startColor = typedArray.getColor(R.styleable.INACircleProgressBar_progStartColor, -1);
-        int firstColor = typedArray.getColor(R.styleable.INACircleProgressBar_progFirstColor, -1);
+        int startColor = typedArray.getColor(R.styleable.INACircleProgressBar_anCpbStartColor, -1);
+        int firstColor = typedArray.getColor(R.styleable.INACircleProgressBar_anCpbFirstColor, -1);
         if (startColor != -1 && firstColor != -1) mColorArray = new int[]{startColor, firstColor};
         else mColorArray = null;
 
@@ -98,6 +98,7 @@ public class INACircleProgressBar extends View {
 
     /**
      * 获取当前进度
+     *
      * @return 当前进度（0-100）
      */
     public int getProgress() {
@@ -106,6 +107,7 @@ public class INACircleProgressBar extends View {
 
     /**
      * 设置当前进度
+     *
      * @param progress 当前进度（0-100）
      */
     public void setProgress(int progress) {
@@ -116,6 +118,7 @@ public class INACircleProgressBar extends View {
 
     /**
      * 设置当前进度，并展示进度动画。如果动画时间小于等于0，则不展示动画
+     *
      * @param progress 当前进度（0-100）
      * @param animTime 动画时间（毫秒）
      */
@@ -136,24 +139,27 @@ public class INACircleProgressBar extends View {
 
     /**
      * 设置背景圆环宽度
+     *
      * @param width 背景圆环宽度
      */
-    public void setBackWidth(int width) {
+    public void setBackgroundWidth(int width) {
         mBackPaint.setStrokeWidth(width);
         invalidate();
     }
 
     /**
      * 设置背景圆环颜色
+     *
      * @param color 背景圆环颜色
      */
-    public void setBackColor(@ColorRes int color) {
+    public void setBackground(@ColorRes int color) {
         mBackPaint.setColor(ContextCompat.getColor(getContext(), color));
         invalidate();
     }
 
     /**
      * 设置进度圆环宽度
+     *
      * @param width 进度圆环宽度
      */
     public void setProgWidth(int width) {
@@ -163,6 +169,7 @@ public class INACircleProgressBar extends View {
 
     /**
      * 设置进度圆环颜色
+     *
      * @param color 景圆环颜色
      */
     public void setProgColor(@ColorRes int color) {
@@ -173,6 +180,7 @@ public class INACircleProgressBar extends View {
 
     /**
      * 设置进度圆环颜色(支持渐变色)
+     *
      * @param startColor 进度圆环开始颜色
      * @param firstColor 进度圆环结束颜色
      */
@@ -184,6 +192,7 @@ public class INACircleProgressBar extends View {
 
     /**
      * 设置进度圆环颜色(支持渐变色)
+     *
      * @param colorArray 渐变色集合
      */
     public void setProgColor(@ColorRes int[] colorArray) {

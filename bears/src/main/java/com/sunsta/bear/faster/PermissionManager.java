@@ -142,20 +142,20 @@ public class PermissionManager {
         String tip = null;
         switch (type) {
             case DENIED:
-                listener.takeFail(null, tip = activity.getResources().getString(R.string.tip_permission_camera_storage));
+                listener.takeFail(null, tip = activity.getResources().getString(R.string.permission_camera_storage_hint));
                 break;
             case ONLY_CAMERA_DENIED:
-                listener.takeFail(null, tip = activity.getResources().getString(R.string.tip_permission_camera));
+                listener.takeFail(null, tip = activity.getResources().getString(R.string.permission_camera_hint));
                 break;
             case ONLY_STORAGE_DENIED:
-                listener.takeFail(null, tip = activity.getResources().getString(R.string.tip_permission_storage));
+                listener.takeFail(null, tip = activity.getResources().getString(R.string.permission_white_external_hint));
                 break;
             case GRANTED:
                 try {
                     invokeParam.getMethod().invoke(invokeParam.getProxy(), invokeParam.getArgs());
                 } catch (Exception e) {
                     e.printStackTrace();
-                    listener.takeFail(null, tip = activity.getResources().getString(R.string.tip_permission_camera_storage));
+                    listener.takeFail(null, tip = activity.getResources().getString(R.string.permission_camera_storage_hint));
                 }
                 break;
             default:

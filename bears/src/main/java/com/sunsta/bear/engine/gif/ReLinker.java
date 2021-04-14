@@ -20,7 +20,8 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 
-import com.sunsta.bear.BuildConfig;
+
+import androidx.multidex.BuildConfig;
 
 import java.io.Closeable;
 import java.io.File;

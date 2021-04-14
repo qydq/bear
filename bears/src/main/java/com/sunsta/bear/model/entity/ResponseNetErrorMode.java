@@ -1,7 +1,6 @@
 package com.sunsta.bear.model.entity;
 
 import android.text.TextUtils;
-import android.widget.TextView;
 
 public class ResponseNetErrorMode<T> {
     public String code;

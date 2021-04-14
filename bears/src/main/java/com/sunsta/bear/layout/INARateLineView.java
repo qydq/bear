@@ -12,7 +12,6 @@ import android.view.View;
 import com.sunsta.bear.R;
 
 public class INARateLineView extends View {
-
     //脉冲个数
     private int pulses;
     //每个脉冲的点数，用于画path
@@ -28,12 +27,10 @@ public class INARateLineView extends View {
 
     public INARateLineView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        // TODO Auto-generated constructor stub
-
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.INARateLineView);
-        pulses = array.getInt(R.styleable.INARateLineView_pulses, 5);
-        pointsOfEachPulse = array.getInt(R.styleable.INARateLineView_pointsOfEachPulse, 10);
-        speed = array.getInt(R.styleable.INARateLineView_speedx, 100);
+        pulses = array.getInt(R.styleable.INARateLineView_anRatePulses, 5);
+        pointsOfEachPulse = array.getInt(R.styleable.INARateLineView_anRateOfEachPulse, 10);
+        speed = array.getInt(R.styleable.INARateLineView_anRateSpeed, 100);
 
         array.recycle();
 
@@ -48,23 +45,18 @@ public class INARateLineView extends View {
         //+pointsOfEathPulse是增加在View的非可视区内的点数（即在非可视区加载一个脉冲），
         //+1是为了数组前后依次赋值时避免到最后一个点赋值越界的情况
         pointsHeight = new int[points + pointsOfEachPulse + 1];
-
     }
 
     public INARateLineView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-        // TODO Auto-generated constructor stub
     }
 
     public INARateLineView(Context context) {
         this(context, null);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        // TODO Auto-generated method stub
-
         //点与点之间的间隔
         int intervalBetweenPoints = getWidth() / (pulses * pointsOfEachPulse - 1);
 
@@ -88,37 +80,30 @@ public class INARateLineView extends View {
 
         //使pointsHeight前后依次赋值并重绘，使路径一个点距一个点距地动起来，
         //且每一个pulse周期(即pointsOfEachPulse),则在view的右边不可视区域加载新的pulse
-        postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                for (int i = 0; i < points + pointsOfEachPulse; i++) {
-                    pointsHeight[i] = pointsHeight[i + 1];
-                }
-                if (count == pointsOfEachPulse) {
-                    //随机一个高度以内的数值
-                    int height = (int) (Math.random() * getHeight() / 2);
-
-                    //在pointsOfEachPulse这几个点之内画好你想要的pulse形状
-                    //这里实例只是简单地上下放一个随机高度而已
-                    //这里要确保pointsOfEachPulse>3,否则越界
-                    for (int i = 0; i < pointsOfEachPulse; i++) {
-                        if (i == 1) {
-                            pointsHeight[points + i] = getHeight() / 2 - height;
-                        } else if (i == 2) {
-                            pointsHeight[points + i] = getHeight() / 2 + height;
-                        } else {
-                            pointsHeight[points + i] = getHeight() / 2;
-                        }
-                    }
-                    count = 0;
-                }
-                count++;
-
-                invalidate();
+        postDelayed(() -> {
+            for (int i = 0; i < points + pointsOfEachPulse; i++) {
+                pointsHeight[i] = pointsHeight[i + 1];
             }
+            if (count == pointsOfEachPulse) {
+                //随机一个高度以内的数值
+                int height = (int) (Math.random() * getHeight() / 2);
+                //在pointsOfEachPulse这几个点之内画好你想要的pulse形状
+                //这里实例只是简单地上下放一个随机高度而已
+                //这里要确保pointsOfEachPulse>3,否则越界
+                for (int i = 0; i < pointsOfEachPulse; i++) {
+                    if (i == 1) {
+                        pointsHeight[points + i] = getHeight() / 2 - height;
+                    } else if (i == 2) {
+                        pointsHeight[points + i] = getHeight() / 2 + height;
+                    } else {
+                        pointsHeight[points + i] = getHeight() / 2;
+                    }
+                }
+                count = 0;
+            }
+            count++;
+
+            invalidate();
         }, speed);
     }
-
 }

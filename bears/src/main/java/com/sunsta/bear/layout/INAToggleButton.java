@@ -137,13 +137,13 @@ public class INAToggleButton extends View {
         });
 
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.INAToggleButton);
-        offBorderColor = typedArray.getColor(R.styleable.INAToggleButton_tbOffBorderColor, offBorderColor);
-        onColor = typedArray.getColor(R.styleable.INAToggleButton_tbOnColor, onColor);
-        spotColor = typedArray.getColor(R.styleable.INAToggleButton_tbSpotColor, spotColor);
-        offColor = typedArray.getColor(R.styleable.INAToggleButton_tbOffColor, offColor);
-        borderWidth = typedArray.getDimensionPixelSize(R.styleable.INAToggleButton_tbBorderWidth, borderWidth);
-        defaultAnimate = typedArray.getBoolean(R.styleable.INAToggleButton_tbAnimate, defaultAnimate);
-        isDefaultOn = typedArray.getBoolean(R.styleable.INAToggleButton_tbAsDefaultOn, isDefaultOn);
+        offBorderColor = typedArray.getColor(R.styleable.INAToggleButton_anToggleBorderOffColor, offBorderColor);
+        onColor = typedArray.getColor(R.styleable.INAToggleButton_anToggleOnColor, onColor);
+        spotColor = typedArray.getColor(R.styleable.INAToggleButton_anToggleSpotColor, spotColor);
+        offColor = typedArray.getColor(R.styleable.INAToggleButton_anToggleOffColor, offColor);
+        borderWidth = typedArray.getDimensionPixelSize(R.styleable.INAToggleButton_anToggleBorderWidth, borderWidth);
+        defaultAnimate = typedArray.getBoolean(R.styleable.INAToggleButton_asToggleAnimate, defaultAnimate);
+        isDefaultOn = typedArray.getBoolean(R.styleable.INAToggleButton_asDefaultOn, isDefaultOn);
         typedArray.recycle();
 
         borderColor = offBorderColor;

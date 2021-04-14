@@ -24,7 +24,7 @@ import com.sunsta.bear.callback.OnBarrageIdleListener;
 import com.sunsta.bear.entity.Barrage;
 import com.sunsta.bear.faster.Convert;
 import com.sunsta.bear.faster.DataService;
-import com.sunsta.bear.faster.LAUi;
+import com.sunsta.bear.faster.ViewUtils;
 import com.sunsta.bear.faster.LaLog;
 import com.sunsta.bear.faster.SPUtils;
 import com.sunsta.bear.faster.ScreenUtils;
@@ -79,7 +79,7 @@ public final class INABarrageView extends FrameLayout {
     private static final long LoopInterval = 100;
     private Queue<Barrage> mLoopQueue = new ArrayDeque<>();
     private static long[] mHits;
-    private static final long MAX_IDLE_TIME = 1 * 60 * 1000;   // 空闲时间要比一条弹幕的动画时间长！
+    private static long MAX_IDLE_TIME = 1 * 60 * 1000;   // 空闲时间要比一条弹幕的动画时间长！
     private boolean mIsIdleTimerStarted = false;
     private CountDownTimer mIdleCountDownTimer = new CountDownTimer(MAX_IDLE_TIME, MAX_IDLE_TIME) {
         @Override
@@ -132,14 +132,14 @@ public final class INABarrageView extends FrameLayout {
 
     private int mItemGap;
     private int mItemGravity;
-    private int mHoverTime = 0;//悬停时间
+    private int mFloatTime = 0;//悬停时间
 
-    private long mHoverSpeed = 0;//悬停以后的速度
+    private long mFloatSpeed = 0;//悬停以后的速度
 
     private boolean barrageFly = true;//是否在屏幕上随机显示弹幕
     private boolean keepSequence = false;//是否保持弹幕弹出的先后顺序，只有当fly=true有效
     private boolean barrageAuto = false;//自动模式
-    private boolean hoverRecoil = false;
+    private boolean asBarrageeFloat = false;
 
 
     /**
@@ -163,8 +163,8 @@ public final class INABarrageView extends FrameLayout {
         createRowsIfNotExist();
     }
 
-    public void setHoverRecoil(boolean hoverRecoil) {
-        this.hoverRecoil = hoverRecoil;
+    public void setBarrageFloat(boolean asBarrageeFloat) {
+        this.asBarrageeFloat = asBarrageeFloat;
         createRowsIfNotExist();
     }
 
@@ -228,18 +228,18 @@ public final class INABarrageView extends FrameLayout {
         createRowsIfNotExist();
     }
 
-    public void setHoverTime(int mHoverTime) {
-        this.mHoverTime = mHoverTime;
+    public void setFloatTime(int mFloatTime) {
+        this.mFloatTime = mFloatTime;
         createRowsIfNotExist();
     }
 
-    public void setHoverSpeed(long mHoverSpeed) {
-        this.mHoverSpeed = mHoverSpeed;
+    public void setFloatSpeed(long mFloatSpeed) {
+        this.mFloatSpeed = mFloatSpeed;
         createRowsIfNotExist();
     }
 
-    public int getHoverTime() {
-        return mHoverTime;
+    public int getFloatTime() {
+        return mFloatTime;
     }
 
     public int getRowSpeed() {
@@ -329,7 +329,7 @@ public final class INABarrageView extends FrameLayout {
         }
         mHits = new long[AnConstants.ad_default_time];
         if (mActivity != null) {
-            View barrageParent = LAUi.getInstance().getRootView(mActivity);
+            View barrageParent = ViewUtils.getInstance().getRootView(mActivity);
             if (barrageParent != null) {
                 Activity finalMActivity = mActivity;
                 barrageParent.setOnClickListener(v -> createRowsIfNotExist(finalMActivity));
@@ -367,9 +367,9 @@ public final class INABarrageView extends FrameLayout {
                 row.setWidth(getWidth());
                 //漫天飞羽效果
                 row.setRandomVerticalPos(barrageFly);//设置是否漫天飞宇
-                row.setHoverTime(mHoverTime);
-                row.setHoverSpeed(mHoverSpeed);
-                row.setHoverRecoil(hoverRecoil);
+                row.setFloatTime(mFloatTime);
+                row.setHoverSpeed(mFloatSpeed);
+                row.setBarrageFloat(asBarrageeFloat);
                 int bottomHeight = getBottom();
                 int topHeight = getTop();
                 row.setMinBarrageTopY(topHeight);
@@ -529,20 +529,21 @@ public final class INABarrageView extends FrameLayout {
         if (null != attrs) {
             @SuppressLint("INABarrageView") TypedArray a = context.obtainStyledAttributes(attrs,
                     R.styleable.INABarrageView, defStyleAttr, 0);
-            barrageFly = a.getBoolean(R.styleable.INABarrageView_barrage_isFly, true);
-            barrageAuto = a.getBoolean(R.styleable.INABarrageView_barrage_auto, false);
-            hoverRecoil = a.getBoolean(R.styleable.INABarrageView_barrage_hoverRecoil, false);
-            keepSequence = a.getBoolean(R.styleable.INABarrageView_barrage_keepSequence, false);
-            mRowNum = a.getInt(R.styleable.INABarrageView_barrage_rowNum, 1);
-            xmlRowHeight = (int) a.getDimension(R.styleable.INABarrageView_barrage_rowHeight, 39f);
-            xmlItemGap = (int) a.getDimension(R.styleable.INABarrageView_barrage_itemGap, 10f);
-            xmlRowGap = (int) a.getDimension(R.styleable.INABarrageView_barrage_rowGap, 2f);
-            mRowSpeed = a.getInt(R.styleable.INABarrageView_barrage_speed, 8000);
-            mRepeatCount = a.getInt(R.styleable.INABarrageView_repeatCount, 0);
-            mHoverTime = a.getInt(R.styleable.INABarrageView_barrage_hoverTime, 0);
-            mHoverSpeed = (long) a.getFloat(R.styleable.INABarrageView_barrage_hoverSpeed, 0);
-            mItemGravity = a.getInteger(R.styleable.INABarrageView_barrage_gravity, Gravity.NO_GRAVITY);
-            mBarrageMode = a.getInteger(R.styleable.INABarrageView_barrage_mode, INABarrageView.NORMAL);
+            barrageFly = a.getBoolean(R.styleable.INABarrageView_asBarrageFly, true);
+            barrageAuto = a.getBoolean(R.styleable.INABarrageView_asBarrageAuto, false);
+            asBarrageeFloat = a.getBoolean(R.styleable.INABarrageView_asBarrageeFloat, false);
+            keepSequence = a.getBoolean(R.styleable.INABarrageView_asKeepSequence, false);
+            mRowNum = a.getInt(R.styleable.INABarrageView_anBarrageRowNum, 1);
+            xmlRowHeight = (int) a.getDimension(R.styleable.INABarrageView_anBarrageRowHeight, 39f);
+            xmlItemGap = (int) a.getDimension(R.styleable.INABarrageView_anBarrageItemGap, 10f);
+            xmlRowGap = (int) a.getDimension(R.styleable.INABarrageView_anBarrageRowGap, 2f);
+            mRowSpeed = a.getInt(R.styleable.INABarrageView_anBarrageSpeed, 8000);
+            mRepeatCount = a.getInt(R.styleable.INABarrageView_anBarrageRepeatCount, 0);
+            mFloatTime = a.getInt(R.styleable.INABarrageView_anBarrageFloatTime, 0);
+            mFloatSpeed = (long) a.getFloat(R.styleable.INABarrageView_anBarrageFloatSpeed, 0);
+            MAX_IDLE_TIME = (long) a.getFloat(R.styleable.INABarrageView_anBarrageIdleTime, MAX_IDLE_TIME);
+            mItemGravity = a.getInteger(R.styleable.INABarrageView_anBarrageGravity, Gravity.NO_GRAVITY);
+            mBarrageMode = a.getInteger(R.styleable.INABarrageView_anBarrageMode, INABarrageView.NORMAL);
         }
         createRowsIfNotExist();
     }
@@ -760,9 +761,9 @@ public final class INABarrageView extends FrameLayout {
         setRowGap(xmlRowGap);
         setRowHeight(xmlRowHeight);
         setRowSpeed(mRowSpeed);
-        setHoverTime(mHoverTime);
-        setHoverSpeed(mHoverSpeed);
-        setHoverRecoil(hoverRecoil);
+        setFloatTime(mFloatTime);
+        setFloatSpeed(mFloatSpeed);
+        setBarrageFloat(asBarrageeFloat);
         setMode(mBarrageMode);
         setRepeatCount(mRepeatCount);
         setFly(barrageFly);

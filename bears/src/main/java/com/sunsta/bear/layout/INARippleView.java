@@ -74,18 +74,18 @@ public class INARippleView extends FrameLayout {
         super(context, attrs, defStyleAttr);
         mContext = context;
         @SuppressLint("CustomViewStyleable") TypedArray tya = context.obtainStyledAttributes(attrs, R.styleable.INARippleView);
-        mSpreadMode = tya.getBoolean(R.styleable.INARippleView_ripple_spread, false);
+        mSpreadMode = tya.getBoolean(R.styleable.INARippleView_asRippleSpread, false);
         if (!mSpreadMode) {
-            mColor = tya.getColor(R.styleable.INARippleView_ripple_color, Color.BLUE);
-            mSpeed = tya.getInt(R.styleable.INARippleView_ripple_speed, 1);
-            mDensity = tya.getInt(R.styleable.INARippleView_ripple_density, 10);
-            mIsFill = tya.getBoolean(R.styleable.INARippleView_ripple_isFill, false);
-            mIsAlpha = tya.getBoolean(R.styleable.INARippleView_ripple_isAlpha, false);
-            mInCircle = tya.getBoolean(R.styleable.INARippleView_ripple_inCircle, true);
+            mColor = tya.getColor(R.styleable.INARippleView_anRippleColor, Color.BLUE);
+            mSpeed = tya.getInt(R.styleable.INARippleView_anRippleSpeed, 1);
+            mDensity = tya.getInt(R.styleable.INARippleView_anRippleDensity, 10);
+            mIsFill = tya.getBoolean(R.styleable.INARippleView_asRippleFill, false);
+            mIsAlpha = tya.getBoolean(R.styleable.INARippleView_asRippleAlpha, false);
+            mInCircle = tya.getBoolean(R.styleable.INARippleView_asRippleInCircle, true);
             tya.recycle();
             initRipple();
         } else {
-            mCircleResource = tya.getResourceId(R.styleable.INARippleView_ripple_src, R.drawable.image_small_circle);
+            mCircleResource = tya.getResourceId(R.styleable.INARippleView_anRippleSrc, R.mipmap.image_small_circle);
             initSpreadAnimation();
         }
     }

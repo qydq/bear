@@ -24,9 +24,12 @@ import okio.BufferedSource;
 
 public class LoggingInterceptor implements Interceptor {
     private final Charset UTF8 = Charset.forName(AnConstants.CONFIG.default_encode);
+    public static String exceptionBody;
 
+    @androidx.annotation.NonNull
     @Override
     public Response intercept(@NonNull Chain chain) throws IOException {
+        exceptionBody = AnConstants.EMPTY;
         Request request = chain.request();
         if (chainFilterLogger(request)) {
             return chain.proceed(request);
@@ -64,6 +67,7 @@ public class LoggingInterceptor implements Interceptor {
                 }
             }
             body = buffer.clone().readString(charset);
+            exceptionBody = body;
             String responseMessage = "收到响应response:{code:" + response.code() +
                     ",message:" + DataService.getInstance().defaultEmpty(response.message(), "no data") + ",time:" + tookMs + "}";
             String requestUrl = "请求url:" + response.request().url();

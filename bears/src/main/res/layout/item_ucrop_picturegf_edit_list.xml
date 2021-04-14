@@ -42,7 +42,7 @@
         android:layout_margin="3dp"
         android:background="@color/ucrop_color_ec"
         android:scaleType="centerInside"
-        android:src="@drawable/default_video"
+        android:src="@mipmap/default_video"
         android:visibility="gone" />
 
 
@@ -53,7 +53,7 @@
         android:layout_alignRight="@id/iv_photo"
         android:layout_alignBottom="@id/iv_photo"
         android:background="@drawable/in_ucrop_bg_gif"
-        android:text="@string/ucrop_gif_tag"
+        android:text="@string/an_tag_gif"
         android:textColor="@color/ucrop_color_widget_active"
         android:textSize="9sp"
         android:visibility="gone" />

@@ -61,13 +61,13 @@ public class ErrorAdapter extends RecyclerView.Adapter<ErrorAdapter.ErrorViewHol
 
     @NonNull
     @Override
-    public ErrorAdapter.ErrorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ErrorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
         return new ErrorViewHolder(LayoutInflater.from(context).inflate(R.layout.layout_error, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ErrorAdapter.ErrorViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ErrorViewHolder holder, int position) {
         if (!TextUtils.isEmpty(txtPrimary)) {
             RichTextView.setRichText(holder.tvText, txtPrimary);
         } else {

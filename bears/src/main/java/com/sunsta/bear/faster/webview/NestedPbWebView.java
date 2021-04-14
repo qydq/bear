@@ -125,7 +125,7 @@ public class NestedPbWebView extends WebView implements NestedScrollingChild {
 
         @Override
         public void onShowCustomView(View view,
-                                     WebChromeClient.CustomViewCallback callback) {
+                                     CustomViewCallback callback) {
             // if a view already exists then immediately terminate the new one
 //            if (mCustomView != null) {
 //                onHideCustomView();

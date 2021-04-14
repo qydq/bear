@@ -18,8 +18,8 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 
 import com.sunsta.bear.R;
-import com.sunsta.bear.model.AspectRatio;
 import com.sunsta.bear.layout.ucrop.CropImageView;
+import com.sunsta.bear.model.AspectRatio;
 
 import java.util.Locale;
 
@@ -47,14 +47,14 @@ public class AspectRatioTextView extends AppCompatTextView {
 
     public AspectRatioTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ucrop_AspectRatioTextView);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.INAUcropAspectRatioTextView);
         init(a);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public AspectRatioTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ucrop_AspectRatioTextView);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.INAUcropAspectRatioTextView);
         init(a);
     }
 
@@ -106,10 +106,9 @@ public class AspectRatioTextView extends AppCompatTextView {
     @SuppressWarnings("deprecation")
     private void init(@NonNull TypedArray a) {
         setGravity(Gravity.CENTER_HORIZONTAL);
-
-        mAspectRatioTitle = a.getString(R.styleable.ucrop_AspectRatioTextView_ucrop_artv_ratio_title);
-        mAspectRatioX = a.getFloat(R.styleable.ucrop_AspectRatioTextView_ucrop_artv_ratio_x, CropImageView.SOURCE_IMAGE_ASPECT_RATIO);
-        mAspectRatioY = a.getFloat(R.styleable.ucrop_AspectRatioTextView_ucrop_artv_ratio_y, CropImageView.SOURCE_IMAGE_ASPECT_RATIO);
+        mAspectRatioTitle = a.getString(R.styleable.INAUcropAspectRatioTextView_anUcropArtvRatioTitle);
+        mAspectRatioX = a.getFloat(R.styleable.INAUcropAspectRatioTextView_anUcropArtvRatioX, CropImageView.SOURCE_IMAGE_ASPECT_RATIO);
+        mAspectRatioY = a.getFloat(R.styleable.INAUcropAspectRatioTextView_anUcropArtvRatioY, CropImageView.SOURCE_IMAGE_ASPECT_RATIO);
 
         if (mAspectRatioX == CropImageView.SOURCE_IMAGE_ASPECT_RATIO || mAspectRatioY == CropImageView.SOURCE_IMAGE_ASPECT_RATIO) {
             mAspectRatio = CropImageView.SOURCE_IMAGE_ASPECT_RATIO;

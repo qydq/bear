@@ -3,7 +3,7 @@
     android:id="@+id/frameLayout"
     style="@style/an_wrap_wrap"
     android:layout_centerHorizontal="true"
-    android:background="@drawable/in_shape_dialog_progress"
+    android:background="@drawable/in_shape_dialog"
     android:gravity="center"
     android:padding="@dimen/an_dimen_padding">
 

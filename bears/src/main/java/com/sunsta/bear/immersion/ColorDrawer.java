@@ -154,7 +154,7 @@ public class ColorDrawer extends Drawer {
      * @return
      */
     public StateListDrawable setSelector(Context mContext, int idNormal, int idPressed) {
-//        anBackLl.setBackground(setSelector(R.drawable.ic_color_org_normal, R.drawable.ic_color_org_gray_normal));
+//        anBackLl.setBackground(setSelector(R.mipmap.ic_color_org_normal, R.mipmap.ic_color_org_gray_normal));
         StateListDrawable bg = new StateListDrawable();
         Drawable normal = idNormal == -1 ? null : mContext.getResources().getDrawable(idNormal);
         Drawable pressed = idPressed == -1 ? null : mContext.getResources().getDrawable(idPressed);

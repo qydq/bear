@@ -50,7 +50,7 @@ public class HelperActivity extends AppCompatActivity {
                 view,
                 getString(R.string.permission_info),
                 Snackbar.LENGTH_INDEFINITE)
-                .setAction(getString(R.string.permission_ok), new View.OnClickListener() {
+                .setAction(getString(R.string.an_confirm), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ActivityCompat.requestPermissions(

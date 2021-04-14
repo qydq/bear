@@ -32,24 +32,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sunsta.bear.R;
+import com.sunsta.bear.config.LoadingConfig;
 import com.sunsta.bear.faster.ActivityTaskManager;
 import com.sunsta.bear.faster.EasyPermission;
 import com.sunsta.bear.faster.LADialog;
-import com.sunsta.bear.faster.LAUi;
+import com.sunsta.bear.faster.ViewUtils;
 import com.sunsta.bear.faster.LaBitmap;
-import com.sunsta.bear.faster.LaLog;
-import com.sunsta.bear.config.LoadingConfig;
 import com.sunsta.bear.faster.LoadingDialog;
 import com.sunsta.bear.faster.NetBroadcastReceiver;
 import com.sunsta.bear.faster.NetBroadcastReceiverUtils;
 import com.sunsta.bear.faster.ToastUtils;
 import com.sunsta.bear.immersion.ImmersiveManage;
-import com.sunsta.bear.layout.INABadLayout;
+import com.sunsta.bear.layout.INAStatusLayout;
 import com.sunsta.bear.layout.INABarLayout;
 
 import java.util.Objects;
@@ -70,6 +70,7 @@ import io.reactivex.disposables.Disposable;
  * <br>邮件Email：qyddai@gmail.com
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
+ *
  * @author sunst // sunst0069
  * @version 4.0（可选） |   2020/03/19          |   新增网络请求，统一最低api21
  */
@@ -104,15 +105,14 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     protected boolean mFullScreen = true;
 
     protected INABarLayout inaBarlayout;
-    protected INABadLayout inaBadlayout;
+    protected INAStatusLayout inaStatusLayout;
     private NetBroadcastReceiver networkChangeReceiver;
     private TimerListener timerListener;
     private ScheduleListener scheduleListener;
     private Timer mTimer;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        LaLog.d("ff888");
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 设置标题栏no title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -168,6 +168,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     /**
      * 网络变化之后的类型
+     *
      * @param netModel 网络类型netModel
      */
     @Override
@@ -179,6 +180,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     /**
      * 判断有无网络 。
+     *
      * @return true 有网, false 没有网络.
      */
     public boolean isNetConnect() {
@@ -195,6 +197,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     /**
      * 将 {@link Disposable} 添加到 {@link CompositeDisposable} 中统一管理
      * 可在 Activity#onDestroy() 中使用 #unDispose() 停止正在执行的 RxJava 任务, 避免内存泄漏(框架已自行处理)
+     *
      * @param disposable
      */
     public void addDispose(Disposable disposable) {
@@ -267,6 +270,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     /**
      * 设置沉浸式状态栏
+     *
      * @param lightMode  是否浅色模式,浅色时状态栏文字图标是黑色，其他情况下是白色
      * @param fullScreen 是否填充满屏幕 false时会把状态栏的高度留出来
      */
@@ -301,6 +305,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     /**
      * Change the style of the status bar.
+     *
      * @param color 颜色
      */
     protected void changeStatusBarStyle(int color) {
@@ -313,6 +318,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     /**
      * 设置全屏的状态
+     *
      * @param fullScreen 是否是全屏显示
      */
     protected void changeFullScreenState(boolean fullScreen) {
@@ -321,6 +327,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     /**
      * 如果项目中有用到Toolbar，则可以调用这个方法初始化
+     *
      * @param toolbar           toolbar
      * @param isHomeAsUpEnabled ishomeasupenable
      */
@@ -332,6 +339,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     /**
      * 如果布局文件中用了inaBarlayout，可以直接调用这个方法设置标题
+     *
      * @param title 标题内容
      */
     protected void setAppBarTitle(String title) {
@@ -348,22 +356,23 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         return inaBarlayout;
     }
 
-    protected INABadLayout getInaBadlayout() {
-        if (inaBadlayout == null) {
-            inaBadlayout = findViewById(R.id.inaBadlayout);
+    protected INAStatusLayout getInaStatusLayout() {
+        if (inaStatusLayout == null) {
+            inaStatusLayout = findViewById(R.id.inaStatusLayout);
         }
-        return inaBadlayout;
+        return inaStatusLayout;
     }
 
     /**
      * 隐藏软键盘
      */
     protected void hideSoftKeyboard() {
-        LAUi.getInstance().hideSoftKeyboard(this);
+        ViewUtils.getInstance().hideSoftKeyboard(this);
     }
 
     /**
      * 应该返回到上个界面，should how much i love u
+     *
      * @param view 返回点击View
      */
     public void back(View view) {
@@ -402,7 +411,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     }
 
     public void showLoading(int style) {
-        showLoading(style, getString(R.string.an_loading));
+        showLoading(style, getString(R.string.loading));
     }
 
     public void showLoading(int style, int backgroundFrame, String loadingContent) {
@@ -410,7 +419,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     }
 
     public void showLoading(int style, int backgroundFrame) {
-        showLoading(style, backgroundFrame, getString(R.string.an_loading));
+        showLoading(style, backgroundFrame, getString(R.string.loading));
     }
 
     public void showLoading(int style, String loadingContent) {
@@ -426,16 +435,16 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     }
 
     public void showLoading(boolean cancelable) {
-        showLoading(0, 0, getString(R.string.an_loading), cancelable);
+        showLoading(0, 0, getString(R.string.loading), cancelable);
     }
 
     public void showLoading() {
-        showLoading(0, 0, getString(R.string.an_loading), true);
+        showLoading(0, 0, getString(R.string.loading), true);
     }
 
     public void showLoading(int style, int backgroundFrame, String loadingContent, boolean cancelable) {
         LoadingConfig config = new LoadingConfig();
-        config.setContent(getString(R.string.an_loading));
+        config.setContent(getString(R.string.loading));
         config.setFixedDistance(true);
         config.setDialogClassify(style);
         config.setBackgroundFrame(backgroundFrame);

@@ -14,12 +14,14 @@ public class LoadingConfig implements Serializable {
     private boolean fullWidthScreen;//是否是全屏
     private int backgroundFrame;//设置背景的资源
     private int gravity;//设置加载框的位置，只有在可配置图标的场景需要设置Gravity.TOP,Gravity.LEFT
+    private int maxLine;//内容最大的行数
+    private int contentGravity;//内容属性
     private boolean cancelable = true;//loading框是否可以取消，默认可以取消，true
     private int dialogClassify;//loading0,默认值0，左右布局的对话框，居中(半屏显示)，含point的效果，(默认是加载中)，位置固定
     private boolean backgroundAlpha;//是否背景可以设置alpha=0.96
     private boolean randomColor;//是否启用随机颜色，如果是启用随机颜色，则进度框，字体颜色为随机值
     private String content;//加载对话框的内容
-    private int animationIvId;//ivPrimary 's head resource,only dialogClassfy =1 available , default value is R.drawable.ic_color_share_url
+    private int animationIvId;//ivPrimary 's head resource,only dialogClassfy =1 available , default value is R.mipmap.ic_color_share_url
 
 
     private int type = 0;//-1表示Loading下载对话框，0默认对话框(取消，确定），1下载文件的对话框；2下载文件带暂停，继续的对话框
@@ -60,6 +62,22 @@ public class LoadingConfig implements Serializable {
     private int rightBackground;//一般为0，如果是对话框，右边按钮的背景drawable不能设置为颜色
     @DrawableRes
     private int rightIvResouce;//right iv resource , default value is 0
+
+    public int getMaxLine() {
+        return maxLine;
+    }
+
+    public void setMaxLine(int maxLine) {
+        this.maxLine = maxLine;
+    }
+
+    public int getContentGravity() {
+        return contentGravity;
+    }
+
+    public void setContentGravity(int contentGravity) {
+        this.contentGravity = contentGravity;
+    }
 
     public boolean isRandomColor() {
         return randomColor;

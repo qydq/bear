@@ -4,12 +4,15 @@ import android.text.TextUtils;
 
 import androidx.multidex.BuildConfig;
 
+import com.google.gson.JsonParseException;
 import com.sunsta.bear.AnConstants;
 import com.sunsta.bear.R;
+import com.sunsta.bear.callback.OnStatusListener;
 import com.sunsta.bear.faster.LaLog;
 import com.sunsta.bear.faster.StringUtils;
 import com.sunsta.bear.faster.ValueOf;
-import com.sunsta.bear.callback.OnStatusListener;
+
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -69,11 +72,18 @@ public class InternetObserver extends DisposableObserver<ResponseBody> {
                     errorMessage = StringUtils.getString(R.string.an_net_server_error);
                 } else if (code == 404) {
                     errorMessage = StringUtils.getString(R.string.an_net_address_not_exist);
+                } else if (code == 400) {
+                    errorMessage = StringUtils.getString(R.string.an_request_parameter_error);
+                } else if (code == 405) {
+                    errorMessage = StringUtils.getString(R.string.an_request_method_error);
                 } else {
                     errorMessage = StringUtils.getString(R.string.an_net_error);
                 }
             } else if (e instanceof UnknownHostException) {
                 errorMessage = StringUtils.getString(R.string.an_unknown_host_exception);
+            } else if (e instanceof JsonParseException
+                    || e instanceof JSONException) {
+                errorMessage = StringUtils.getString(R.string.an_json_parse_exception);
             } else {
                 errorMessage = "other error:" + e.getMessage();
             }

@@ -434,9 +434,9 @@ public class MyDialog extends Dialog {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId);//v7就ok
 // builder = new Notification.Builder(context);//v4就ok
-        int smallIconId = R.drawable.ic_color_copy_fav;
+        int smallIconId = R.mipmap.ic_color_copy_fav;
 // Bitmap largeIcon = ((BitmapDrawable) getResources().getDrawable(R.drawable.ic_launcher)).getBitmap();//过时的解决方法。
-        Drawable drawable = ContextCompat.getDrawable(context, R.drawable.ic_color_copy_fav);
+        Drawable drawable = ContextCompat.getDrawable(context, R.mipmap.ic_color_copy_fav);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
         Bitmap largeIcon = bitmapDrawable.getBitmap();
         builder.setLargeIcon(largeIcon)

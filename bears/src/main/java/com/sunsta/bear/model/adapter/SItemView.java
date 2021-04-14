@@ -27,7 +27,7 @@ public class SItemView extends RelativeLayout implements Checkable {
     public SItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.item_item, this);
-        mNameText = findViewById(R.id.tvTitile);
+        mNameText = findViewById(R.id.tvTitle);
         ivRight = findViewById(R.id.ivRight);
     }
 
