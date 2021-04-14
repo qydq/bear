@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    style="@style/an_wrap_wrap"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/in_shape_dialog_progress"
+    android:gravity="center"
+    android:padding="@dimen/an_dimen_padding">
+
+    <TableLayout
+        android:id="@+id/actionTabeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:shrinkColumns="1">
+
+        <TableRow android:gravity="center_vertical">
+
+            <ProgressBar
+                android:id="@+id/anProgressBar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="5dp"
+                android:indeterminateTint="@color/anProgressCenterColor2"
+                android:progressDrawable="@drawable/in_seloctor_progress" />
+
+            <TextView
+                android:id="@+id/tvText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加载中"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@color/anProgressCenterColor2" />
+
+            <TextView
+                android:id="@+id/tvPoint"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="•••"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@color/anProgressCenterColor2" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

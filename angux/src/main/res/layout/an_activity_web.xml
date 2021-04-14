@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:anbar="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_title"
+    style="@style/an_match_match"
+    android:background="?attr/anBackground">
+
+    <com.sunsta.bear.layout.INABarLayout
+        android:id="@+id/inaBarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        anbar:anIndeterminateTint="@color/ColorBlueviolet"
+        anbar:anIvBack="@drawable/base_image_music"
+        anbar:open_complex="true"
+        anbar:open_material="true"
+        anbar:anTxColor="@color/ColorWhite" />
+
+    <com.sunsta.bear.layout.INASlidingLayout
+        android:id="@+id/slidingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/inaBarlayout"
+        app:background_view="@layout/item_webview_headtips"
+        app:sliding_mode="top"
+        app:top_max="200dp">
+
+        <TextView
+            android:id="@+id/tvTip"
+            style="@style/an_match_match"
+            android:background="@color/ColorWhite"
+            android:paddingLeft="@dimen/an_dimen_margin"
+            android:paddingTop="@dimen/an_dimen_margin"
+            android:paddingRight="@dimen/an_dimen_margin" />
+
+        <com.sunsta.bear.layout.INABadLayout
+            android:id="@+id/inaBadlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.sunsta.bear.faster.webview.NestedJsWebView
+            android:id="@+id/webView"
+            style="@style/an_match_match"
+            android:background="@color/ColorWhite"
+            android:visibility="gone" />
+
+    </com.sunsta.bear.layout.INASlidingLayout>
+</RelativeLayout>

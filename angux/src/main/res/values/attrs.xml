@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- （1）.ali系列通用的颜色资源，应用于夜间模式，普通模式-->
+    <attr name="anBarBackground" format="reference|color" />
+    <attr name="anBackground" format="reference|color" />
+    <attr name="anNavBackground" format="reference|color" />
+    <attr name="anLineBackground" format="reference|color" />
+
+    <attr name="anOptBackground" format="reference|color" />
+    <attr name="anOptMaterialBackground" format="reference|color" />
+    <attr name="anOppBackground" format="reference|color" />
+    <attr name="anOppMaterialBackground" format="reference|color" />
+
+
+    <attr name="anBarTextColor" format="reference|color" />
+    <attr name="anTextColor" format="reference|color" />
+    <attr name="anDeepTextColor" format="reference|color" />
+    <attr name="anLightTextColor" format="reference|color" />
+    <attr name="anNavTextColor" format="reference|color" />
+    <attr name="anEnableTextColor" format="reference|color" />
+
+    <!--（2）.左划动推出菜单RecyerView==对应view下面swipelayout-->
+    <declare-styleable name="INASwipeMenuLayout">
+        <attr name="leftViewId" format="reference" />
+        <attr name="rightViewId" format="reference" />
+        <attr name="contentViewId" format="reference" />
+    </declare-styleable>
+
+    <!--（3）.inabarlayout_晴雨(2018年02月初封装）-->
+
+
+    <!--
+    1。返回键的资源文件设置，（黑色，白色），默认(白色-灰色)，是否启用另一种返回键（灰色，白色），自定义的话则会覆盖两种设置
+    2。返回键头是否可见，返回文字是否可见，
+    3。定义anBarbackground 顶部内容的背景颜色，或者是资源drawable图片
+
+
+
+app:open_backopp="true"====开启与默认返回键的互斥选择器，优先级低于设置ivBack
+app:anTxRight="右边的文字"====右边的文字内容
+app:anTxTitle="标题内容"====标题内容的文字内容
+app:blodTxTitle="true"====设置中心文字(即标题)是否粗体
+app:anTxBack="左边返回的文字"====左边返回的文字
+
+app:anIvBack="@drawable/base_music"====设置左边返回的drawable资源
+app:anIvRight="@drawable/in_selector_right"====设置右边的drawable资源
+app:anBarbackground="@drawable/in_selector"====设置整个bar的背景颜色资源
+
+
+app:anTxRightColor="@color/in_font_selector_bar"====设置右边字体的颜色
+app:anTxTitleColor="@color/black"====设置标题字体的颜色
+app:anTxColor="@color/black"====设置标题栏字体颜色
+app:anTxBackColor="@color/in_font_selector_bar"====设置返回字体的颜色
+
+
+app:open_material="true"====开启material_fitsystem windows 模式，默认false，不开启，内容会顶到状态栏的位置
+app:open_complex="true"====开启复杂右边双图标模式，默认false，为简单的headview
+app:open_progress="true"====开启进度条，显示
+app:reLayout="true"====只有配置了reLayout属性才会去重新计算bar控件图标的大小，否则配置的xml中各个图标大小不会生效，对应：
+app:anIvBackWidth="@dimen/25dp"====设置返回键的宽度，只有配置了reLayout属性才会去重新计算bar控件图标的大小
+app:anIvRightWidth="@dimen/25dp"====设置右边图标的宽度，只有配置了reLayout属性才会去重新计算bar控件图标的大小
+
+app:showRight="true"====设置是否显示右边的内容，默认为false，
+app:showBack="true"====设置是否显示返回布局，默认为true，显示
+app:showTopPb="true"====设置是否显示返回布局，默认为false，gone(当设置open_progress=true默认，显示顶部，和中间的进度条)
+app:showCenterPb="true"====设置是否显示返回布局，默认为false，gone (当设置open_progress=true默认，显示顶部，和中间的进度条)
+app:showBottomPb="false"====设置是否显示返回布局，默认为false，隐藏
+
+app:visibilityRightTx="visible"====设置右边的文字是否显示，或者隐藏
+app:visibilityBackTx="visible"====设置左边的文字是否显示，或者隐藏
+app:visibilityBacIv="visible"====设置左边的图片是否显示，或者隐藏
+app:visibilityRightIv="visible"====设置右边的图片是否显示，或者隐藏
+
+
+
+场景1：app:open_complex="true"
+
+app:anTxRRight="最右边的内容"====最右边的文字内容
+app:anIvRRight="@drawable/in_selector_right"====设置最右边的drawable资源
+app:anTxRRightColor="@color/in_font_selector_bar"====设置最右边字体的颜色
+app:anIvRRightWidth="@dimen/25dp"====设置返回键的宽度，只有配置了reLayout属性才会去重新计算bar控件图标的大小
+
+app:showRRight="true"====设置显示最右边的布局内容，默认为false
+app:visibilityRRightTx="gone"====设置最右边的文字是否显示，或者隐藏
+app:visibilityRRightIv="visible"====设置最右边的图片是否显示，或者隐藏
+    -->
+    <declare-styleable name="INABarLayout">
+        <attr name="anBarbackground" format="reference|color" />
+        <attr name="anTxBack" format="string" />
+        <attr name="anTxRight" format="string" />
+        <attr name="anTxRRight" format="string" />
+        <attr name="anTxTitle" format="string" />
+        <attr name="blodTxTitle" format="boolean" />
+
+        <attr name="open_material" format="reference|boolean" />
+        <attr name="open_progress" format="reference|boolean" />
+        <attr name="open_complex" format="reference|boolean" />
+        <attr name="open_backopp" format="boolean" />
+        <attr name="reLayout" format="reference|boolean" />
+        <attr name="materialLayout" format="boolean" />
+        <attr name="anIvBackWidth" format="dimension" />
+        <attr name="anIvRightWidth" format="dimension" />
+        <attr name="anIvRRightWidth" format="dimension" />
+
+
+        <attr name="anIvBack" format="reference" />
+        <attr name="anIvRight" format="reference" />
+        <attr name="anIvRRight" format="reference" />
+
+        <attr name="anTxColor" format="reference|color" />
+        <attr name="anTxRightColor" format="reference|color" />
+        <attr name="anTxRRightColor" format="reference|color" />
+        <attr name="anTxTitleColor" format="reference|color" />
+        <attr name="anTxBackColor" format="reference|color" />
+        <attr name="anIndeterminateTint" format="reference|color" />
+
+        <!--可见状态控制-->
+        <attr name="showRRight" format="reference|boolean" />
+        <attr name="showRight" format="reference|boolean" />
+        <attr name="showBack" format="reference|boolean" />
+        <attr name="showTopPb" format="reference|boolean" />
+        <attr name="showCenterPb" format="reference|boolean" />
+        <attr name="showBottomPb" format="reference|boolean" />
+        <attr name="showPbTx2Anim" format="reference|boolean" />
+
+        <attr name="visibilityRightTx" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="visibilityRRightTx" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="visibilityRightIv" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="visibilityRRightIv" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="visibilityBackIv" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="visibilityBackTx" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="INARateLineView">
+        <attr name="pulses" format="integer" />
+        <attr name="pointsOfEachPulse" format="integer" />
+        <attr name="speedx" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="INAToggleButton">
+        <attr name="tbBorderWidth" format="dimension" />
+        <attr name="tbOffBorderColor" format="reference|color" />
+        <attr name="tbOffColor" format="reference|color" />
+        <attr name="tbOnColor" format="reference|color" />
+        <attr name="tbSpotColor" format="reference|color" />
+        <attr name="tbAnimate" format="reference|boolean" />
+        <attr name="tbAsDefaultOn" format="reference|boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="INAPowerImageView">
+        <attr name="auto_play" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="INACircleProgressBar">
+        <attr name="backWidth" format="dimension" /> <!--背景圆环宽度-->
+        <attr name="progWidth" format="dimension" /> <!--进度圆环宽度-->
+        <attr name="backColor" format="color" /> <!--背景圆环颜色-->
+        <attr name="progColor" format="color" /> <!--进度圆环颜色-->
+        <attr name="progStartColor" format="color" /> <!--进度圆环开始颜色-->
+        <attr name="progFirstColor" format="color" /> <!--进度圆环结束颜色-->
+        <attr name="progress" format="integer" /> <!--圆环进度-->
+    </declare-styleable>
+
+    <declare-styleable name="INABadLayout">
+        <attr name="bad_marginTop" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="INADragLayout">
+        <attr name="overScrollDraggerX" format="boolean" />
+        <attr name="overScrollDraggerY" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="INASlidingLayout">
+        <attr name="background_view" format="reference" />
+        <attr name="sliding_mode" format="enum">
+            <enum name="both" value="0" />
+            <enum name="top" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+        <attr name="sliding_pointer_mode" format="enum">
+            <enum name="one" value="0" />
+            <enum name="more" value="1" />
+        </attr>
+        <attr name="top_max" format="dimension" />
+    </declare-styleable>
+
+    <!--come from https://bintray.com/dalong982242260/maven/marqueeview thx you -->
+    <declare-styleable name="INAMarqueeView">
+        <attr name="textcolor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="isRepeat" format="boolean" />
+        <attr name="marqueebackground" format="color" /><!--新增-->
+        <attr name="speed" format="integer" />
+        <attr name="startPoint" format="integer">
+            <enum name="start" value="0" />
+            <enum name="end" value="1" />
+        </attr>
+        <attr name="direction" format="integer">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!--涟漪控件属性-->
+    <declare-styleable name="INARippleView">
+        <attr name="ripple_color" format="color" />
+        <attr name="ripple_speed" format="integer" />
+        <attr name="ripple_density" format="integer" />
+        <attr name="ripple_isFill" format="boolean" />
+        <attr name="ripple_isAlpha" format="boolean" />
+        <attr name="ripple_inCircle" format="boolean" />
+        <attr name="ripple_src" format="reference" />
+        <attr name="ripple_spread" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="INABarrageView">
+        <attr name="barrage_rowNum" format="integer" />
+        <attr name="barrage_rowHeight" format="dimension" />
+        <attr name="barrage_speed" format="integer" />
+        <attr name="barrage_itemGap" format="dimension" />
+        <attr name="barrage_auto" format="boolean" />
+        <attr name="barrage_hoverRecoil" format="boolean" />
+        <attr name="barrage_hoverTime" format="integer" />
+        <attr name="barrage_hoverSpeed" format="float" />
+        <attr name="barrage_rowGap" format="dimension" />
+        <attr name="barrage_mode">
+            <enum name="normal" value="0x00000000" />
+            <enum name="average" value="0x00000001" />
+        </attr>
+        <attr name="barrage_isFly" format="boolean" />
+        <attr name="barrage_keepSequence" format="boolean" />
+        <attr name="barrage_interreptor" format="boolean" />
+        <attr name="barrage_gravity">
+            <enum name="top" value="48" />
+            <enum name="center" value="17" />
+            <enum name="bottom" value="80" />
+        </attr>
+        <attr name="repeatCount" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="INAShapeButton">
+        <attr name="anCornerRadius" format="integer" />
+        <attr name="anBackgrount" format="integer" />
+    </declare-styleable>
+
+    <!--2019献给李芳芳小团子同学-->
+    <declare-styleable name="INAWheelView">
+        <attr name="wheel_gravity">
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="wheelview_textSize" format="dimension" />
+        <attr name="wheelview_textColorOut" format="color" />
+        <attr name="wheelview_textColorCenter" format="color" />
+        <attr name="wheelview_dividerColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="InaPickerView">
+        <attr name="isLoop" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingIndicatorView">
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension" />
+        <attr name="minHeight" format="dimension" />
+        <attr name="maxHeight" format="dimension" />
+        <attr name="indicatorName" format="string" />
+        <attr name="indicatorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SwipeMenuView">
+        <attr name="swipeEnable" format="boolean" />
+        <attr name="ios" format="boolean" />
+        <attr name="leftSwipe" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="GifTextureView">
+        <attr name="gifSource" format="reference|string" />
+        <attr name="isOpaque" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="GifView">
+        <attr name="freezesAnimation" format="boolean" />
+        <attr name="loopCount" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="INATabLayout">
+        <attr name="anTabIndicator" format="reference|color" />
+        <attr name="anTabIndicatorHeight" format="dimension" />
+        <attr name="anTabIndicatorRadius" format="dimension" />
+        <attr name="anTabIndicatorWidth" format="dimension" />
+        <attr name="anTabIndicatorMarginBottom" format="dimension" />
+        <attr name="anTabIndicatorColor" format="color" />
+        <attr name="anTabPadding" format="dimension" />
+        <attr name="anTabPaddingStart" format="dimension" />
+        <attr name="anTabPaddingTop" format="dimension" />
+        <attr name="anTabPaddingEnd" format="dimension" />
+        <attr name="anTabPaddingBottom" format="dimension" />
+        <attr name="anTabTextAppearance" format="reference" />
+        <attr name="anTabTextColor" format="color" />
+        <attr name="anTabSelectedTextColor" format="color" />
+        <attr name="anTabMinWidth" format="dimension" />
+        <attr name="anTabMaxWidth" format="dimension" />
+        <attr name="anTabMinWidthMargin" format="dimension" />
+        <attr name="anTabBackgroundColor" format="reference|color" />
+        <attr name="anTabSelectedBackgroundColor" format="reference|color" />
+        <attr name="anTabContentStart" format="dimension" />
+        <attr name="anTabMode">
+            <enum name="scrollable" value="0x00000000" />
+            <enum name="fixed" value="0x00000001" />
+        </attr>
+        <attr name="anTabGravity">
+            <enum name="fill" value="0x00000000" />
+            <enum name="center" value="0x00000001" />
+        </attr>
+
+        <attr name="anTabTextSize" format="dimension" />
+        <attr name="anTabTextBold" format="boolean" />
+        <attr name="anTabSelectedTextSize" format="dimension" />
+        <attr name="anTabTextSelectedBold" format="boolean" />
+        <attr name="anTabDisplayNum" format="integer" />
+        <attr name="anTabTextAllCaps" format="boolean" />
+
+
+        <attr name="anTabDividerHeight" format="dimension" />
+        <attr name="anTabDividerWidth" format="dimension" />
+        <attr name="anTabDividerWidthWidthText" format="boolean" />
+        <attr name="anTabDividerColor" format="color" />
+        <attr name="anTabDividerGravity">
+            <enum name="top" value="0x00000000" />
+            <enum name="center" value="0x00000001" />
+            <enum name="bottom" value="0x00000002" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="INALikeButton">
+        <attr name="icon_type" format="string" />
+        <attr name="icon_size" format="dimension|reference" />
+        <attr name="like_drawable" format="reference" />
+        <attr name="unlike_drawable" format="reference" />
+        <attr name="dots_primary_color" format="color|reference" />
+        <attr name="dots_secondary_color" format="color|reference" />
+        <attr name="circle_start_color" format="color|reference" />
+        <attr name="circle_end_color" format="color|reference" />
+        <attr name="liked" format="boolean" />
+        <attr name="is_enabled" format="boolean" />
+        <attr name="anim_scale_factor" format="float" />
+    </declare-styleable>
+
+
+    <!--==================ucrop2020==================================-->
+    <declare-styleable name="ucrop_UCropView">
+
+        <!--Crop image view-->
+        <attr name="ucrop_aspect_ratio_x" format="float" />
+        <attr name="ucrop_aspect_ratio_y" format="float" />
+
+        <!--Overlay view-->
+        <attr name="ucrop_show_oval_crop_frame" format="boolean" />
+        <attr name="ucrop_circle_dimmed_layer" format="boolean" />
+        <attr name="ucrop_dimmed_color" format="color" />
+
+        <attr name="ucrop_grid_stroke_size" format="dimension" />
+        <attr name="ucrop_grid_color" format="color" />
+        <attr name="ucrop_grid_row_count" format="integer" />
+        <attr name="ucrop_grid_column_count" format="integer" />
+        <attr name="ucrop_show_grid" format="boolean" />
+
+        <attr name="ucrop_frame_stroke_size" format="dimension" />
+        <attr name="ucrop_frame_color" format="color" />
+        <attr name="ucrop_show_frame" format="boolean" />
+
+    </declare-styleable>
+
+    <declare-styleable name="ucrop_AspectRatioTextView">
+
+        <attr name="ucrop_artv_ratio_title" format="string" />
+
+        <attr name="ucrop_artv_ratio_x" format="float" />
+        <attr name="ucrop_artv_ratio_y" format="float" />
+
+    </declare-styleable>
+
+
+    <!--=======2020==================picture select======-->
+    <declare-styleable name="SubsamplingScaleImageView">
+        <attr name="src" format="reference" />
+        <attr name="assetName" format="string" />
+        <attr name="panEnabled" format="boolean" />
+        <attr name="zoomEnabled" format="boolean" />
+        <attr name="quickScaleEnabled" format="boolean" />
+        <attr name="tileBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CameraView">
+        <attr name="scaleType" format="enum">
+            <enum name="centerCrop" value="0" />
+            <enum name="centerInside" value="1" />
+        </attr>
+        <attr name="lensFacing" format="enum">
+            <enum name="none" value="0" />
+            <enum name="front" value="1" />
+            <enum name="back" value="2" />
+        </attr>
+        <attr name="captureMode" format="enum">
+            <enum name="image" value="0" />
+            <enum name="video" value="1" />
+            <enum name="mixed" value="2" />
+        </attr>
+        <attr name="flash" format="enum">
+            <enum name="auto" value="1" />
+            <enum name="on" value="2" />
+            <enum name="off" value="4" />
+        </attr>
+
+        <attr name="pinchToZoomEnabled" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="PreviewView">
+        <attr name="implementationMode" format="enum">
+            <enum name="surfaceView" value="0" />
+            <enum name="textureView" value="1" />
+        </attr>
+    </declare-styleable>
+    <attr name="picture.title.textColor" format="reference|color" />
+    <attr name="picture.right.textColor" format="reference|color" />
+    <attr name="picture.leftBack.icon" format="reference" />
+    <attr name="picture.arrow_down.icon" format="reference" />
+    <attr name="picture.arrow_up.icon" format="reference" />
+    <attr name="picture.num.style" format="reference" />
+    <attr name="picture.checked.style" format="reference" />
+    <attr name="picture.bottom.bg" format="reference|color" />
+    <attr name="picture.preview.textColor" format="reference|color" />
+    <attr name="picture.complete.textColor" format="reference|color" />
+    <attr name="picture.ac_preview.title.textColor" format="reference|color" />
+    <attr name="picture.ac_preview.complete.textColor" format="reference|color" />
+    <attr name="picture.ac_preview.bottom.bg" format="reference|color" />
+    <attr name="picture.status.color" format="reference|color" />
+    <attr name="picture.ac_preview.title.bg" format="reference|color" />
+    <attr name="picture.preview.leftBack.icon" format="reference" />
+    <attr name="picture.statusFontColor" format="boolean" />
+    <attr name="picture.style.numComplete" format="boolean" />
+    <attr name="picture.style.checkNumMode" format="boolean" />
+    <attr name="picture.crop.toolbar.bg" format="reference|color" />
+    <attr name="picture.crop.status.color" format="reference|color" />
+    <attr name="picture.crop.title.color" format="reference|color" />
+    <attr name="picture.folder_checked_dot" format="reference" />
+</resources>

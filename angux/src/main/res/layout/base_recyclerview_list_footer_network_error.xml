@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        style="@style/an_iv"
+        android:layout_marginRight="@dimen/an_dimen_margin_ssmall"
+        android:src="@drawable/ic_white_warning" />
+
+    <TextView
+        android:id="@+id/network_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+        android:text="@string/list_footer_network_error"
+        android:textColor="@color/an_font_error"
+        android:textSize="@dimen/an_font_native" />
+</LinearLayout>

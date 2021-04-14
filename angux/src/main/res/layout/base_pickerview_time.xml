@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/base_pickerview_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DimenNativeNationalSmall" />
+
+    <LinearLayout
+        android:id="@+id/timepicker"
+        style="@style/an_match_wrap.H"
+        android:background="@color/an_color_white"
+        android:paddingRight="@dimen/an_dimen_padding">
+
+        <com.sunsta.bear.engine.picker.widget.wheelview.INAWheelView
+            android:id="@+id/year"
+            style="@style/an_match_wrap"
+            android:layout_weight="1.1" />
+
+        <com.sunsta.bear.engine.picker.widget.wheelview.INAWheelView
+            android:id="@+id/month"
+            style="@style/an_match_wrap"
+            android:layout_weight="1.1" />
+
+        <com.sunsta.bear.engine.picker.widget.wheelview.INAWheelView
+            android:id="@+id/day"
+            style="@style/an_match_wrap"
+            android:layout_weight="1.1" />
+
+        <com.sunsta.bear.engine.picker.widget.wheelview.INAWheelView
+            android:id="@+id/hour"
+            style="@style/an_match_wrap"
+            android:layout_weight="1.1" />
+
+        <com.sunsta.bear.engine.picker.widget.wheelview.INAWheelView
+            android:id="@+id/min"
+            style="@style/an_match_wrap"
+            android:layout_weight="1.1" />
+    </LinearLayout>
+</LinearLayout>

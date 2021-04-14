@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <integer name="animation_default_duration">300</integer>
+  <integer name="an_angle">90</integer>
+  <integer name="an_angle_daynight">45</integer>
+  <integer name="an_angle_progress">270</integer>
+  <!--20191201新增-->
+  <integer name="ucrop_progress_loading_anim_time">1500</integer>
+
+</resources>

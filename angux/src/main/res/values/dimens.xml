@@ -1,0 +1,125 @@
+<resources>
+    <dimen name="DimenNativeNationalSmall">40dp</dimen><!--类按钮的高度-->
+    <dimen name="DimenNativeNationalMax">60dp</dimen><!--类按钮的高度-->
+
+
+    <!--2019-09-28 新定义appbarHeight，这样好处可以在下次这里面直接改变状态栏，导航栏高度-->
+    <dimen name="AppBarAboveHeight">68dp</dimen>
+    <dimen name="AppBarPatchHeight">43dp</dimen><!--补丁高度-->
+    <dimen name="AppBarPatchMarginTop">25dp</dimen><!--补丁距离顶高-->
+    <dimen name="AppBorderLeftDimen">48dp</dimen>
+    <dimen name="AppNavigationHeight">55dp</dimen>
+    <dimen name="AppHeadHeight">70dp</dimen>
+    <dimen name="AppHeadWidth">70dp</dimen>
+    <dimen name="AppProgressBarHeight">1dp</dimen>
+
+    <dimen name="an_dimen_line">0.001dp</dimen>
+    <dimen name="an_dimen_line_left">48dp</dimen><!--距离左边距离-->
+    <dimen name="an_dimen_line_height">27dp</dimen><!--分割线高度-->
+    <dimen name="an_dimen_edit_height">48dp</dimen><!--输入框高度-->
+    <dimen name="an_dimen_barrage_height">39dp</dimen><!--设置弹幕的高度-->
+    <dimen name="an_dimen_stroke_width">0.3dp</dimen>
+    <dimen name="an_dimen_line_max">0.5dp</dimen><!--可选-->
+    <dimen name="an_dimen_border">1dp</dimen>
+    <dimen name="an_dimen_radius">4dp</dimen>
+    <dimen name="an_dimen_radius_dialog">11dp</dimen>
+    <dimen name="an_dimen_radius_progress">2dp</dimen>
+    <dimen name="an_dimen_radius_max">12dp</dimen>
+    <dimen name="an_dimen_select_padding">2dp</dimen>
+
+    <!--2种高度按钮的距离-->
+    <dimen name="an_dimen_native">52dp</dimen>
+    <dimen name="an_dimen_native_list">62dp</dimen>
+
+    <dimen name="AppDimenNativeLike">48dp</dimen>
+
+    <dimen name="an_dimen_horizontal_margin">72dp</dimen>
+    <dimen name="an_dimen_margin">16dp</dimen><!--间距-->
+    <dimen name="an_dimen_marginleft">10dp</dimen><!--间距-->
+    <dimen name="an_dimen_margin_small">8dp</dimen>
+    <dimen name="an_dimen_margin_ssmall">5dp</dimen>
+
+    <dimen name="an_dimen_margintop_max">200dp</dimen>
+    <dimen name="an_dimen_margintop">145dp</dimen>
+    <dimen name="an_dimen_margintop_small">120dp</dimen>
+
+    <dimen name="an_dimen_padding">16dp</dimen><!--通用的左右上下间距参考-->
+    <dimen name="an_dimen_padding_left">6dp</dimen><!--通用的左右上下间距参考-->
+
+    <!--内容图标参考-->
+
+
+    <!--(1)以下定义为图标的长宽等-->
+    <dimen name="anLodingHeight">59dp</dimen>
+    <dimen name="anLodingWidth">59dp</dimen>
+
+    <dimen name="an_ivbar_height">24dp</dimen>
+    <dimen name="an_ivbar_width">23dp</dimen>
+    <dimen name="an_ivbar_top_height">16dp</dimen><!--保留顶部bar超级小图标-->
+    <dimen name="an_ivbar_top_width">16dp</dimen><!--保留顶部bar超级小图标-->
+
+    <dimen name="an_iv_height">45dp</dimen>
+    <dimen name="an_iv_width">45dp</dimen>
+
+    <dimen name="an_ivlight_height">21dp</dimen>
+    <dimen name="an_ivlight_width">21dp</dimen>
+
+    <dimen name="an_ivnav_height">20dp</dimen>
+    <dimen name="an_ivnav_width">20dp</dimen>
+
+
+    <!--(2)以下为字体大小定义-->
+    <dimen name="an_font_dialog_title">18sp</dimen>
+    <dimen name="an_font_native">13sp</dimen><!--文本常用-->
+    <dimen name="an_font_content">14sp</dimen>
+    <dimen name="an_font_tips">11sp</dimen>
+
+    <dimen name="an_dimen_level1">17sp</dimen>
+    <dimen name="an_dimen_level2">15sp</dimen>
+    <dimen name="an_dimen_level3">13sp</dimen><!--文本常用-->
+
+    <dimen name="an_font_level1">17sp</dimen>
+    <dimen name="an_font_level2">15sp</dimen>
+    <dimen name="an_font_level3">13sp</dimen>
+    <dimen name="an_font_small">11sp</dimen><!--文本常用-->
+
+    <dimen name="an_dimen_middle">11sp</dimen><!--an_font_tips-->
+    <dimen name="an_dimen_error">20sp</dimen><!--an_font_error-->
+    <dimen name="an_dimen_error2">15sp</dimen><!--an_font_error-->
+
+    <dimen name="anBarTextDimen">13sp</dimen>
+    <dimen name="anBarLightTextDimen">@dimen/an_dimen_middle</dimen>
+    <dimen name="anDeepTextDimen">15sp</dimen><!--an_font_title-->
+    <dimen name="anTextDimen">14sp</dimen><!--an_font_content--><!--文本常用-->
+    <dimen name="anLightTextDimen">13sp</dimen><!--an_font_tips-->
+    <dimen name="anNavTextDimen">13sp</dimen>
+
+    <!--ucrop2020-->
+    <!--uCrop Activity-->
+    <dimen name="ucrop_padding_crop_frame">16dp</dimen>
+    <dimen name="ucrop_size_dot_scale_text_view">8dp</dimen>
+    <dimen name="ucrop_height_horizontal_wheel_progress_line">20dp</dimen>
+    <dimen name="ucrop_width_horizontal_wheel_progress_line">2dp</dimen>
+    <dimen name="ucrop_width_middle_wheel_progress_line">4dp</dimen>
+    <dimen name="ucrop_margin_horizontal_wheel_progress_line">10dp</dimen>
+    <dimen name="ucrop_height_wrapper_controls">64dp</dimen>
+    <dimen name="ucrop_height_wrapper_states">72dp</dimen>
+    <dimen name="ucrop_height_divider_shadow">3dp</dimen>
+    <dimen name="ucrop_text_size_widget_text">13sp</dimen>
+    <dimen name="ucrop_text_size_controls_text">11sp</dimen>
+    <dimen name="ucrop_margin_top_widget_text">10dp</dimen>
+    <dimen name="ucrop_margin_top_controls_text">4dp</dimen>
+    <dimen name="ucrop_size_wrapper_rotate_button">50dp</dimen>
+    <dimen name="ucrop_height_crop_aspect_ratio_text">40dp</dimen>
+    <dimen name="ucrop_progress_size">30dp</dimen>
+
+    <!--Crop View-->
+    <dimen name="ucrop_default_crop_logo_size">200dp</dimen>
+    <dimen name="ucrop_default_crop_grid_stoke_width">1dp</dimen>
+    <dimen name="ucrop_default_crop_frame_stoke_width">1dp</dimen>
+    <dimen name="ucrop_default_crop_rect_corner_touch_threshold">30dp</dimen>
+    <dimen name="ucrop_default_crop_rect_min_size">100dp</dimen>
+    <dimen name="ucrop_default_crop_rect_corner_touch_area_line_length">10dp</dimen>
+
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/outmost_container"
+    style="@style/an_match_wrap"
+    android:background="@color/an_color_picker"
+    android:clickable="true">
+
+    <FrameLayout
+        android:id="@+id/content_container"
+        style="@style/an_wrap_wrap" />
+
+</FrameLayout>

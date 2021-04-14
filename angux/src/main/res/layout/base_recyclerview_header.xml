@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/DimenNativeNationalSmall"
+    android:background="#FFDDFF"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="@dimen/an_dimen_horizontal_margin"
+        android:layout_height="@dimen/an_dimen_line"
+        android:background="@color/an_color_border" />
+
+    <TextView
+        android:id="@+id/person_video_list_honey_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:text="@string/header_text"
+        android:textColor="@color/in_font_selector_deep"
+        android:textSize="@dimen/an_font_native"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="@dimen/an_dimen_horizontal_margin"
+        android:layout_height="@dimen/an_dimen_line"
+        android:background="@color/an_color_border" />
+
+</LinearLayout>

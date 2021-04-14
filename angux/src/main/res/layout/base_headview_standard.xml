@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/AppBarAboveHeight"
+    android:background="?attr/anBarBackground">
+
+    <ProgressBar
+        android:id="@+id/anTopPb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/AppProgressBarHeight"
+        android:progressDrawable="@drawable/in_seloctor_progress"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/anLlBack"
+        style="@style/an_wrap_match.V"
+        android:layout_alignParentStart="true"
+        android:background="?android:selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:onClick="back">
+
+        <View
+            android:id="@+id/fitBackView"
+            android:layout_width="@dimen/an_dimen_line_max"
+            android:layout_height="@dimen/AppBarPatchMarginTop"
+            android:visibility="gone" />
+
+        <LinearLayout
+            style="@style/an_wrap_match"
+            android:duplicateParentState="true"
+            android:paddingLeft="@dimen/an_dimen_padding">
+
+            <ImageView
+                android:id="@+id/anBackIv"
+                style="@style/an_iv.Bar"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/in_selector_leftback" />
+
+            <TextView
+                android:id="@+id/anBackTx"
+                style="@style/an_style_bar"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="@string/CommStringBack" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/anLlCenter"
+        style="@style/an_wrap_match.V"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/fitCenterView"
+            android:layout_width="@dimen/an_dimen_line_max"
+            android:layout_height="@dimen/AppBarPatchMarginTop"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/llCenterPb"
+            style="@style/an_wrap_match">
+
+            <ProgressBar
+                android:id="@+id/anCenterPb"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="@dimen/an_ivbar_width"
+                android:layout_height="@dimen/an_ivbar_height"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/an_dimen_margin_ssmall"
+                android:max="200"
+                android:progress="0"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/anTxTitle"
+                style="@style/an_style_bar"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:gravity="center_vertical|center_horizontal"
+                android:maxEms="14"
+                android:maxLines="1"
+                android:text="@string/aliBarTitle"
+                android:textColor="@color/anBarTextColor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCenterPb2"
+            style="@style/an_wrap_match"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/anCenterPb2"
+                style="@style/an_iv.Light"
+                android:layout_gravity="center_vertical"
+                android:padding="2dp"
+                android:src="@drawable/in_selector_loading" />
+
+            <TextView
+                android:id="@+id/anTxPb2"
+                style="@style/an_style_bar"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|center_horizontal"
+                android:maxEms="14"
+                android:maxLines="1"
+                android:text="@string/loading"
+                android:textColor="@color/anBarTextColor" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/anRightRl"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/anRightLlA"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View
+                android:id="@+id/fitRightViewA"
+                android:layout_width="@dimen/an_dimen_line_max"
+                android:layout_height="@dimen/AppBarPatchMarginTop"
+                android:visibility="gone" />
+
+            <LinearLayout
+                style="@style/an_match_match"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/anRightIvA"
+                    style="@style/an_iv.BarTop"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/in_selector_ucrop_crop" />
+
+                <TextView
+                    android:id="@+id/anRightTxA"
+                    style="@style/an_style_bar.Light"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="marquee"
+                    android:gravity="center_horizontal"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text="@string/aliBarRightTxt" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/anRightLlB"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/anRightLlA"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View
+                android:id="@+id/fitRightViewB"
+                android:layout_width="@dimen/an_dimen_line_max"
+                android:layout_height="@dimen/AppBarPatchMarginTop"
+                android:visibility="gone" />
+
+            <LinearLayout
+                style="@style/an_match_match"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/anRightIvB"
+                    style="@style/an_iv.BarTop"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/in_selector_ucrop_crop" />
+
+                <TextView
+                    android:id="@+id/anRightTxB"
+                    style="@style/an_style_bar.Light"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="marquee"
+                    android:gravity="center_horizontal"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text="@string/aliBarRightTxt" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/anRightLl"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/fitRightView"
+            android:layout_width="@dimen/an_dimen_line_max"
+            android:layout_height="@dimen/AppBarPatchMarginTop"
+            android:visibility="gone" />
+
+        <LinearLayout
+            style="@style/an_wrap_match"
+            android:paddingRight="@dimen/an_dimen_padding">
+
+
+            <TextView
+                android:id="@+id/anRightTx"
+                style="@style/an_style_bar"
+                android:layout_gravity="center_vertical|start"
+                android:gravity="center_vertical|start"
+                android:text="@string/aliBarRightTxt" />
+
+            <ImageView
+                android:id="@+id/anRightIv"
+                style="@style/an_iv.Bar"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/in_selector_ucrop_rotate" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/anBottomPb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/AppProgressBarHeight"
+        android:layout_alignParentBottom="true"
+        android:progressDrawable="@drawable/in_seloctor_progress"
+        android:visibility="gone" />
+</RelativeLayout>

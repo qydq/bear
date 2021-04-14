@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    style="@style/an_match_match"
+    android:background="@color/anErrorBackground">
+
+    <LinearLayout
+        android:id="@+id/action0"
+        style="@style/an_match_wrap.V"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/tvPatch"
+            style="@style/an_wrap_wrap" />
+
+        <ImageView
+            android:id="@+id/ivError"
+            style="@style/an_wrap_wrap"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/default_error_nodata" />
+
+        <TextView
+            android:id="@+id/tvLight"
+            style="@style/an_wrap_wrap"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/an_dimen_margin"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.11"
+            android:text="网络加载错误"
+            android:textColor="@color/an_font_error"
+            android:textColorHighlight="@color/an_color_editcursor"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/an_dimen_error"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvPrimary"
+            style="@style/an_wrap_wrap.Error"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/an_dimen_margin"
+            android:gravity="center"
+            android:letterSpacing="0.1"
+            android:text="点击重试>" />
+    </LinearLayout>
+</RelativeLayout>

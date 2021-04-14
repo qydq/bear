@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/ColorBlack</color>
+    <color name="colorPrimaryDark">@color/ColorBlack</color>
+    <color name="colorAccent">@color/ColorBlack</color>
+
+    <!--2020定义级别颜色，从上到下定义背景颜色-->
+    <!--（1）定义背景颜色-->
+    <color name="an_color_level1">#17191A</color>
+    <color name="an_color_level2">#121314</color>
+    <color name="an_color_level3">#FF000000</color>
+    <color name="an_color_line">#691F2021</color>
+
+    <color name="anLaunchBackground">#FF000000</color>
+    <color name="anBarBackground">@color/an_color_level2</color>
+    <color name="anBackground">@color/an_color_level1</color>
+    <color name="anNavBackground">@color/an_color_level2</color>
+    <color name="anLineBackground">@color/an_color_line</color>
+    <color name="anBtnBackground">@color/ColorWhite</color>
+    <color name="anBtnLightBackground">#121314</color>
+    <color name="anDialogBackground">#17191A</color>
+    <color name="anBtnBackground2">@color/ColorWhite</color>
+    <color name="anBarBackground2">@color/an_color_level2</color>
+    <color name="anBackground2">@color/an_color_level1</color>
+    <color name="anNavBackground2">@color/an_color_level2</color>
+    <color name="anLineBackground2">@color/an_color_line</color>
+
+
+    <color name="anMiddleColor">@color/ColorTransparentClicked</color><!--（点击后背景，唯一）-->
+    <color name="anNofcsBackground">#691F2021</color><!--（选择背景无焦点，或不可点击）（可选）-->
+    <color name="anOptBackground">@color/ColorTransparent</color><!--（选择器背景颜色）（可选）-->
+    <color name="anOppBackground">#d4d4d4</color><!--（选择背景互斥颜色）（可选）-->
+    <color name="anMaterialBackground">#69000000</color><!--（可选，唯一）-->
+    <color name="anErrorBackground">#FF000000</color><!--提示文字，如网络错误，为空-->
+
+
+    <!--（2）定义字体颜色，考虑抗锯齿-->
+    <color name="an_font_level1">@color/ColorWhite</color>
+    <color name="an_font_level2">#868686</color>
+    <color name="an_font_level3">#8A2BE2</color>
+    <color name="an_font_middle">#ff7200</color>
+    <color name="an_font_error">#80d4d4d4</color>
+    <color name="an_font_error2">#8A2BE2</color>
+
+    <!--第一字体选择颜色--><!--原来#8C8C8C 第二各模块通讯录字体颜色-->
+    <color name="anBarTextColor">@color/ColorGhostwhite</color>
+    <color name="anBtnTextColor">#404040</color>
+    <color name="anDeepTextColor">@color/an_font_level1</color>
+    <color name="anTextColor">@color/an_font_level2</color>
+    <color name="anLightTextColor">@color/an_font_level3</color>
+    <color name="anNavTextColor">@color/ColorMintcream</color>
+
+    <!--（3）重新定义第四部分颜色标准-->
+
+    <color name="an_font_edit">#ff7200</color>
+    <color name="an_color_edit">#ededed</color>
+
+    <color name="an_color_mark">#ADFF2F</color><!--标记的颜色--><!--提示文字，，如网络错误，为空-->
+    <color name="an_color_editcursor">#ff7200</color>
+    <color name="an_color_hint">#404040</color>
+
+    <color name="an_color_border">#A9A9A9</color><!--边框颜色-->
+    <color name="an_color_border_clicked">#25000000</color><!--边框颜色选择-->
+
+    <color name="an_color_tabmenu">#9a9a9a</color><!--bar,文本文字颜色-->
+    <color name="an_color_tabmenu_clicked">#38b7ea</color><!--bar文本文字选择颜色#cacaca-->
+
+    <color name="an_color_start">#88bf52</color><!--开始颜色，用于渐变-->
+    <color name="an_color_end">#d5d5d5</color><!--结束颜色，用于渐变-->
+
+    <color name="an_color_solid">@color/ColorTransparent</color><!--背景填充颜色-->
+    <color name="an_color_solid_clicked">#20000000</color><!--背景填充颜色-->
+
+    <!-- 透明 -->
+    <color name="ColorTransparent">#00000000</color>
+    <color name="ColorTransparentClicked">#16000000</color>
+
+    <color name="an_color_solid_green">#B6DA53</color>
+
+    <color name="an_color_holo">#666667</color>
+    <color name="an_color_holo_light_red">#ffff4444</color>
+    <color name="an_color_holo_light_blue">#ff00ddff</color>
+    <!--black_deep-->
+    <color name="an_color_holo_deep_black">#FF000000</color>
+
+
+    <color name="btn_logout_normal">#d33f3f</color>
+    <color name="btn_logout_pressed">#DA5A4D</color>
+    <color name="btn_register_normal">#ffffff</color>
+    <color name="btn_register_pressed">#00acff</color>
+
+    <!--divider_list-->
+    <!--bottom_bar_normal_bg-->
+
+    <color name="btn_white_normal">#f7f8f8</color>
+    <color name="btn_white_pressed">#b5b5b6</color>
+    <color name="btn_green_noraml">#68C270</color>
+    <color name="btn_green_pressed">#6FCD78</color>
+    <color name="btn_gray_normal">#c0c0c0</color>
+    <color name="btn_gray_pressed_status">#b5b5b6</color>
+
+
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+
+
+    <color name="emojicon_tab_selected">#D9D9D9</color>
+    <color name="emojicon_tab_nomal">#ffffff</color>
+
+    <!--第二字体选择颜色-#c2daf5==#1e90ff-->
+    <color name="an_color_selector_txt">#0066FF</color>
+    <color name="an_color_selector_txt_clicked">#46678d</color>
+
+    <color name="an_color_wheel_center">#2a2a2a</color>
+    <color name="an_color_wheel_out">#a8a8a8</color>
+
+    <color name="an_color_picker">#60000000</color>
+
+    <color name="an_color_progressbar">#FF4081</color>
+
+    <color name="an_color_ripple">#CD5C5C</color>
+    <color name="an_color_native">#d5d5d5</color>
+    <color name="an_color_white">#FFFFFF</color>
+
+
+    <color name="anRecyclerTxtGray">#FF777777</color>
+
+    <color name="anRecyclerLoadingColor1">#55777777</color>
+    <color name="anRecyclerLoadingColor2">#B1777777</color>
+</resources>

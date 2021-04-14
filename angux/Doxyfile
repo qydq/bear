@@ -1,0 +1,10 @@
+PROJECT_NAME           = livery
+RECURSIVE              = YES
+INPUT                  = src/main/c
+OPTIMIZE_OUTPUT_FOR_C  = YES
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+HIDE_SCOPE_NAMES       = YES
+FILE_PATTERNS          = *.c \
+                         *.h
+RECURSIVE              = YES

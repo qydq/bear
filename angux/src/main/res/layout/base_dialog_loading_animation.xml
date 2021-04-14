@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    style="@style/an_match_match">
+
+    <!--经过不断的测试，所有的dialog必须要嵌套两层布局RelativeLayout，
+    否则设置的居中等属性统统无效-->
+    <RelativeLayout
+        android:id="@+id/action0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/action1"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:background="@drawable/base_bg_loading"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivPrimary"
+                style="@style/an_iv.Loading"
+                android:src="@drawable/in_selector_loading" />
+
+            <TextView
+                android:id="@+id/tvText"
+                style="@style/an_wrap_wrap.Text"
+                android:layout_below="@+id/ivPrimary"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+                android:text="@string/loading" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

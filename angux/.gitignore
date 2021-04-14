@@ -1,0 +1,4 @@
+/build
+/.cxx
+/.cxx/cmake
+/.cxx/ndk_locator_record.json

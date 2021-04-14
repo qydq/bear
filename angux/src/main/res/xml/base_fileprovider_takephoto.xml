@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <!--path代表要共享的目录。。。name是一个标示，随便，自己看的懂就ok-->
+        <!--标准注释1：对应Context.getFilesDir()-/data/data/<packagename>/files目录。-->
+        <files-path
+            name="images"
+            path="picture/" />
+        <file-path
+            name="AliffFilePathName"
+            path="data/data/com.sunsta.bear/" />
+        <files-path
+            name="AliffFilePathName"
+            path="docs/" />
+        <files-path
+            name="AliffFilePathName"
+            path="Aliff/" />
+
+        <!--标准注释2：对应Context.getCacheDir()-/data/data/<packagename>/cache目录。-->
+        <cache-path
+            name="AliffCachePathName"
+            path="data/data/com.sunsta.livery" />
+        <cache-path
+            name="AliffCachePathName"
+            path="Aliff/" />
+
+        <!--标准注释3：Environment.getExternalStorageDirectory()-->
+        <!-- path设置为'.'时代表整个存储卡 Environment.getExternalStorageDirectory() + "/path/"   -->
+        <external-path
+            name="AliffExternalPathName"
+            path="." />
+        <external-path
+            name="AliffExternalPathName"
+            path="Aliff/" />
+        <external-path
+            name="AliffExternalPathName"
+            path="Android/data/com.sunsta.livery/" />
+
+        <!--标准注释4：对应Context.getExternalFilesDir(null)-sdcard/Android/data/<packagename>/files/-->
+        <external-files-path
+            name="AliffExternalFilePathName"
+            path="path" />
+        <external-files-path
+            name="AliffExternalFilePathName"
+            path="Aliff/" />
+        <!--标准注释5：对应Context.getExternalCacheDir()-sdcard/Android/data/<packagename>/cache/目录。-->
+        <external-cache-path
+            name="AliffExternalCachePathName"
+            path="path" />
+        <external-cache-path
+            name="AliffExternalCachePathName"
+            path="Aliff/" />
+
+        <root-path
+            name="AliffRoot"
+            path="." />
+    </paths>
+
+    <!--独立拍照功能-->
+    <paths>
+        <external-path
+            name="camera_photos"
+            path="" />
+        <root-path
+            name="camera_photos"
+            path="" />
+    </paths>
+</resources>

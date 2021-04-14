@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    style="@style/an_match_match"
+    android:background="@color/ColorTransparent">
+
+    <!--经过不断的测试，所有的dialog必须要嵌套两层布局RelativeLayout，
+    否则设置的居中等属性统统无效-->
+    <RelativeLayout
+        android:id="@+id/action0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/action1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/in_shape_dialog_progress"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/anProgressBar"
+                style="@style/an_iv.Loading"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tvText"
+                style="@style/an_wrap_wrap.Text"
+                android:layout_below="@+id/anProgressBar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+                android:text="@string/loading" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

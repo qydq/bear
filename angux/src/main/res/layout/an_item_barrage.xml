@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/an_dimen_barrage_height">
+    <!--in_shape_dialog_progress-->
+    <RelativeLayout
+        android:id="@+id/action0"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+        android:layout_marginRight="@dimen/an_dimen_margin_ssmall"
+        android:background="@drawable/in_selector_md_shape"
+        android:padding="3dp">
+
+        <com.sunsta.bear.engine.gif.GifImageView
+            android:id="@+id/ivGif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <com.sunsta.bear.layout.INACircleImageView
+            android:id="@+id/ivCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivGif" />
+
+        <ImageView
+            android:id="@+id/ivLight"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+            android:layout_toRightOf="@+id/ivCircle"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivPrimary"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+            android:layout_toRightOf="@id/ivLight"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/an_wrap_wrap"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+            android:layout_toRightOf="@+id/ivPrimary"
+            android:duplicateParentState="true"
+            android:text="Zhihu"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/llMark"
+            style="@style/an_wrap_match"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginTop="@dimen/an_dimen_margin_small"
+            android:layout_toRightOf="@+id/tvName">
+
+            <ImageView
+                android:id="@+id/ivMark"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/an_wrap_wrap.TextDeep"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin_ssmall"
+            android:layout_toRightOf="@+id/llMark"
+            android:duplicateParentState="true"
+            android:singleLine="true"
+            android:text="Bgwan"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--https://zhihu.com/people/qydq  重新定义所有的listview ,or recyclerview一个通用的简单布局文件-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/an_selector_layout"
+    android:layout_marginLeft="@dimen/an_dimen_margin"
+    android:layout_marginRight="@dimen/an_dimen_margin">
+
+    <TextView
+        android:id="@+id/tvTitile"
+        style="@style/an_wrap_wrap.Text"
+        android:layout_centerVertical="true"
+        android:text="sunst" />
+
+    <ImageView
+        android:id="@+id/ivRight"
+        style="@style/an_wrap_wrap"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ic_color_sel_qq"
+        android:button="@null" />
+</RelativeLayout>

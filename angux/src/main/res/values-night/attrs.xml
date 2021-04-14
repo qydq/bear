@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- （1）.ali系列通用的颜色资源，应用于夜间模式，普通模式-->
+    <attr name="anBarBackground" format="reference|color" />
+    <attr name="anBackground" format="reference|color" />
+    <attr name="anNavBackground" format="reference|color" />
+    <attr name="anLineBackground" format="reference|color" />
+
+    <attr name="anOptBackground" format="reference|color" />
+    <attr name="anOptMaterialBackground" format="reference|color" />
+    <attr name="anOppBackground" format="reference|color" />
+    <attr name="anOppMaterialBackground" format="reference|color" />
+
+
+    <attr name="anBarTextColor" format="reference|color" />
+    <attr name="anTextColor" format="reference|color" />
+    <attr name="anDeepTextColor" format="reference|color" />
+    <attr name="anLightTextColor" format="reference|color" />
+    <attr name="anNavTextColor" format="reference|color" />
+    <attr name="anEnableTextColor" format="reference|color" />
+</resources>

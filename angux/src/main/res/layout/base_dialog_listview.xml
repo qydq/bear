@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    style="@style/an_match_wrap"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        style="@style/an_match_wrap.V"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/an_dimen_margin_small"
+        android:layout_marginRight="@dimen/an_dimen_margin_small"
+        android:background="@drawable/in_drawable_dialog">
+
+        <TextView
+            android:id="@+id/tvDeep"
+            style="@style/an_wrap_wrap.TextDeep"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:minHeight="@dimen/an_dimen_native"
+            android:text="标题" />
+
+        <include layout="@layout/an_item_line" />
+
+        <ListView
+            android:id="@+id/listView"
+            style="@style/an_match_wrap"
+            android:choiceMode="singleChoice"
+            android:clickable="true"
+            android:focusable="true"
+            android:overScrollMode="never"
+            android:paddingTop="4dp"
+            android:scrollbars="none"
+            android:visibility="visible" />
+
+
+        <!--系统com.soundcloud.android.crop:lib_crop也有这个图片。-->
+        <!--android:button="@drawable/ic_white_done"-->
+        <CheckBox
+            android:id="@+id/checkbox"
+            style="@style/an_wrap_wrap"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:checked="true"
+            android:paddingLeft="8dp"
+            android:text="不要提示"
+            android:textColor="@color/anTextColor"
+            android:textSize="13dp" />
+
+        <LinearLayout
+            style="@style/an_match_wrap.H"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_small"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:layout_marginBottom="@dimen/an_dimen_margin">
+
+            <Button
+                android:id="@+id/btnCancel"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@android:string/cancel"
+                android:textColor="#007dff"
+                android:textSize="15sp" />
+            <!--style="@style/CustomDialog_button_bone"-->
+            <Button
+                android:id="@+id/btnConfirm"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:text="@android:string/ok"
+                android:textColor="#007dff"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

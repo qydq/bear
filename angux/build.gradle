@@ -1,0 +1,185 @@
+apply plugin: 'com.android.library'
+def xLibrary = rootProject.ext.dependencies
+
+apply plugin: 'com.github.dcendents.android-maven' //this way we can find the android-maven in jcenter
+group = 'com.github.qydq' //this is your github name
+
+android {
+    //> NDK not configured. ResponseDownloader it with SDK manager. Preferred NDK version is '20.0.5594570'. Log: /Users/sun/Public/anopen/Alivery/angux/.cxx/ndk_locator_record.json
+    ndkVersion '21.1.6352462'
+
+    compileSdkVersion cfgs.compileSdkVersion
+    buildToolsVersion cfgs.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion cfgs.minSdkVersion
+        targetSdkVersion cfgs.targetSdkVersion
+
+        versionCode cfgs.bearVersionCode
+        versionName cfgs.bearVersionName
+
+        vectorDrawables.useSupportLibrary = true
+
+        consumerProguardFiles 'proguard-rules.pro'
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+
+        resConfigs "zh"
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_PLATFORM=android-$cfgs.minSdkVersion", "-DANDROID_STL=none"
+                cFlags '-std=c11', '-Weverything', '-Wall'
+                if (isDebugBuild()) {
+                    cFlags '-DDEBUG', '-g'
+                } else {
+                    cFlags '-DNDEBUG', '-Os', '-g0', '-fvisibility=hidden'
+                }
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path 'src/main/c/CMakeLists.txt'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    /**
+     * mark : fix error : [standard]
+     *
+     * More than one file was found with OS independent path 'META-INF/rxjava.properties'
+     * */
+    packagingOptions {
+        exclude 'META-INF/'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/maven/com.alibaba/fastjson/pom.properties'
+        exclude 'META-INF/maven/com.alibaba/fastjson/pom.xml'
+        exclude 'about.html'
+        exclude 'edl-v10.html'
+        exclude 'epl-v10.html'
+        exclude 'notice.html'
+    }
+
+    /**
+     * mark : fix error : [standard]
+     *
+     * fix the wrong:忽略编译时过时警告,Or, if you prefer, you can continue to check for errors in release builds
+     * but continue the build even when errors are found:
+     * */
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        ignoreWarnings true
+//        disable 'MissingTranslation'
+//        disable 'TypographyFractions', 'TypographyQuotes'
+    }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/drawable-v24'] } }
+    /**
+     * mark：Java8 引入编译的严谨写法
+     * */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //testImplementation xLibrary.testjunit
+    //androidTestImplementation xLibrary.testrunner
+    //androidTestImplementation xLibrary.testespresso
+
+
+//    api xLibrary.appcompat
+    api "androidx.appcompat:appcompat:${cfgs.androidx_appcompat_version}"
+
+    /**
+     * 不再支持support包
+     * */
+//    implementation ('com.android.support:appcompat-v7:28.0.0'){
+//        exclude group :'com.android.support',module:'support-compat'
+//        exclude group :'com.android.support',module:'support-fragment'
+//        exclude group :'com.android.support',module:'support-core-utils'
+//        exclude group :'com.android.support',module:'support-core-ui'
+//        exclude group :'com.android.support',module:'support-v4'
+//        exclude group :'com.android.support',module:'support-annotations'
+//    }
+    /**
+     * mark : Tips : [standard ]
+     *
+     * 建议使用约束布局开发，减少布局颜色深度
+     * */
+    api xLibrary.constraint
+    api xLibrary.design
+    api xLibrary.recyclerview
+    api xLibrary.swiperefresh
+    api xLibrary.legacy       //包含LocalBroadcastManager
+
+    api xLibrary.retrofit
+    api xLibrary.gson
+    api xLibrary.rxjava2
+
+    api xLibrary.iorxandroid2
+    api xLibrary.iorxjava2
+
+    api xLibrary.glide
+    annotationProcessor xLibrary.glidecompiler
+
+    /**
+     * mark : Tips : [standard ]
+     *
+     * 修复multidex包含超过64K方法数
+     * */
+    api xLibrary.multidex
+
+    /**
+     * mark : Tips : [standard ]2020011313
+     *
+     * 相机拍照google新特性20200113
+     * */
+    api xLibrary.concurrent
+    api xLibrary.cameralifecycle
+    api xLibrary.cameracore
+    api xLibrary.cameracamera2
+    //ucrop
+//    api xLibrary.exifinterface
+//    api xLibrary.transition
+
+
+    api "androidx.exifinterface:exifinterface:${cfgs.androidx_exifinterface_version}"
+    api "androidx.transition:transition:${cfgs.androidx_transition_version}"
+    api "androidx.recyclerview:recyclerview:${cfgs.version_recyclerview}"
+
+}
+
+def isDebugBuild() {
+    !gradle.startParameter.taskNames.contains("uploadArchives") && VERSION_NAME.contains("SNAPSHOT")
+}
+
+//task archiveSymbols(type: Tar) {
+//    from new File(buildDir, 'intermediates/cmake/release/obj')
+//    baseName = "$POM_ARTIFACT_ID-symbols"
+//    destinationDir = new File(buildDir, 'libs')
+//    extension = 'tar.gz'
+//    compression = Compression.GZIP
+//}
+ext {
+    PUBLISH_GROUP_ID = "com.github.qydq"
+    PUBLISH_ARTIFACT_ID = 'bear'
+    PUBLISH_VERSION = cfgs.bearVersionName
+}
+apply from: '../publish.gradle'

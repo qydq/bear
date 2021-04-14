@@ -1,0 +1,218 @@
+<resources>
+    <string name="CommStringBack">返回</string>
+
+    <string name="aliBarTitle">爱李</string>
+    <string name="aliBarRightTxt">芳芳</string>
+    <string name="aliBarRRightTxt">0069</string>
+
+    <!--ali框架这几个字符串是属于必定义的字段-->
+    <string name="ailiSUN">sunst</string>
+    <string name="ailiLOVE">爱❤️</string>
+    <string name="ailiLI">李️</string>
+    <string name="ailiFANG">芳️</string>
+    <string name="ailiFANGER">芳️</string>
+
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="anOpenWith">打开方式</string>
+    <string name="listview_header_hint_release">释放立即刷新</string>
+    <string name="loading">加载中...</string>
+    <string name="nomore_loading">没有了</string>
+    <string name="refreshing">正在刷新...</string>
+    <string name="refresh_done">刷新完成</string>
+    <string name="listview_header_last_time">上次更新时间：</string>
+
+    <!--footer-->
+    <string name="list_footer_loading">正在加载中…</string>
+    <string name="list_footer_network_error">点击重新加载</string>
+    <string name="list_footer_end">已经到底了</string>
+
+    <string name="text_just">刚刚</string>
+    <string name="text_seconds_ago">秒前</string>
+    <string name="text_minute_ago">分钟前</string>
+    <string name="text_hour_ago">小时前</string>
+    <string name="text_day_ago">天前</string>
+    <string name="text_month_ago">月前</string>
+    <string name="text_year_ago">年前</string>
+
+    <string name="header_text">The Header</string>
+    <string name="footer_text">The Footer</string>
+
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
+    <string name="pickerview_year">年</string>
+    <string name="pickerview_month">月</string>
+    <string name="pickerview_day">日</string>
+    <string name="pickerview_hours">时</string>
+    <string name="pickerview_minutes">分</string>
+    <string name="pickerview_seconds">秒</string>
+
+
+    <string-array name="permissions">
+        <item>@string/permission_recode_audio_hint</item>
+        <item>@string/permission_get_accounts_hint</item>
+        <item>@string/permission_read_phone_hint</item>
+        <item>@string/permission_call_phone_hint</item>
+        <item>@string/permission_camera_hint</item>
+        <item>@string/permission_access_fine_location_hint</item>
+        <item>@string/permission_access_coarse_location_hint</item>
+        <item>@string/permission_read_external_hint</item>
+        <item>@string/permission_white_external_hint</item>
+    </string-array>
+
+    <string name="permission_get_accounts_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_GET_ACCOUNTS</string>
+    <string name="permission_read_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_PHONE_STATE</string>
+    <string name="permission_call_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CALL_PHONE</string>
+    <string name="permission_camera_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CAMERA</string>
+    <string name="permission_access_fine_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_FINE_LOCATION</string>
+    <string name="permission_access_coarse_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_COARSE_LOCATION</string>
+    <string name="permission_read_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_EXTERNAL_STORAGE</string>
+    <string name="permission_white_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_WRITE_EXTERNAL_STORAGE</string>
+    <string name="permission_recode_audio_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_RECORD_AUDIO</string>
+
+    <!--TakePhoto-->
+    <string name="tip_type_not_image">选择的不是图片</string>
+    <string name="tip_no_camera">没有相机</string>
+    <string name="tip_tips">提示</string>
+    <string name="tip_compress">正在压缩照片...</string>
+    <string name="tip_compress_failed">"%1$s 图片压缩失败:%2$s picturePath:%3$s"</string>
+    <string name="msg_crop_failed">"有裁切失败的图片"</string>
+    <string name="msg_compress_failed">"有压缩失败的图片"</string>
+    <string name="msg_crop_canceled">" 取消裁切"</string>
+    <string name="msg_operation_canceled">"操作被取消"</string>
+    <string name="tip_permission_camera">没有使用相机的权限，请在权限管理中开启</string>
+    <string name="tip_permission_storage">没有使用SD卡的权限，请在权限管理中开启</string>
+    <string name="tip_permission_camera_storage">没有使用相机和SD卡的权限，请在权限管理中开启</string>
+
+    <!--custom multipleimageselect -->
+    <string name="album_view">选择图片</string>
+    <string name="image_view">单击选择</string>
+
+    <string name="add">确定</string>
+    <string name="an_loading">Loading</string>
+    <string name="selected">已选</string>
+    <string name="limit_exceeded">最多能选 %d 张</string>
+
+    <!--swipe系列待修改 20180104-->
+    <string name="recycler_swipe_data_empty">There is no data</string>
+    <string name="recycler_swipe_more_not">No more data</string>
+    <string name="recycler_swipe_click_load_more">Click to load more</string>
+    <string name="recycler_swipe_load_error">Error, please try again</string>
+    <string name="recycler_swipe_load_more_message">Loading, please wait later</string>
+
+    <string name="UMUpdateTitle">发现新版本</string>
+    <string name="UMUpdateNow">立即更新</string>
+    <string name="UMNotNow">以后再说</string>
+    <string name="UMIgnore">忽略该版</string>
+
+    <string name="umeng_common_action_pause">暂停</string>
+    <string name="umeng_common_action_cancel">取消</string>
+    <string name="umeng_common_icon">图标</string>
+    <string name="copyRight">「an专栏」.「Livery」作者sunst0069,为li专属开发。</string>
+    <string name="developer">developed with sunst</string>
+
+    <string name="error_null_cursor">Oops, something went wrong!</string>
+
+
+    <!--20191201新增-->
+
+    <!--Request Permission-->
+    <string name="permission_info">App requires permission to Storage to view images.</string>
+    <string name="permission_force">App requires permission to Storage to view images. Tap Settings and go to Permissions to grant permission.</string>
+    <string name="permission_ok">OK</string>
+    <string name="permission_settings">Settings</string>
+    <string name="permission_package">package</string>
+
+
+    <!--20200122 urop模块新增模块-->
+
+    <string name="ucrop_label_original">Original</string>
+    <string name="ucrop_label_edit_photo">Edit Photo</string>
+
+    <string name="ucrop_menu_crop">Crop</string>
+
+    <string name="ucrop_error_input_data_is_absent" translatable="false">Both input and output Uri must be specified</string>
+    <string name="ucrop_mutate_exception_hint" translatable="false">Therefore, override color resource (ucrop_color_toolbar_widget) in your app to make it work on pre-L devices</string>
+    <string name="ucrop_rotate">Rotate</string>
+    <string name="ucrop_scale">Scale</string>
+    <string name="ucrop_crop">Crop</string>
+
+    <string name="ucrop_gif_tag">gif</string>
+
+
+    <!--================2020 picture selector ================-->
+    <string name="picture_camera_roll">相机胶卷</string>
+    <string name="picture_camera_roll_num">%1$s (%2$d)</string>
+    <string name="picture_cancel">取消</string>
+    <string name="picture_take_picture">拍摄</string>
+    <string name="picture_rule">不能同时选择图片或视频</string>
+    <string name="picture_message_max_num">你最多可以选择%1$s张图片</string>
+    <string name="picture_min_video_num">视频最低选择不能少于%1$s个</string>
+    <string name="picture_message_video_max_num">你最多可以选择%1$s个视频</string>
+    <string name="picture_message_audio_max_num">你最多可以选择%1$s个音频</string>
+    <string name="picture_preview">预览</string>
+    <string name="picture_please">请稍候...</string>
+    <string name="picture_done_front_num">%1$d/%2$d 完成</string>
+    <string name="picture_completed">已完成</string>
+    <string name="picture_done">完 成</string>
+    <string name="picture_please_select">请选择</string>
+    <string name="picture_empty_title">无视频或照片\n</string>
+    <string name="picture_empty_audio_title">无音频文件\n</string>
+    <string name="picture_empty">你可以使用相机拍摄照片或视频</string>
+    <string name="picture_audio_empty">你可以使用系统录音录制音频</string>
+    <string name="picture_min_img_num">图片最低选择不能少于%1$s张</string>
+    <string name="picture_gif_tag">动图</string>
+    <string name="picture_jurisdiction">读取内存卡权限被拒绝</string>
+    <string name="picture_camera">获取系统相机权限被拒绝</string>
+    <string name="picture_audio">获取系统录音权限被拒绝</string>
+    <string name="picture_video_toast">视频不可预览</string>
+    <string name="picture_record_video">录视频</string>
+    <string name="picture_photograph">拍照</string>
+    <string name="picture_long_chart">长图</string>
+    <string name="picture_warning">暂无媒体文件！</string>
+    <string name="picture_prompt">提示</string>
+    <string name="picture_prompt_content">是否保存图片至手机？</string>
+    <string name="picture_save_error">图片保存失败</string>
+    <string name="picture_save_success">图片保存成功至</string>
+    <string name="picture_all_audio">所有音频</string>
+    <string name="picture_tape">录音</string>
+    <string name="picture_play_audio">播放</string>
+    <string name="picture_stop_audio">停止</string>
+    <string name="picture_quit_audio">退出</string>
+    <string name="picture_pause_audio">暂停</string>
+    <string name="picture_error">图片已损坏</string>
+    <string name="picture_video_error">视频已损坏</string>
+    <string name="picture_audio_error">音频已损坏</string>
+    <string name="picture_confirm">确定</string>
+    <string name="notice_for">To小琴儿</string>
+    <string name="picture_preview_image_num">%1$d/%2$d</string>
+    <string name="picture_not_crop_data">无可用裁剪数据</string>
+    <string name="picture_original_image">原图</string>
+    <string name="picture_send">完成</string>
+    <string name="picture_send_num">完成(%1$d/%2$d)</string>
+    <string name="picture_preview_num">预览(%1$d)</string>
+    <string name="picture_select">选择</string>
+    <string name="picture_data_exception">获取相册数据异常...</string>
+    <string name="picture_recording_time_is_short">录制时间过短</string>
+    <string name="picture_photo_camera">单击拍照，长按摄像</string>
+    <string name="picture_photo_pictures">单击拍照</string>
+    <string name="picture_photo_recording">长按摄像</string>
+    <string name="picture_choose_max_seconds">最大只能选择 %1$ds 以内的视频</string>
+    <string name="picture_choose_min_seconds">不能选择低于 %1$ds 内的视频</string>
+    <string name="picture_choose_limit_seconds">只能选择 %1$ds 至 %2$ds内的视频</string>
+    <string name="picture_go_setting">去设置</string>
+
+
+    <string name="an_socket_connect_timeout">Sokect连接超时</string>
+    <string name="an_net_connect_timeout">网络连接超时</string>
+    <string name="an_no_connect_network">设备未接入网络</string>
+    <string name="an_net_ssl_exception">安全证书异常</string>
+    <string name="an_net_server_error">网络异常code=504，请检查服务端配置</string>
+    <string name="an_net_error">请求失败</string>
+    <string name="an_string_parse_error">数据解析错误</string>
+    <string name="an_unknown_host_exception">域名解析失败</string>
+    <string name="an_net_address_not_exist">请求的地址不存在</string>
+
+    <string name="notice_channel_id">Liff_Id</string>
+    <string name="notice_channel_name">Liff_Name</string>
+
+</resources>

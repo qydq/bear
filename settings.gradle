@@ -1,0 +1,2 @@
+include 'app', ':angux'
+rootProject.name = "bear"

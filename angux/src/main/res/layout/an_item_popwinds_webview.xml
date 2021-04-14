@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/an_match_match">
+
+    <LinearLayout
+        style="@style/an_match_match.V"
+        android:layout_marginTop="20dp"
+        android:background="@color/ColorTransparent">
+
+        <Button
+            android:id="@+id/tvYtips"
+            style="@style/an_match_match.TextDeep"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none"
+            android:text="在Chrome浏览器中打开"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</RelativeLayout>

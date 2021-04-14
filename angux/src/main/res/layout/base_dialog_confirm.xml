@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    style="@style/an_wrap_wrap"
+    android:background="@drawable/in_shape_dialog_progress">
+
+    <LinearLayout
+        style="@style/an_match_wrap.V"
+        android:gravity="center_horizontal">
+
+        <LinearLayout style="@style/an_match_wrap.V">
+
+            <View
+                android:id="@+id/patchView1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/an_dimen_margin"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/an_wrap_wrap"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/ailiFANG"
+                android:textColor="@color/an_font_level1"
+                android:textSize="@dimen/an_dimen_level1"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <View
+                android:id="@+id/patchView2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/an_dimen_margin_small"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvText"
+                style="@style/an_match_wrap"
+                android:layout_marginLeft="33dp"
+                android:layout_marginRight="33dp"
+                android:layout_marginBottom="19.6dp"
+                android:gravity="center_horizontal"
+                android:scrollbars="vertical"
+                android:text="Bgwan"
+                android:textColor="@color/an_font_level1"
+                android:textColorHighlight="@color/an_color_editcursor"
+                android:textCursorDrawable="@drawable/base_edit_cursor_color"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/an_dimen_level1" />
+
+            <LinearLayout
+                android:id="@+id/llProgress"
+                style="@style/an_match_wrap.V"
+                android:layout_marginLeft="@dimen/an_dimen_margin"
+                android:layout_marginRight="@dimen/an_dimen_margin"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:id="@+id/innerProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progressDrawable="@drawable/in_seloctor_progress_dialog" />
+
+                <TextView
+                    android:id="@+id/tvSpeed"
+                    style="@style/an_match_wrap"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+                    android:gravity="start" />
+
+                <TextView
+                    android:id="@+id/tvProgress"
+                    style="@style/an_match_wrap"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:textColorHighlight="@color/an_color_editcursor"
+                    android:textIsSelectable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBottom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/AppDimenNativeLike"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnLeft"
+                    style="@style/an_auto_match"
+                    android:background="@drawable/in_selector_dialog_left"
+                    android:text="取消"
+                    android:textColor="@color/in_font_selector_light"
+                    android:textSize="@dimen/an_dimen_level2" />
+
+                <Button
+                    android:id="@+id/btnRight"
+                    style="@style/an_auto_match"
+                    android:background="@drawable/in_selector_dialog_right"
+                    android:text="确定"
+                    android:textColor="@color/in_font_selector_btn"
+                    android:textSize="@dimen/an_dimen_level2" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivCancle"
+        style="@style/an_wrap_wrap"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="@dimen/an_dimen_margin"
+        android:paddingTop="12dp"
+        android:paddingRight="@dimen/an_dimen_margin"
+        android:paddingBottom="@dimen/an_dimen_margin_small"
+        android:src="@drawable/in_selector_clear"
+        android:visibility="invisible" />
+</RelativeLayout>

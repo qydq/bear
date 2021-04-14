@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/an_match_match.H"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/loading_end_text"
+        style="@style/an_wrap_wrap"
+        android:text="@string/list_footer_end"
+        android:textColor="@color/in_font_selector_deep"
+        android:textSize="@dimen/an_font_native" />
+</LinearLayout>

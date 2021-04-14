@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loading_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.sunsta.bear.view.recyclerview.view.SimpleViewSwitcher
+        android:id="@+id/loading_progressbar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/loading_text"
+        style="@style/an_wrap_wrap"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:text="@string/list_footer_loading"
+        android:textColor="@color/in_font_selector_deep"
+        android:textSize="@dimen/an_font_native" />
+</LinearLayout>

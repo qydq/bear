@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/an_match_one.H">
+
+    <View
+        android:layout_width="@dimen/an_dimen_line_left"
+        android:layout_height="@dimen/an_dimen_line" />
+
+    <View
+        android:id="@+id/oneLine"
+        style="@style/an_style_line" />
+</LinearLayout>

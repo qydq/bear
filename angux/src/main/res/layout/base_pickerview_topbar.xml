@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlt_head_view"
+    style="@style/an_match_match"
+    android:background="@color/an_color_white">
+
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/an_wrap_match"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:paddingLeft="@dimen/an_dimen_padding"
+        android:paddingRight="@dimen/an_dimen_padding"
+        android:text="@string/pickerview_cancel"
+        android:textColor="@drawable/in_selector_txt_pickerview"
+        android:textSize="@dimen/an_font_native" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+       style="@style/an_match_wrap"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btnSubmit"
+        android:layout_toRightOf="@+id/btnCancel"
+        android:gravity="center"
+        android:textColor="@color/an_color_level1"
+        android:textSize="@dimen/an_dimen_level2" />
+
+    <Button
+        android:id="@id/btnSubmit"
+        style="@style/an_wrap_match"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:paddingLeft="@dimen/an_dimen_padding"
+        android:paddingRight="@dimen/an_dimen_padding"
+        android:text="@string/pickerview_submit"
+        android:textColor="@drawable/in_selector_txt_pickerview"
+        android:textSize="@dimen/an_font_native" />
+</RelativeLayout>

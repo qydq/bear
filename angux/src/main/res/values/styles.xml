@@ -1,0 +1,748 @@
+<resources>
+    <!--()Mlmmlm-->
+    <!--(1).sunst提供：已完成统一标准正对match_wrap：20191001修改
+    如果有帮助到你，真诚的邀请你，关注知乎<a href="https://zhihu.com/people/qydq">Bgwan</a>
+    2020年05月：目前需要集齐1000+个关注者，感谢🙏-->
+    <style name="an_wrap_match">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="an_match_wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="an_wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="an_match_match">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="an_match_auto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="an_auto_match">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="an_wrap_auto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="an_auto_wrap">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="an_wrap_match.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_wrap_match.VBG">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_wrap_match.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_wrap_match.HBG">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_match_wrap.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_match_wrap.VBG">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_match_wrap.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_match_wrap.HBG">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_wrap_wrap.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_wrap_wrap.VBG">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_wrap_wrap.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_wrap_wrap.HBG">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_match_match.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_match_match.VBG">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_match_match.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_match_match.HBG">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">?attr/anBackground</item>
+    </style>
+
+    <style name="an_match_auto.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_match_auto.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_auto_match.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_auto_match.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_wrap_auto.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_wrap_auto.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_auto_wrap.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_auto_wrap.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_match_one">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/an_dimen_line</item>
+    </style>
+
+    <style name="an_one_match">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">@dimen/an_dimen_line</item>
+    </style>
+
+    <style name="an_match_one.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--(2).sunst提供：已完成统一标准一统theme
+    如果有帮助到你，真诚的邀请你，关注知乎<a href="https://zhihu.com/people/qydq">Bgwan</a>
+    2020年05月：目前需要集齐1000+个关注者，感谢🙏-->
+
+    <!--20191001修改：已确定正对老版本兼容的AppTheme-->
+
+    <!--白天主题，此处直接和AppTheme一样-->
+    <style name="DayNightTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ColorTransparent</item>
+        <item name="colorPrimaryDark">@color/anBarBackground</item><!--状态栏颜色-->
+        <item name="colorAccent">@color/anLaunchBackground</item>
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/anBackground</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+
+
+        <item name="anBarBackground">@color/anBarBackground</item>
+        <item name="anBackground">@drawable/in_background_angle</item>
+        <item name="anNavBackground">@color/anNavBackground</item>
+        <item name="anLineBackground">@color/anLineBackground</item>
+
+        <item name="anOptBackground">@drawable/in_selector</item>
+        <item name="anOptMaterialBackground">@color/anLineBackground</item>
+        <item name="anOppBackground">@color/anLineBackground</item>
+        <item name="anOppMaterialBackground">@color/anLineBackground</item>
+
+        <item name="anBarTextColor">@color/anBarTextColor</item>
+        <item name="anTextColor">@color/anTextColor</item>
+        <item name="anDeepTextColor">@color/anDeepTextColor</item>
+        <item name="anLightTextColor">@color/anLightTextColor</item>
+        <item name="anNavTextColor">@color/anNavTextColor</item>
+    </style>
+
+    <!-- Base Parallax application theme. -->
+    <style name="ParallaxAppTheme" parent="DayNightTheme">
+        <item name="windowActionBar">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation_Right</item>
+
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowBackground">@color/anLaunchBackground</item>
+    </style>
+
+    <style name="an_theme_multipleimageselect" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/multiple_image_select_primary</item>
+        <item name="colorPrimaryDark">@color/multiple_image_select_primaryDark</item>
+        <item name="colorAccent">@color/multiple_image_select_accent</item>
+
+        <item name="actionModeStyle">@style/an_theme_multiple_custom</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="an_theme_multiple_custom" parent="Base.Widget.AppCompat.ActionMode">
+        <item name="background">@color/multiple_image_select_primary</item>
+    </style>
+
+    <style name="an_theme_album_toobar" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/multiple_image_select_toolbarPrimaryText</item>
+    </style>
+
+    <declare-styleable name="INASlidingMenuListView">
+        <attr name="anButtonID" format="reference" />
+        <attr name="anEnableSliding" format="boolean" />
+    </declare-styleable>
+
+    <style name="AVLoadingIndicatorView">
+        <item name="minWidth">40dp</item>
+        <item name="maxWidth">40dp</item>
+        <item name="minHeight">40dp</item>
+        <item name="maxHeight">40dp</item>
+        <item name="indicatorName">LineSpinFadeLoaderIndicator</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView.Large">
+        <item name="minWidth">72dp</item>
+        <item name="maxWidth">72dp</item>
+        <item name="minHeight">72dp</item>
+        <item name="maxHeight">72dp</item>
+        <item name="indicatorName">LineSpinFadeLoaderIndicator</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView.Small">
+        <item name="minWidth">36dp</item>
+        <item name="maxWidth">36dp</item>
+        <item name="minHeight">36dp</item>
+        <item name="maxHeight">36dp</item>
+        <item name="indicatorName">LineSpinFadeLoaderIndicator</item>
+    </style>
+
+    <style name="Animation_Right">
+        <item name="android:activityOpenEnterAnimation">@anim/pl_slide_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/pl_slide_out_to_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/pl_slide_in_from_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/pl_slide_out_to_right</item>
+    </style>
+
+    <!--(3).sunst提供：一统dialog custom loading dialog create
+    如果有帮助到你，真诚的邀请你，关注知乎<a href="https://zhihu.com/people/qydq">Bgwan</a>
+    2020年05月：目前需要集齐1000+个关注者，感谢🙏-->
+
+    <!--自定义dialog背景全透明无边框theme -->
+    <style name="an_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--是否去除边框-->
+        <item name="android:background">@android:color/transparent</item><!--背景颜色设置为透明-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景颜色及和透明程度-->
+        <item name="android:windowNoTitle">true</item><!--是否去除标题 -->
+        <item name="android:backgroundDimEnabled">true</item><!--是否模糊-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+    </style>
+
+    <style name="TransparentTheme" parent="an_dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <!--全屏有阴影-->
+    <!--<item name="android:alpha">0.96</item>-->
+    <style name="an_dialog.loading_dim" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景颜色及和透明程度-->
+    </style>
+    <!--全屏无阴影-->
+    <!--<item name="android:alpha">0.96</item>-->
+    <style name="an_dialog.loading_nodim" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景颜色及和透明程度-->
+    </style>
+
+    <!--        <item name="android:windowBackground">@drawable/base_bg_loading</item>
+-->
+    <style name="an_dialog.loadding_standard">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:alpha">0.96</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!--        <item name="android:alpha">0.9</item>
+-->
+    <style name="an_dialog.loadding_animation">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="an_dialog.lodding_progress">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorAccent">#ffE91E63</item>
+    </style>
+    <!--原custom_dialog-->
+    <style name="an_dialog.middle_pure_image">
+        <item name="android:alpha">0.96</item>
+    </style>
+
+    <style name="an_dialog.middle_list">
+        <item name="android:backgroundDimAmount">0.2</item>
+    </style>
+
+    <style name="an_dialog.middle_download_center" />
+
+    <!--原time_dialog-->
+    <style name="an_dialog.time_selector">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/an_color_white</item>
+    </style>
+
+    <!--(4).sunst提供：N情景系列：针对文本字体的
+    如果有帮助到你，真诚的邀请你，关注知乎<a href="https://zhihu.com/people/qydq">Bgwan</a>
+    2020年05月：目前需要集齐1000+个关注者，感谢🙏-->
+
+    <style name="an_wrap_wrap.TextBar">
+        <item name="android:textColor">@color/in_font_selector_bar</item>
+        <item name="android:textSize">@dimen/anBarTextDimen</item>
+    </style>
+
+    <style name="an_wrap_wrap.Text">
+        <item name="android:textColor">@color/in_font_selector</item>
+        <item name="android:textSize">@dimen/anTextDimen</item>
+    </style>
+
+    <style name="an_wrap_wrap.Text1">
+        <item name="android:textColor">@color/anTextColor</item>
+        <item name="android:textSize">@dimen/an_dimen_error2</item>
+    </style>
+
+    <style name="an_wrap_wrap.Error">
+        <item name="android:textColor">@color/in_font_selector_error</item>
+        <item name="android:textSize">@dimen/an_dimen_error2</item>
+    </style>
+
+    <style name="an_wrap_wrap.Error1">
+        <item name="android:textColor">@color/an_font_error2</item>
+        <item name="android:textSize">@dimen/anLightTextDimen</item>
+    </style>
+
+    <style name="an_auto_wrap.Text">
+        <item name="android:textColor">@color/in_font_selector</item>
+        <item name="android:textSize">@dimen/anTextDimen</item>
+    </style>
+
+    <style name="an_auto_wrap.Text1">
+        <item name="android:textColor">@color/anTextColor</item>
+        <item name="android:textSize">@dimen/anTextDimen</item>
+    </style>
+
+    <style name="an_match_wrap.Text">
+        <item name="android:textColor">@color/in_font_selector</item>
+        <item name="android:textSize">@dimen/anTextDimen</item>
+    </style>
+
+    <style name="an_match_wrap.Text1">
+        <item name="android:textColor">@color/anTextColor</item>
+        <item name="android:textSize">@dimen/anTextDimen</item>
+    </style>
+
+    <style name="an_wrap_wrap.TextDeep">
+        <item name="android:textColor">@color/in_font_selector_deep</item>
+        <item name="android:textSize">@dimen/anDeepTextDimen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="an_wrap_wrap.TextDeep1">
+        <item name="android:textColor">@color/anDeepTextColor</item>
+        <item name="android:textSize">@dimen/anDeepTextDimen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="an_match_match.TextDeep">
+        <item name="android:textColor">@color/in_font_selector_deep</item>
+        <item name="android:textSize">@dimen/anDeepTextDimen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="an_match_match.TextDeep1">
+        <item name="android:textColor">@color/anDeepTextColor</item>
+        <item name="android:textSize">@dimen/anDeepTextDimen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="an_wrap_wrap.TextLight">
+        <item name="android:textColor">@color/in_font_selector_light</item>
+        <item name="android:textSize">@dimen/anLightTextDimen</item>
+    </style>
+
+    <style name="an_wrap_wrap.TextLight1">
+        <item name="android:textColor">@color/anLightTextColor</item>
+        <item name="android:textSize">@dimen/anLightTextDimen</item>
+    </style>
+
+    <style name="an_wrap_wrap.TextNav">
+        <item name="android:textColor">@color/in_font_selector_nav</item>
+        <item name="android:textSize">@dimen/anNavTextDimen</item>
+    </style>
+
+
+    <!--3.aN情景系列：针对分割线-->
+    <style name="an_style_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/an_dimen_line</item>
+        <item name="android:background">?attr/anLineBackground</item>
+        <item name="android:alpha">1</item>
+    </style>
+
+    <style name="an_style_line.TransOne">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="an_style_line.TransHeight">
+        <item name="android:layout_height">@dimen/an_dimen_line_height</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="an_style_line.Height">
+        <item name="android:layout_height">@dimen/an_dimen_line_height</item>
+    </style>
+
+    <style name="an_style_line.TransHeightOne">
+        <item name="android:layout_height">@dimen/an_dimen_line_height</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="an_style_line.HeightOne">
+        <item name="android:layout_height">@dimen/an_dimen_line_height</item>
+        <item name="android:background">@color/ColorTransparentClicked</item>
+    </style>
+
+    <!--(5).sunst提供：aN情景系列：图标大小相关
+    如果有帮助到你，真诚的邀请你，关注知乎<a href="https://zhihu.com/people/qydq">Bgwan</a>
+    2020年05月：目前需要集齐1000+个关注者，感谢🙏-->
+    <style name="an_iv">
+        <item name="android:layout_width">@dimen/an_iv_width</item>
+        <item name="android:layout_height">@dimen/an_iv_height</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+    <!--用于类似setting的图标-->
+    <style name="an_iv.Light">
+        <item name="android:layout_width">@dimen/an_ivlight_width</item>
+        <item name="android:layout_height">@dimen/an_ivlight_height</item>
+    </style>
+
+    <style name="an_iv.Loading">
+        <item name="android:layout_width">@dimen/anLodingWidth</item>
+        <item name="android:layout_height">@dimen/anLodingHeight</item>
+    </style>
+
+    <style name="an_iv.Bar">
+        <item name="android:layout_width">@dimen/an_ivbar_width</item>
+        <item name="android:layout_height">@dimen/an_ivbar_height</item>
+    </style>
+
+    <style name="an_iv.BarTop">
+        <item name="android:layout_width">@dimen/an_ivbar_top_width</item>
+        <item name="android:layout_height">@dimen/an_ivbar_top_height</item>
+    </style>
+
+    <style name="an_image_head">
+        <item name="android:layout_width">@dimen/AppHeadWidth</item>
+        <item name="android:layout_height">@dimen/AppHeadHeight</item>
+    </style>
+
+    <style name="an_iv.Nav">
+        <item name="android:layout_width">@dimen/an_ivnav_height</item>
+        <item name="android:layout_height">@dimen/an_ivnav_height</item>
+    </style>
+
+    <!--(6).sunst提供：aN情景系列：按钮，列表，选择器相关情景
+    如果有帮助到你，真诚的邀请你，关注知乎<a href="https://zhihu.com/people/qydq">Bgwan</a>
+    2020年05月：目前需要集齐1000+个关注者，感谢🙏-->
+    <!--默认是material design-->
+    <style name="an_selector_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/an_dimen_native</item>
+        <item name="android:background">@drawable/in_selector_md</item>
+    </style>
+
+    <style name="an_selector_layout.H">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_selector_layout.V">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_selector_layout.List">
+        <item name="android:layout_height">@dimen/an_dimen_native_list</item>
+    </style>
+
+    <style name="an_selector_layout.Hlist" parent="an_selector_layout.List">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="an_selector_layout.Vlist" parent="an_selector_layout.List">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="an_selector_layout.Btn" parent="an_wrap_wrap.Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/an_dimen_native</item>
+        <item name="android:background">@drawable/in_selector_md</item>
+    </style>
+
+    <style name="an_selector_layout.BtnList" parent="an_wrap_wrap.Text">
+        <item name="android:layout_height">@dimen/an_dimen_native_list</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/in_selector_md</item>
+    </style>
+
+    <!--6.aN情景系列：标题栏，导航栏相关情景-->
+    <style name="an_style_appbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/AppBarAboveHeight</item>
+        <item name="android:alpha">0.9</item>
+        <item name="android:background">?attr/anBarBackground</item>
+    </style>
+
+    <style name="an_style_appbar_patch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/AppBarPatchHeight</item>
+        <item name="android:layout_marginTop">@dimen/AppBarPatchMarginTop</item>
+    </style>
+
+    <!--暂时去掉： parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"-->
+    <style name="an_style_bar">
+        <item name="android:layout_height">@dimen/an_dimen_native</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/anBarTextDimen</item>
+        <!-- 设置 toolbar 溢出菜单的文字的颜色 -->
+        <item name="android:textColor">@color/in_font_selector_bar</item>
+        <!-- 设置 显示在toobar上菜单文字的颜色 -->
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <style name="an_style_bar.Light">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/anBarLightTextDimen</item>
+    </style>
+
+    <style name="an_style_navigation" parent="an_wrap_wrap">
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <!--ucrop20200122 新增模块-->
+
+    <style name="ucrop_ImageViewWidgetIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="ucrop_WrapperIconState">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ucrop_WrapperRotateButton">
+        <item name="android:layout_width">@dimen/ucrop_size_wrapper_rotate_button</item>
+        <item name="android:layout_height">@dimen/ucrop_size_wrapper_rotate_button</item>
+        <item name="background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="ucrop_TextViewCropAspectRatio">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/ucrop_height_crop_aspect_ratio_text</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:textColor">@color/ucrop_scale_text_view_selector</item>
+    </style>
+
+    <style name="ucrop_TextViewWidgetText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ucrop_color_widget_text</item>
+        <item name="android:layout_marginTop">@dimen/ucrop_margin_top_widget_text</item>
+        <item name="android:textSize">@dimen/ucrop_text_size_widget_text</item>
+    </style>
+
+    <style name="ucrop_TextViewWidget">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/ucrop_margin_top_controls_text</item>
+        <item name="android:textColor">@color/ucrop_color_widget_active</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/ucrop_text_size_controls_text</item>
+    </style>
+
+
+    <!--2020=============================picture 模块-->
+    <style name="PictureThemeWindowStyle">
+        <item name="android:windowEnterAnimation">@anim/picture_anim_album_show</item>
+        <item name="android:windowExitAnimation">@anim/picture_anim_album_dismiss</item>
+    </style>
+
+    <style name="PictureThemeDialogWindowStyle">
+        <item name="android:windowEnterAnimation">@anim/picture_anim_modal_in</item>
+        <item name="android:windowExitAnimation">@anim/picture_anim_modal_out</item>
+    </style>
+
+    <style name="Picture.Theme.Dialog.AudioStyle">
+        <item name="android:windowEnterAnimation">@anim/picture_anim_enter</item>
+        <item name="android:windowExitAnimation">@anim/picture_anim_exit</item>
+    </style>
+
+    <style name="Picture.Theme.AlertDialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/ColorTransparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+    <style name="PictureThemeDialogFragmentAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/picture_anim_up_in</item>
+        <item name="android:windowExitAnimation">@anim/picture_anim_down_out</item>
+    </style>
+
+    <style name="Picture.Theme.Dialog" parent="@android:style/Theme.Dialog">
+
+        <!-- 边框 -->
+        <item name="android:windowFrame">@android:color/transparent</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+
+        <!-- 自己想要的背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <!--默认样式-->
+    <style name="picture.default.style" parent="Base.Theme.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--标题栏背景色-->
+        <item name="colorPrimary">@color/picture_color_grey</item>
+        <!--状态栏背景色-->
+        <item name="colorPrimaryDark">@color/picture_color_grey</item>
+        <!--是否改变图片列表界面状态栏字体颜色为黑色-->
+        <item name="picture.statusFontColor">false</item>
+        <!--返回键图标-->
+        <item name="picture.leftBack.icon">@drawable/ic_white_back</item>
+        <!--标题下拉箭头-->
+        <item name="picture.arrow_down.icon">@drawable/ic_white_arrow_down</item>
+        <!--标题上拉箭头-->
+        <item name="picture.arrow_up.icon">@drawable/ic_white_arrow_up</item>
+        <!--标题文字颜色-->
+        <item name="picture.title.textColor">@color/picture_color_white</item>
+        <!--标题栏右边文字-->
+        <item name="picture.right.textColor">@color/picture_color_white</item>
+        <!--图片列表勾选样式-->
+        <item name="picture.checked.style">@drawable/picture_checkbox_selector</item>
+        <!--开启图片列表勾选数字模式-->
+        <item name="picture.style.checkNumMode">false</item>
+        <!--选择图片样式0/9-->
+        <item name="picture.style.numComplete">false</item>
+        <!--图片列表底部背景色-->
+        <item name="picture.bottom.bg">@color/picture_color_grey</item>
+        <!--图片列表预览文字颜色-->
+        <item name="picture.preview.textColor">@color/picture_list_text_color</item>
+        <!--图片列表已完成文字颜色-->
+        <item name="picture.complete.textColor">@color/picture_list_text_color</item>
+        <!--图片已选数量圆点背景色-->
+        <item name="picture.num.style">@drawable/picture_num_oval</item>
+        <!--预览界面标题文字颜色-->
+        <item name="picture.ac_preview.title.textColor">@color/picture_color_white</item>
+        <!--预览界面已完成文字颜色-->
+        <item name="picture.ac_preview.complete.textColor">@color/picture_list_text_color</item>
+        <!--预览界面标题栏背景色-->
+        <item name="picture.ac_preview.title.bg">@color/picture_color_grey</item>
+        <!--预览界面底部背景色-->
+        <item name="picture.ac_preview.bottom.bg">@color/picture_color_grey</item>
+        <!--预览界面返回箭头-->
+        <item name="picture.preview.leftBack.icon">@drawable/ic_white_back</item>
+        <!--裁剪页面标题背景色-->
+        <item name="picture.crop.toolbar.bg">@color/picture_color_grey</item>
+        <!--裁剪页面状态栏颜色-->
+        <item name="picture.crop.status.color">@color/picture_color_grey</item>
+        <!--裁剪页面标题文字颜色-->
+        <item name="picture.crop.title.color">@color/picture_color_white</item>
+        <!--相册文件夹列表选中图标-->
+        <item name="picture.folder_checked_dot">@drawable/picture_orange_oval</item>
+    </style>
+
+    <style name="Picture.Theme.Translucent" parent="Base.Theme.NoActionBar">
+        <item name="android:windowBackground">@color/ColorTransparent</item> <!-- 背景色透明度 -->
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowIsTranslucent">true</item><!-- 半透明,设置为false无透明效果 -->
+    </style>
+
+    <style name="Base.Theme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar" />
+</resources>
