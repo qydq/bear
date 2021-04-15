@@ -327,7 +327,6 @@ public class DataService {
      */
     public boolean isNumeric(@NonNull String numeric) {
         for (int i = 0; i < numeric.length(); i++) {
-            LaLog.d(TAG + " - " + numeric.charAt(i));
             if (!Character.isDigit(numeric.charAt(i))) {
                 return false;
             }

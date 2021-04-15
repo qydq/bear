@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.CountDownTimer;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
@@ -28,18 +30,22 @@ import com.sunsta.bear.immersion.ColorDrawer;
  * <br>邮件Email：qyddai@gmail.com
  * <br>Github：<a href ="https://qydq.github.io">qydq</a>
  * <br>知乎主页：<a href="https://zhihu.com/people/qydq">Bgwan</a>
- *
  * @author sunst // sunst0069
- * @version 2.0 |   2016/11/25           |   an系列alidd框架带圆角的按钮
+ * @version 3.0 |   2017/12/25           |   an系列alidd框架带圆角的按钮，增加定时器控制
  * @link 知乎主页： https://zhihu.com/people/qydq
  */
 public class INAShapeButton extends AppCompatButton {
     private int radius;
     private boolean animator = false;
     private boolean enabledButton = true;
+    private String primaryText;
+    private String sencondText;
     private int bgColor = Color.parseColor("#FFFFFF");
     private int unBgColor = Color.parseColor("#10000000");
     private float alpha = 0.8f;
+    private final long time = 60000;
+    private GradientDrawable bg;
+
 
     public INAShapeButton(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -53,12 +59,13 @@ public class INAShapeButton extends AppCompatButton {
         unBgColor = a.getColor(R.styleable.INAShapeButton_anShapeUnBackground, unBgColor);
         animator = a.getBoolean(R.styleable.INAShapeButton_asShapeAnimator, animator);
         alpha = a.getFloat(R.styleable.INAShapeButton_anShapeAlpha, alpha);
-        initView();
+        bg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{bgColor, bgColor});
+        bg.setCornerRadius((float) radius);
+        setShapeBackground(bg);
+        primaryText = a.getString(R.styleable.INAShapeButton_android_text);
     }
 
-    private void initView() {
-        GradientDrawable bg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{bgColor, bgColor});
-        bg.setCornerRadius((float) radius);
+    public void setShapeBackground(GradientDrawable bg) {
         setBackground(bg);
         setClickable(true);
     }
@@ -96,6 +103,46 @@ public class INAShapeButton extends AppCompatButton {
             setBackground(bg);
         }
         enabledButton = enabled;
+    }
+
+    public void setAfterText(String text) {
+        sencondText = text;
+    }
+
+    /**
+     * 调度倒计时控件
+     */
+    public void scheduleTimer(boolean enabled) {
+        setEnabled(enabled);
+        if (enabled) {
+            if (TextUtils.isEmpty(sencondText)) {
+                setText(sencondText);
+            } else {
+                setText(primaryText);
+            }
+            setShapeBackground(bg);
+        } else {
+            setText(String.valueOf(time / 1000));
+            countDownTimer.start();
+        }
+    }
+
+    private final CountDownTimer countDownTimer = new CountDownTimer(time, 1000) {
+        @Override
+        public void onTick(long millis) {
+            setText(millis / 1000 + "s");
+        }
+
+        @Override
+        public void onFinish() {
+            scheduleTimer(true);
+        }
+    };
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        countDownTimer.cancel();
     }
 
     protected void drawableStateChanged() {

@@ -22,12 +22,12 @@
     <color name="anBackground">@color/an_color_level1</color>
     <color name="anNavBackground">@color/an_color_level2</color>
     <color name="anLineBackground">@color/an_color_line</color>
-    <color name="anBtnBackground">@color/ColorWhite</color>
-    <color name="anBtnLightBackground">#121314</color>
+    <color name="anUnitBackground">@color/ColorWhite</color>
+    <color name="anUnitLightBackground">#121314</color>
     <color name="anDialogBackground">@color/an_color_level1</color>
-    <color name="anBtnBackground2">@color/ColorWhite</color>
+    <color name="anUnitBackground2">@color/ColorWhite</color>
     <color name="anBarBackground2">@color/an_color_level2</color>
-    <color name="anBackground2">@color/an_color_level1</color>
+    <color name="anBackground2">@color/an_color_level2</color>
     <color name="anNavBackground2">@color/an_color_level2</color>
     <color name="anLineBackground2">@color/an_color_line</color>
 
@@ -50,7 +50,8 @@
 
     <!--第一字体选择颜色--><!--原来#8C8C8C 第二各模块通讯录字体颜色-->
     <color name="anBarTextColor">@color/ColorGhostwhite</color>
-    <color name="anBtnTextColor">#404040</color>
+    <color name="anUnitFontColor">#404040</color>
+    <color name="anUnitFontColor2">#404040</color>
     <color name="anDeepTextColor">@color/an_font_level1</color>
     <color name="anTextColor">@color/an_font_level2</color>
     <color name="anLightTextColor">@color/an_font_level3</color>

@@ -390,6 +390,16 @@
         <item name="android:textSize">@dimen/anTextDimen</item>
     </style>
 
+    <style name="an_match_wrap.TextDeep">
+        <item name="android:textColor">@color/in_font_selector_deep</item>
+        <item name="android:textSize">@dimen/anDeepTextDimen</item>
+    </style>
+
+    <style name="an_match_wrap.TextDeep1">
+        <item name="android:textColor">@color/in_font_selector_deep</item>
+        <item name="android:textSize">@dimen/anDeepTextDimen</item>
+    </style>
+
     <style name="an_wrap_wrap.TextDeep">
         <item name="android:textColor">@color/in_font_selector_deep</item>
         <item name="android:textSize">@dimen/anDeepTextDimen</item>

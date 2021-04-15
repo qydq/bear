@@ -24,6 +24,7 @@ public class LevelMode implements Serializable {
     private float per1;
     private float per2;
 
+    private String title;
     private String level1;
     private String level2;
     private String level3;
@@ -223,6 +224,14 @@ public class LevelMode implements Serializable {
 
     public void setMark2(boolean mark2) {
         this.mark2 = mark2;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getLevel1() {

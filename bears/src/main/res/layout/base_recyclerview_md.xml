@@ -17,19 +17,26 @@
         android:text="@string/livery_fang"
         android:visibility="gone" />
 
-    <RelativeLayout style="@style/an_match_match">
+    <com.sunsta.bear.layout.INAShrinkScrollView
+        style="@style/an_match_match"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            style="@style/an_match_match"
-            android:overScrollMode="never"
-            android:scrollbars="none"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <RelativeLayout style="@style/an_match_match">
 
-        <com.sunsta.bear.layout.INAStatusLayout
-            android:id="@+id/inaStatusLayout"
-            style="@style/an_match_match"
-            android:visibility="gone" />
-    </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                style="@style/an_match_match"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <com.sunsta.bear.layout.INAStatusLayout
+                android:id="@+id/inaStatusLayout"
+                style="@style/an_match_match"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </com.sunsta.bear.layout.INAShrinkScrollView>
 </LinearLayout>

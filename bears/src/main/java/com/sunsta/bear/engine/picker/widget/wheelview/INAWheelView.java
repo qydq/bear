@@ -17,6 +17,7 @@ import com.sunsta.bear.R;
 import com.sunsta.bear.engine.picker.adapter.WheelAdapter;
 import com.sunsta.bear.engine.picker.listener.OnItemSelectedListener;
 import com.sunsta.bear.engine.picker.model.IPickerViewData;
+import com.sunsta.bear.faster.DataService;
 import com.sunsta.bear.faster.LaLog;
 
 import java.util.concurrent.Executors;
@@ -35,7 +36,6 @@ import java.util.concurrent.TimeUnit;
  * <br>邮件email：qyddai@gmail.com
  * <br>个人Github：https://qydq.github.io
  * <p>--#---- Revision History:  --- >  : |version|date|updateinfo|----#--
- *
  * @author sunst
  * @version 1.0 |   2015/11/22           |   3d滚轮控件
  * @link 知乎主页： https://zhihu.com/people/qydq
@@ -260,7 +260,6 @@ public class INAWheelView extends View {
 
     /**
      * 设置是否循环滚动
-     *
      * @param cyclic 是否循环
      */
     public final void setCyclic(boolean cyclic) {
@@ -384,16 +383,16 @@ public class INAWheelView extends View {
                 canvas.restore();
             } else {
                 String contentText = getContentText(visibles[counter]);
-                try {
-                    int value = Integer.parseInt(contentText);
-                    if (value > 0 && value < 10) {
-                        contentText = "0" + value;
+                if (DataService.getInstance().isNumeric(contentText)) {
+                    try {
+                        int value = Integer.parseInt(contentText);
+                        if (value > 0 && value < 10) {
+                            contentText = "0" + value;
+                        }
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                     }
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
                 }
-                LaLog.d("hong--ssn内容：" + contentText);
-
                 //计算开始绘制的位置
                 measuredCenterContentStart(contentText);
                 measuredOutContentStart(contentText);
@@ -461,7 +460,6 @@ public class INAWheelView extends View {
 
     /**
      * 根据传进来的对象获取getPickerViewText()方法，来获取需要显示的值
-     *
      * @param item 数据源的item
      * @return 对应显示的字符串
      */
@@ -573,7 +571,6 @@ public class INAWheelView extends View {
 
     /**
      * 获取Item个数
-     *
      * @return item个数
      */
     public int getItemsCount() {
@@ -582,7 +579,6 @@ public class INAWheelView extends View {
 
     /**
      * 附加在右边的单位字符串
-     *
      * @param label 单位
      */
     public void setLabel(String label) {

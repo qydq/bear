@@ -123,6 +123,7 @@
         <attr name="anShapeUnBackground" format="color" />
         <attr name="asShapeAnimator" format="boolean" />
         <attr name="anShapeAlpha" format="float" />
+        <attr name="android:text" />
     </declare-styleable>
 
     <!--2019献给李芳芳小团子同学-->

@@ -12,12 +12,12 @@
         android:paddingLeft="@dimen/an_dimen_padding"
         android:paddingRight="@dimen/an_dimen_padding"
         android:text="@string/an_cancel"
-        android:textColor="@drawable/in_selector_txt_pickerview"
+        android:textColor="@color/in_selector_txt_pickerview"
         android:textSize="@dimen/an_font_level2" />
 
     <TextView
         android:id="@+id/tvTitle"
-        style="@style/an_match_wrap"
+        style="@style/an_match_wrap.Text1"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/btnSubmit"
         android:layout_toRightOf="@+id/btnCancel"
@@ -34,6 +34,6 @@
         android:paddingLeft="@dimen/an_dimen_padding"
         android:paddingRight="@dimen/an_dimen_padding"
         android:text="@string/an_confirm"
-        android:textColor="@drawable/in_selector_txt_pickerview"
+        android:textColor="@color/in_selector_txt_pickerview"
         android:textSize="@dimen/an_font_level2" />
 </RelativeLayout>

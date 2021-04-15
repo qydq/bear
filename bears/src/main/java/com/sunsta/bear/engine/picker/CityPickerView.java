@@ -23,13 +23,11 @@ import java.util.ArrayList;
  * <br>邮件email：qyddai@gmail.com
  * <br>个人Github：https://qydq.github.io
  * <p>--#---- Revision History:  --- >  : |version|date|updateinfo|----#--
- *
  * @author sunst
  * @version 1.0 |   2016/4/9           |   城市选择器
  * @link 知乎主页： https://zhihu.com/people/qydq
  */
 public class CityPickerView extends TermPickerView {
-
     private final Context mContext;
 
     // 省数据集合

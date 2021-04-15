@@ -30,7 +30,6 @@ import java.util.ArrayList;
  * @link 知乎主页： https://zhihu.com/people/qydq
  */
 public class TermPickerView<T> extends BasePickerView implements View.OnClickListener {
-
     private Context mContext;
 
     private OnOptionsSelectListener mOptionsSelectListener;

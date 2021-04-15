@@ -9,12 +9,12 @@ ext {
             targetSdkVersion              : 29,
 
             versionCode                   : 2,
-            versionName                   : "1.0.2",
+            versionName                   : "1.2.16",
 
             //library
             bearGroupId                   : "com.sunsta.bear",
-            bearVersionCode               : 12014,
-            bearVersionName               : "1.2.14",
+            bearVersionCode               : 12017,
+            bearVersionName               : "1.2.17",
 
             liveryGroupId                 : "com.sunsta.livery",
             liveryVersionCode             : 11101,
