@@ -13,8 +13,8 @@ ext {
 
             //library
             bearGroupId                   : "com.sunsta.bear",
-            bearVersionCode               : 12017,
-            bearVersionName               : "1.2.17",
+            bearVersionCode               : 12018,
+            bearVersionName               : "1.2.18",
 
             liveryGroupId                 : "com.sunsta.livery",
             liveryVersionCode             : 11101,

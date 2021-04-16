@@ -12,7 +12,7 @@
         android:paddingLeft="@dimen/an_dimen_padding"
         android:paddingRight="@dimen/an_dimen_padding"
         android:text="@string/an_cancel"
-        android:textColor="@color/in_selector_txt_pickerview"
+        android:textColor="@color/in_font_selector_unit"
         android:textSize="@dimen/an_font_level2" />
 
     <TextView
@@ -34,6 +34,6 @@
         android:paddingLeft="@dimen/an_dimen_padding"
         android:paddingRight="@dimen/an_dimen_padding"
         android:text="@string/an_confirm"
-        android:textColor="@color/in_selector_txt_pickerview"
+        android:textColor="@color/in_font_selector_unit"
         android:textSize="@dimen/an_font_level2" />
 </RelativeLayout>

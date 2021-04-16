@@ -45,6 +45,7 @@ public class INAShapeButton extends AppCompatButton {
     private float alpha = 0.8f;
     private final long time = 60000;
     private GradientDrawable bg;
+    private GradientDrawable unBg;
 
 
     public INAShapeButton(Context context, AttributeSet attrs) {
@@ -59,15 +60,18 @@ public class INAShapeButton extends AppCompatButton {
         unBgColor = a.getColor(R.styleable.INAShapeButton_anShapeUnBackground, unBgColor);
         animator = a.getBoolean(R.styleable.INAShapeButton_asShapeAnimator, animator);
         alpha = a.getFloat(R.styleable.INAShapeButton_anShapeAlpha, alpha);
+        primaryText = a.getString(R.styleable.INAShapeButton_android_text);
+
         bg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{bgColor, bgColor});
         bg.setCornerRadius((float) radius);
-        setShapeBackground(bg);
-        primaryText = a.getString(R.styleable.INAShapeButton_android_text);
-    }
-
-    public void setShapeBackground(GradientDrawable bg) {
-        setBackground(bg);
-        setClickable(true);
+        unBg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{unBgColor, unBgColor});
+        unBg.setCornerRadius((float) this.radius);
+        if (a.getBoolean(R.styleable.INAShapeButton_android_enabled, true)) {
+            setBackground(bg);
+            setClickable(true);
+        } else {
+            setEnabled(false);
+        }
     }
 
     public void setAnimator(boolean animator) {
@@ -98,9 +102,7 @@ public class INAShapeButton extends AppCompatButton {
             setClickable(true);
         } else {
             setClickable(false);
-            GradientDrawable bg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{unBgColor, unBgColor});
-            bg.setCornerRadius((float) this.radius);
-            setBackground(bg);
+            setBackground(unBg);
         }
         enabledButton = enabled;
     }
@@ -115,12 +117,16 @@ public class INAShapeButton extends AppCompatButton {
     public void scheduleTimer(boolean enabled) {
         setEnabled(enabled);
         if (enabled) {
-            if (TextUtils.isEmpty(sencondText)) {
+            if (!TextUtils.isEmpty(sencondText)) {
                 setText(sencondText);
             } else {
                 setText(primaryText);
             }
-            setShapeBackground(bg);
+            if (bg == null) {
+                bg = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{bgColor, bgColor});
+                bg.setCornerRadius((float) radius);
+            }
+            setBackground(bg);
         } else {
             setText(String.valueOf(time / 1000));
             countDownTimer.start();

@@ -124,6 +124,7 @@
         <attr name="asShapeAnimator" format="boolean" />
         <attr name="anShapeAlpha" format="float" />
         <attr name="android:text" />
+        <attr name="android:enabled" />
     </declare-styleable>
 
     <!--2019献给李芳芳小团子同学-->

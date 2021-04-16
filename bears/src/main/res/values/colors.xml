@@ -224,7 +224,7 @@
     <color name="anUnitBackground">@color/ColorBlueviolet</color>
     <color name="anUnitLightBackground">@color/ColorTransparentClicked</color>
     <color name="anDialogBackground">@color/an_color_level1</color>
-    <color name="anUnitBackground2">@color/an_color_line</color>
+    <color name="anUnitBackground2">#46678d</color>
     <color name="anBarBackground2">@color/an_color_level1</color>
     <color name="anBackground2">@color/an_color_level2</color>
     <color name="anNavBackground2">@color/an_color_level3</color>
@@ -255,11 +255,11 @@
     <color name="an_font_middle">#ff7200</color>
     <color name="an_font_error">@color/ColorDarkgray</color>
     <color name="an_font_error2">#8A2BE2</color>
+    <color name="an_font_unit">#0066FF</color>
+    <color name="an_font_unit2">@color/ColorWhite</color>
 
     <!--第一字体选择颜色--><!--原来#8C8C8C 第二各模块通讯录字体颜色-->
     <color name="anBarTextColor">#3A3A3A</color>
-    <color name="anUnitFontColor">@color/ColorWhite</color>
-    <color name="anUnitFontColor2">@color/ColorWhite</color>
     <color name="anDeepTextColor">@color/an_font_level1</color>
     <color name="anTextColor">@color/an_font_level2</color>
     <color name="anLightTextColor">@color/an_font_level3</color>
@@ -321,10 +321,6 @@
 
     <color name="emojicon_tab_selected">#D9D9D9</color>
     <color name="emojicon_tab_nomal">#ffffff</color>
-
-    <!--第二字体选择颜色-#c2daf5==#1e90ff-->
-    <color name="an_color_selector_txt">#0066FF</color>
-    <color name="an_color_selector_txt_clicked">#46678d</color>
 
     <color name="an_color_wheel_center">#2a2a2a</color>
     <color name="an_color_wheel_out">#a8a8a8</color>

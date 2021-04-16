@@ -23,7 +23,7 @@
                 android:layout_centerVertical="true"
                 android:padding="10dp"
                 android:text="取消"
-                android:textColor="@color/in_selector_txt_pickerview"
+                android:textColor="@color/in_font_selector_unit"
                 android:textSize="16sp" />
 
 
@@ -45,7 +45,7 @@
                 android:layout_centerVertical="true"
                 android:padding="10dp"
                 android:text="选择"
-                android:textColor="@color/in_selector_txt_pickerview"
+                android:textColor="@color/in_font_selector_unit"
                 android:textSize="16sp" />
 
         </RelativeLayout>

@@ -93,7 +93,7 @@
                     style="@style/an_auto_match"
                     android:background="@drawable/in_selector_dialog_left"
                     android:text="取消"
-                    android:textColor="@color/in_font_selector_light"
+                    android:textColor="@color/in_font_selector_unit"
                     android:textSize="@dimen/an_dimen_level2" />
 
                 <Button
@@ -101,7 +101,7 @@
                     style="@style/an_auto_match"
                     android:background="@drawable/in_selector_dialog_right"
                     android:text="确定"
-                    android:textColor="@color/in_font_selector_btn"
+                    android:textColor="@color/in_font_selector_unit2"
                     android:textSize="@dimen/an_dimen_level2" />
 
             </LinearLayout>
